@@ -5,12 +5,6 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Models\Test;
 use App\Models\User;
-use Database\Factories\TestFactory;
-
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\runDatabaseMigrations;
 
 class ModelTest extends TestCase
 {
@@ -18,15 +12,19 @@ class ModelTest extends TestCase
     // use RefreshDatabase, DatabaseMigrations, WithFaker;
 
     /**
-     * Teste, das der Entwicklungs Standard Eintrag vorhanden ist.
+     * Teste Standard Datenbank Schema
      *
      * @return void
      */
 
-    public function test_db_user()
+    public function test_db_schema_user()
     {
-        $defaultUser = User::find(1);
-        $this->assertEquals($defaultUser->name, "Max Mustermann");
+    //     $this->assertTrue(
+    //         Schema::hasColumns('users', [
+    //             'id', 'name', 'email', 'email_verified_at', 'password'
+    //         ]),
+    //         1
+    //     );
     }
 
     /**
@@ -34,11 +32,20 @@ class ModelTest extends TestCase
      *
      * @return void
      */
-    public function test_db_test()
+    public function test_db_schema_debug()
     {
         $testSeiten = Test::find(1);
         $this->assertEquals($testSeiten->test, true);
     }
     //         Schreibweiße von "factory" in Laravel 9
     //         $mresp = Model::factory(Test::class)->create();
+
+        /**
+     * Teste, das die Testseiten aktiv sind
+     *
+     * @return void
+     */
+    public function test_db_schema_relation(){
+
+    }
 }

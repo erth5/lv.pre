@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Person;
 use App\Models\Test;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -23,9 +23,19 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
             'remember_token' => token_name(10),
-            ]);
-            
+        ]);
         User::factory(10)->create();
-        Test::factory(1)->create();
+
+        Person::create([
+            'surname' => "Max",
+            'last_name' => "Mustermann",
+            'username' => "laraveller",
+            // 'cose_name' => "Maximus"
+        ]);
+        Person::factory(10)->create();
+
+        Test::factory(1)->create([
+            'test' => true,
+        ]);
     }
 }

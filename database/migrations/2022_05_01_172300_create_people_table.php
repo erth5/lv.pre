@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tests', function (Blueprint $table) {
-            $table->increments('id');
-            $table->boolean('test')->default(true);
+        Schema::create('people', function (Blueprint $table) {
+            $table->id();
+            $table->string('surname');
+            $table->string('last_name');
+            $table->string('username');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tests');
+        Schema::dropIfExists('people');
     }
 };

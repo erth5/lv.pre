@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PersonController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('see', [PersonController::class, 'index']);
 
 // Debug, Info, Test
 // Route::redirect()->route('test.test', 'test');
