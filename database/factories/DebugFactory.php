@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Test>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Debug>
  */
-class TestFactory extends Factory
+class DebugFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,7 @@ class TestFactory extends Factory
     public function definition()
     {
         return [
-            'test' => true,
+            'debug' => true,
         ];
     }
 }

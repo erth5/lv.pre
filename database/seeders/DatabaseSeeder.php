@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Person;
-use App\Models\Test;
 use App\Models\User;
+use App\Models\Debug;
+use App\Models\Person;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -34,8 +34,8 @@ class DatabaseSeeder extends Seeder
         ]);
         Person::factory(10)->create();
 
-        Test::factory(1)->create([
-            'test' => true,
+        Debug::factory(1)->create([
+            'debug' => true,
         ]);
     }
 }

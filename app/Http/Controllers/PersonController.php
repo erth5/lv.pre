@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Person;
 use App\Http\Requests\StorePersonRequest;
 use App\Http\Requests\UpdatePersonRequest;
-use App\Models\User;
 
 class PersonController extends Controller
 {
@@ -17,12 +17,14 @@ class PersonController extends Controller
     public function index()
     {
         // Anwendungstest
-        $name = Person::find(1);
+        $testUser = Person::find(1);
+        $testUserusername = $testUser->username;
         // $name = $name->surname;
-        $name = User::find(1)->surname;
+        // $name = User::find(1)->surname;
+        $name = User::all();
         // dd($surname);
         // AssertEuqals(Person surname = User surname);
-        return view('see', compact('name'));
+        return view('user_and_person', compact('name', 'testUser', 'testUserusername'));
 
         // table: all poeple
     }

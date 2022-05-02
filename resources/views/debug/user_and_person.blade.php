@@ -8,5 +8,9 @@
 </head>
 <body>
 <h3>{{$name}}</h3>
+<blockquote></blockquote>
+<h3>{{$testUser}}</h3>
+<blockquote></blockquote>
+<h3>{{$testUserusername}}</h3>
 </body>
 </html>

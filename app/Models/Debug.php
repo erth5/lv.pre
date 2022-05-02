@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Test extends Model
+class Debug extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'test',
+        'debug',
     ];
 }

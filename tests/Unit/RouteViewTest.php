@@ -13,7 +13,7 @@ class RouteViewTest extends TestCase
      */
     public function test_routing()
     {
-        $response = $this->get('/test');
+        $response = $this->get('/debug');
         $response->assertStatus(200);
     }
 
@@ -27,6 +27,11 @@ class RouteViewTest extends TestCase
         $view = $this->get('/telescope');
         $view->assertStatus(404);
         // $view->assertSee('Telescope - pre');
+    }
+    public function test_view_users_and_peoples_table()
+    {
+        $view = $this->get('/test/user');
+        $view->assertSee('Successfully connected to the database');
     }
 
 }

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Test;
+use App\Models\Debug;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class TestSeeder extends Seeder
+class DebugSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,6 +16,6 @@ class TestSeeder extends Seeder
     public function run()
     {
         //Funktionstest Schreibweiße
-        Test::factory(1)->create();
+        Debug::factory(1)->create();
     }
 }

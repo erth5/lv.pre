@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Http\Controllers\TestController;
-use App\Http\Services\TestService;
+use App\Http\Services\DebugService;
 use PHPUnit\Framework\TestCase;
 
 class ServiceTest extends TestCase
@@ -27,7 +27,7 @@ class ServiceTest extends TestCase
      */
     public function test_service()
     {
-        $sresp = new TestService;
-        $this->assertEquals(false, $sresp->testFunction(false));
+        $sresp = new DebugService;
+        $this->assertEquals(false, $sresp->debugFunction(false));
     }
 }

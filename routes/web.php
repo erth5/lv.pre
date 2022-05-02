@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\debugController;
 use App\Http\Controllers\PersonController;
-use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,12 +22,11 @@ Route::get('/', function () {
 Route::get('see', [PersonController::class, 'index']);
 
 // Debug, Info, Test
-// Route::redirect()->route('test.test', 'test');
-Route::redirect('test/test', 'test', 301);
+Route::redirect('debug/debug', 'debug', 301);
 
-$testRoutes = array('test', 'debug', 'info');
-foreach ($testRoutes as $route){
-    Route::get($route.'/{name?}', [TestController::class, 'index'])->name('test');
+$debugRoutes = array('test', 'debug', 'info');
+foreach ($debugRoutes as $route){
+    Route::get($route.'/{name?}', [debugController::class, 'index'])->name('debug');
 }Route::get('hello', function(){echo 'hello World';});
 
 // Route::get('{alias}', 'HomeController@someAction')

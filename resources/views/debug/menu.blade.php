@@ -31,8 +31,9 @@
         a:active {
             color: blue;
         }
-        .disabled{
-    pointer-events:none
+
+        .disabled {
+            pointer-events: none
         }
 
     </style>
@@ -40,15 +41,18 @@
     <script></script>
 
     <!-- Menue bei allen Seiten anzeigen lassen -->
-    <a href="test">Übersicht</a>
-    <a href="test/test">Weiterleitung doppelter Eintrag</a>
+    <a href="debug">Übersicht</a>
+    <a href="debug/debug">Weiterleitung doppelter Eintrag</a>
     <blockquote></blockquote>
-    <a href="test/db">DatenbankVerbindung</a>
-    <a href="test/php">PHP Info</a>
+
+    <a href="debug/db">DatenbankVerbindung</a>
+    <a href="debug/php">PHP Info</a>
+
     <blockquote></blockquote>
-    <a href="test/template">template</a>
-    <a href="test/views">views</a>
-    <a href="test/controllers">controllers</a>
+    <a href="debug/template">template</a>
+    <a href="debug/views">views</a>
+    <a href="debug/controllers">controllers</a>
+
     <blockquote></blockquote>
     <a href="route-list">Ansicht Route-List</a>
     <a href="telescope">Telescope</a>

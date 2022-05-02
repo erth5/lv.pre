@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Test;
+use App\Models\Debug;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TestPolicy
+class DebugPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class TestPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Test  $test
+     * @param  \App\Models\Debug  $Debug
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Test $test)
+    public function view(User $user, Debug $Debug)
     {
         //
     }
@@ -48,10 +48,10 @@ class TestPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Test  $test
+     * @param  \App\Models\Debug  $Debug
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Test $test)
+    public function update(User $user, Debug $Debug)
     {
         //
     }
@@ -60,10 +60,10 @@ class TestPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Test  $test
+     * @param  \App\Models\Debug  $Debug
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Test $test)
+    public function delete(User $user, Debug $Debug)
     {
         //
     }
@@ -72,10 +72,10 @@ class TestPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Test  $test
+     * @param  \App\Models\Debug  $Debug
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Test $test)
+    public function restore(User $user, Debug $Debug)
     {
         //
     }
@@ -84,10 +84,10 @@ class TestPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Test  $test
+     * @param  \App\Models\Debug  $Debug
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Test $test)
+    public function forceDelete(User $user, Debug $Debug)
     {
         //
     }

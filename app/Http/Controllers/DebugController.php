@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Test;
-use App\Services\testService;
-use App\Http\Requests\StoreTestRequest;
-use App\Http\Requests\UpdateTestRequest;
+use App\Models\debug;
+use App\Services\DebugService;
+use App\Http\Requests\StoredebugRequest;
+use App\Http\Requests\UpdatedebugRequest;
 
 // Nur eine Abhängigkeit kann genutzt werden
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route;
 
-class TestController extends Controller
+class DebugController extends Controller
 {
 
     // /**
     //  * Use a Service
     //  */
-    // public function __construct(TestService $testService)
+    // public function __construct(debugService $debugService)
     // {
-    //     $this->testService = $testService;
+    //     $this->debugService = $debugService;
     // }
 
     /**
-     * control test calls
+     * control debug calls
      * @return void
      */
 
@@ -35,29 +35,29 @@ class TestController extends Controller
     public function index($name = 'overview')
     {
         if ($name == 'db'){
-            return view('test.dbTest');
+            return view('debug.db');
         }
-        if ($name == 'test'){
-            return view('test.test');
+        if ($name == 'debug'){
+            return view('debug.debug');
         }
         if ($name == 'model'){
-            return view('test.modelTest');
+            return view('debug.modeldebug');
         }
         if ($name == 'php'){
-            return view('test.info');
+            return view('debug.info');
         }
 
         if ($name == 'template'){
-            return view('test.template');
+            return view('debug.template');
         }
         if ($name == 'views'){
-            return view('test.views');
+            return view('debug.views');
         }
         if ($name == 'controllers'){
-            return view('test.controllers');
+            return view('debug.controllers');
         }
 
-        return view('test.menu');
+        return view('debug.menu');
 
     }
 
@@ -74,10 +74,10 @@ class TestController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreTestRequest  $request
+     * @param  \App\Http\Requests\StoredebugRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTestRequest $request)
+    public function store(StoreDebugRequest $request)
     {
         //
     }
@@ -85,10 +85,10 @@ class TestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Test  $test
+     * @param  \App\Models\debug  $debug
      * @return \Illuminate\Http\Response
      */
-    public function show(Test $test)
+    public function show(debug $debug)
     {
         //
     }
@@ -96,10 +96,10 @@ class TestController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Test  $test
+     * @param  \App\Models\debug  $debug
      * @return \Illuminate\Http\Response
      */
-    public function edit(Test $test)
+    public function edit(debug $debug)
     {
         //
     }
@@ -107,11 +107,11 @@ class TestController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateTestRequest  $request
-     * @param  \App\Models\Test  $test
+     * @param  \App\Http\Requests\UpdatedebugRequest  $request
+     * @param  \App\Models\debug  $debug
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTestRequest $request, Test $test)
+    public function update(UpdateDebugRequest $request, debug $debug)
     {
         //
     }
@@ -119,10 +119,10 @@ class TestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Test  $test
+     * @param  \App\Models\debug  $debug
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Test $test)
+    public function destroy(debug $debug)
     {
         //
     }
