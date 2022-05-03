@@ -41,21 +41,22 @@
     <script></script>
 
     <!-- Menue bei allen Seiten anzeigen lassen -->
-    <a href="debug">Übersicht</a>
-    <a href="debug/debug">Weiterleitung doppelter Eintrag</a>
+    <a href="/debug">Übersicht</a>
+    <a href="/debug/debug">Weiterleitung doppelter Eintrag</a>
     <blockquote></blockquote>
 
-    <a href="debug/db">DatenbankVerbindung</a>
-    <a href="debug/php">PHP Info</a>
+    <a href="/debug/db">DatenbankVerbindung</a>
+    <a href="/debug/php">PHP Info</a>
 
     <blockquote></blockquote>
-    <a href="debug/template">template</a>
-    <a href="debug/views">views</a>
-    <a href="debug/controllers">controllers</a>
+    <a href="/debug/template">template</a>
+    <a href="/info/user">users_people</a>
+    <a href="/debug/views">views</a>
+    <a href="/debug/controllers">controllers</a>
 
     <blockquote></blockquote>
-    <a href="route-list">Ansicht Route-List</a>
-    <a href="telescope">Telescope</a>
+    <a href="/route-list">Ansicht Route-List</a>
+    <a href="/telescope">Telescope</a>
     <a class="disabled" href="">Swagger</a>
 
 

@@ -10,23 +10,14 @@ use App\Http\Requests\UpdatePersonRequest;
 class PersonController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display all users and his relationship to persons
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        // Anwendungstest
-        $testUser = Person::find(1);
-        $testUserusername = $testUser->username;
-        // $name = $name->surname;
-        // $name = User::find(1)->surname;
-        $name = User::all();
-        // dd($surname);
-        // AssertEuqals(Person surname = User surname);
-        return view('user_and_person', compact('name', 'testUser', 'testUserusername'));
-
-        // table: all poeple
+        $users = User::all();
+        return view('debug.user_and_person', compact('users'));
     }
 
     /**

@@ -17,6 +17,7 @@ class PersonFactory extends Factory
     public function definition()
     {
         return [
+            'id' => \app\Models\User::factory(1)->create()->id,
             'surname' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'username' => $this->faker->userName(),
