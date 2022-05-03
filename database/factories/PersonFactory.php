@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class PersonFactory extends Factory
 {
     /**
-     * Define the model's default state.
+     * Variante 1 - Generierung in der Factory
      *
      * @return array<string, mixed>
      */
@@ -23,4 +23,21 @@ class PersonFactory extends Factory
             'username' => $this->faker->userName(),
         ];
     }
+
+
+    /**
+     * Variante 2 - Generierung im Seeder
+     *
+     * @return array<string, mixed>
+     */
+    // public function definition()
+    // {
+    //     return [
+    //         'id' => \app\Models\User::factory(1)->create()->id,
+    //         'surname' => $this->faker->firstName(),
+    //         'last_name' => $this->faker->lastName(),
+    //         'username' => $this->faker->userName(),
+    //     ];
+    // }
+
 }

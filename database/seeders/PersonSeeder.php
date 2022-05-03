@@ -15,7 +15,6 @@ class PersonSeeder extends Seeder
      */
     public function run()
     {
-        // Syntaxtest:
-        // Person::create(10);
+        
     }
 }

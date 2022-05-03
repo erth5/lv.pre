@@ -17,10 +17,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        /** Variante 1 */
+        /** Variante 1 - Generierung in der Factory*/
 
+        Debug::factory(1)->create([
+            'debug' => true,
+        ]);
+
+        User::create([
+            'name' => 'Max Mustermann',
+            'email' => 'fdsdwp@protonmail.com',
+            'password' => bcrypt('password'),
+            'email_verified_at' => now(),
+            'remember_token' => token_name(10),
+        ]);
+        User::factory(10)->create();
 
         /** Variante 2 */
+
         // User::create([
         //     'name' => 'Max Mustermann',
         //     'email' => 'fdsdwp@protonmail.com',
@@ -42,10 +55,10 @@ class DatabaseSeeder extends Seeder
         //     'last_name' => "Mustermann",
         //     'username' => "laraveller",
         // ]);
-        Person::factory(10)->create();
+        // Person::factory(10)->create();
 
-        Debug::factory(1)->create([
-            'debug' => true,
-        ]);
+        // Debug::factory(1)->create([
+        //     'debug' => true,
+        // ]);
     }
 }
