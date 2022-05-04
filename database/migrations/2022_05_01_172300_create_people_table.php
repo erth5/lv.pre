@@ -14,7 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('people', function (Blueprint $table) {
-            $table->foreignId('id')->constrained('users');
+            /** 
+             * Never touch the "ID" like
+             * $table->foreignId('id')->constrained('users');
+             * 
+            **/
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('surname');
             $table->string('last_name');
             $table->string('username');

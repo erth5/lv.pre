@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -10,34 +11,35 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class PersonFactory extends Factory
 {
     /**
-     * Variante 1 - Generierung in der Factory
+     * Variante: Factory
+     * Generierung von Person zugehöriger User in der Factory
+     * + Zu Person wird immer user generiert
      *
      * @return array<string, mixed>
      */
     public function definition()
     {
         return [
-            'id' => \app\Models\User::factory(1)->create()->id,
+            'user_id' => User::factory(),
             'surname' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'username' => $this->faker->userName(),
         ];
     }
 
-
     /**
-     * Variante 2 - Generierung im Seeder
+     * Variante: Seeder
+     * Generierung zugehöriger User im Seeder
+     * + Zugehöriger User muss angegeben werden
      *
      * @return array<string, mixed>
      */
     // public function definition()
     // {
     //     return [
-    //         'id' => \app\Models\User::factory(1)->create()->id,
     //         'surname' => $this->faker->firstName(),
     //         'last_name' => $this->faker->lastName(),
     //         'username' => $this->faker->userName(),
     //     ];
     // }
-
 }

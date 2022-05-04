@@ -15,7 +15,12 @@ class DebugSeeder extends Seeder
      */
     public function run()
     {
-        //Funktionstest Schreibweiße
-        Debug::factory(1)->create();
+        /**
+         * Debug für Entwicklung
+         * TODO: aus, wenn in Produktivbetrieb
+         */
+        Debug::factory(1)->create([
+            'debug' => true,
+        ]);
     }
 }
