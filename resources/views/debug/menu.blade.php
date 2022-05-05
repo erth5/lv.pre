@@ -45,24 +45,21 @@
     <a href="/debug/debug">Weiterleitung doppelter Eintrag</a>
     <blockquote></blockquote>
 
-    <a href="/debug/db">DatenbankVerbindung</a>
+    <a href="/info/db">DatenbankVerbindung</a>
     <a href="/debug/php">PHP Info</a>
 
     <blockquote></blockquote>
-    <a href="/debug/template">template</a>
+    <a href="/info/template">template</a>
     <a href="/info/user">users_people</a>
     <a href="/debug/views">views</a>
     <a href="/debug/controllers">controllers</a>
 
     <blockquote></blockquote>
-    <a href="/route-list">Ansicht Route-List</a>
+    <a class="disabled" href="/route-list">Ansicht Route-List</a>
     <a href="/telescope">Telescope</a>
     <a class="disabled" href="">Swagger</a>
 
-
-
-
-
+    @yield('c')
 
 </body>
 

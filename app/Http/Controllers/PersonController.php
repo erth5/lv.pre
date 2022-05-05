@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Person;
 use App\Http\Requests\StorePersonRequest;
 use App\Http\Requests\UpdatePersonRequest;
+use Exception;
 
 class PersonController extends Controller
 {
@@ -16,8 +17,17 @@ class PersonController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('debug.user_and_person', compact('users'));
+        try 
+        {
+            $users = User::all();
+            return view('debug.user_and_person', compact('users'));
+        }
+        catch(Exception $e)
+        {
+            return view('debug.user_and_person');
+        }
+        
+
     }
 
     /**

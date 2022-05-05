@@ -25,9 +25,9 @@ Route::get('/', function () {
 
 
 // Debug, Info, Test
-Route::redirect('debug/debug', 'debug', 301);
+Route::redirect('debug/debug', '/debug', 301);
 
-$debugRoutes = array('test', 'debug', 'info');
+$debugRoutes = array('test', 'debug', 'info', 'help');
 foreach ($debugRoutes as $route){
     Route::get($route.'/user', [PersonController::class, 'index'])->name('info.user');
     Route::get($route.'/{name?}', [debugController::class, 'index'])->name('debug');

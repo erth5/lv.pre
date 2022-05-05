@@ -30,7 +30,7 @@ class RouteViewTest extends TestCase
     public function test_view_users_and_peoples_table()
     {
         $view = $this->get('/debug/user');
-        // $view->assertStatus(200);
+        $view->assertStatus(200);
         // AssertEuqals(Person surname = User surname);
     }
 
