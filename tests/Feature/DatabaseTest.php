@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Debug;
 use App\Models\Person;
 use Database\Seeders\DebugSeeder;
+use Database\Seeders\PersonSeeder;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
@@ -16,38 +17,33 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 class DatabaseTest extends TestCase
 {
     /**
-     * Laravel 5
+     * Laravel 5, SQLite
+     * Speichert Zustand, Stellt Zustand nach dem Test wieder her
+     * Seed Daten ???
      */
     // use DatabaseTransactions;
+
+    /**
+     * Migriert das Schema, Rollback zur Migration nach dem Test
+     * Herausgefunden: Seed Daten werden gelöscht
+     */
     // use DatabaseMigrations;
 
     /**
-     * Migriert die Datnbank nicht, wenn das Schema aktuell ist (Daten bleiben erhalten?)
-     * Führt eine Transaction -> stellt den Stand vor dem Test wieder her
+     * Migriert die Datnbank nur, wenn das Schema nicht aktuell ist -> Schema passt
+     * Seed Daten werden vllt gelöscht
+     * Abgeänerte Form in in der TestCase: führt auch ein Seeding durch
      */
-    // use RefreshDatabase;
+    use RefreshDatabase;
 
-    /** RefreshDatabase, aber Speichert den Zustand zwischen und erkennt, wenn nichts geändert wurde */
+    /** 
+     * RefreshDatabase, aber Speichert den Zustand zwischen und erkennt, 
+     * wenn nichts geändert wurde
+     */
     // use LazilyRefreshDatabase;
-
-    /**
-     * Führt die Migration einmal aus und setzt diesen Zustand für jeden Test zurück */
-    // use RefreshDatabase;
 
     /** Setzt die Authentifizierung und andere Middlewares außer Kraft */
     // use WithoutMiddleware;
-
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
 
     /**
      * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
@@ -56,8 +52,9 @@ class DatabaseTest extends TestCase
      */
     public function test_db_default_user()
     {
+        $this->seed(PersonSeeder::class);
         $defaultUser = User::find(1);
-        $this->assertEquals($defaultUser->name, "Max Mustermann");
+        $this->assertEquals("Max Mustermann", $defaultUser->name);
     }
 
     /**
@@ -67,10 +64,9 @@ class DatabaseTest extends TestCase
      */
     public function test_db_default_person()
     {
-        $defaultUser = Person::find(1);
-        // $defaultUser = Person::whereIn('id', 1);
-        $defaultUser_name = $defaultUser->username;
-        $this->assertEquals("laraveller", $defaultUser_name);
+        $this->seed(PersonSeeder::class);
+        $defaultUser = Person::where('username',"=", 'laraveller')->first();
+        $this->assertEquals("laraveller", $defaultUser->username);
     }
 
     /**
@@ -91,7 +87,6 @@ class DatabaseTest extends TestCase
     public function test_debug_entry_is_true()
     {
         $defaultentry = Debug::find(1, 'debug');
-        // Umwandlung array zu 1 Element, == zu ===
         $defaultentryValue = $defaultentry->debug;
         $this->assertEquals($defaultentryValue, true);
     }

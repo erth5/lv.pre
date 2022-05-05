@@ -16,11 +16,7 @@ class PersonSeeder extends Seeder
      */
     public function run()
     {
-        /**
-         * Variante: Factory
-         * Generierung von Person zugehöriger User in der Factory
-         */
-
+        // Standard Demo Nutzer
         Person::factory()->create([
             'user_id' => User::factory()->create([
                 'name' => 'Max Mustermann',
@@ -34,7 +30,29 @@ class PersonSeeder extends Seeder
             'username' => 'laraveller',
         ]);
 
+        /**
+         * Variante: Factory
+         * Generierung von Person zugehöriger User in der Factory
+         */
+        // Beispiel Einträge ohne Person
         User::factory(3)->create();
+        // Beispieleinträge
         Person::factory(10)->create();
+
+        /**
+         * Variante: Seeder
+         * Generierung zugehöriger User im Seeder
+         * 
+         * TODO schreibe name zu surname und last_name
+         * */
+        // // Beispiel Einträge ohne Person
+        // User::factory(3)->create();
+        // // Beispieleinträge
+        // User::factory(10)->create()->each(function ($user) {
+        //     // je ein Person referenz
+        //     $person = Person::factory()->make();
+        //     $user->person()->save($person);
+        // });
+
     }
 }

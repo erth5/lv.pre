@@ -3,13 +3,12 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use App\Models\Debug;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Schema;
-
-use function Psy\debug;
 
 class ModelTest extends TestCase
 {
+    use DatabaseMigrations;
     /**
      * Teste Standard Datenbank Schema
      *
@@ -27,7 +26,7 @@ class ModelTest extends TestCase
     }
 
     /**
-     * Teste, das die Testseiten aktiv sind
+     * Teste, das Datenbank Schema von Debug
      *
      * @return void
      */
@@ -44,7 +43,7 @@ class ModelTest extends TestCase
     }
 
     /**
-     * Teste, das die Testseiten aktiv sind
+     * Teste, das Datenbank Schema von Person
      *
      * @return void
      */
@@ -54,7 +53,6 @@ class ModelTest extends TestCase
          * Im Unit test nicht funktionsfähig
          * $this->seed(Debug::class);
          */
-
         $this->assertTrue(
             Schema::hasColumns('people', [
                 'id', 'user_id', 'surname', 'last_name', 'username'

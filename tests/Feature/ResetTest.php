@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Debug;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -16,12 +17,17 @@ class ResetTest extends TestCase
      * @return void
      */
 
-     use DatabaseMigrations;
+    //  use DatabaseMigrations;
 
-    public function test_fill_debug_data()
+    public function test_migrations()
     {
-        $this->seed();
-        $defaultUser = User::find(1);
-        $this->assertEquals($defaultUser->name, "Max Mustermann");
+        /**
+         * DatabaseMigrations erzielt hier keine Änderung,
+         * TestDaten bleiben jedoch nach den Tests erhalten
+         * Das hier Testdaten vorhanden sind ist völlig unlogisch
+         */
+        $defaultentry = Debug::find(1, 'debug');
+        $defaultentryValue = $defaultentry->debug;
+        $this->assertEquals($defaultentryValue, true);
     }
 }
