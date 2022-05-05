@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
+use function PHPUnit\Framework\assertTrue;
+
 class ExampleTest extends DuskTestCase
 {
     /**

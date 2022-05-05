@@ -3,12 +3,14 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\Schema;
 
 class ModelTest extends TestCase
 {
     use DatabaseMigrations;
+
     /**
      * Teste Standard Datenbank Schema
      *
@@ -59,5 +61,36 @@ class ModelTest extends TestCase
             ]),
             1
         );
+    }
+    /**
+     * Teste Standard Datenbank Tabellen aud Existenz
+     *
+     * @return void
+     */
+
+    public function test_db_can_create_and_delete_user()
+    {
+        $user = User::factory()->create();
+        $this->assertModelExists($user);
+        $user->delete();
+        $this->assertModelMissing($user);
+    }
+
+    /**
+     * Teste alle Datenbanken auf id
+     *
+     * @return void
+     */
+    public function test_db_schema_all_exist()
+    {
+        $allDbNames = array('users', 'debugs', 'people');
+        // Mit foreach wird der Index des Array automatisch entfernt
+        foreach ($allDbNames as $dbScheme) {
+            if (Schema::hasTable($dbScheme)) {
+                $this->assertTrue(true);
+            } else {
+                $this->assertFalse(true);
+            }
+        }
     }
 }

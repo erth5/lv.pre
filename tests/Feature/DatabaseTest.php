@@ -50,7 +50,7 @@ class DatabaseTest extends TestCase
      *
      * @return void
      */
-    public function test_db_default_user()
+    public function test_db_default_user_name()
     {
         $this->seed(PersonSeeder::class);
         $defaultUser = User::find(1);
@@ -62,11 +62,24 @@ class DatabaseTest extends TestCase
      *
      * @return void
      */
-    public function test_db_default_person()
+    public function test_db_default_person_username()
     {
         $this->seed(PersonSeeder::class);
-        $defaultUser = Person::where('username',"=", 'laraveller')->first();
+        $defaultUser = Person::where('username', "=", 'laraveller')->first();
         $this->assertEquals("laraveller", $defaultUser->username);
+    }
+
+    /**
+     * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
+     *
+     * @return void
+     */
+    public function test_db_default_person_last_name()
+    {
+        $this->seed(PersonSeeder::class);
+        $this->assertDatabaseHas('people', [
+            'last_name' => 'Mustermann',
+        ]);
     }
 
     /**
