@@ -11,7 +11,7 @@ class DocumentationTest extends TestCase
      *
      * @return void
      */
-    public function test_swagger_url_MANUAL()
+    public function test_swagger_url_need_MANUAL()
     {
         // No Swagger defined
         // $swagger = "Manual Test: https://address.domain/api/documentation";

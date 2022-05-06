@@ -6,12 +6,11 @@ use Tests\TestCase;
 use App\Models\User;
 use App\Models\Debug;
 use App\Models\Person;
-use Database\Seeders\DebugSeeder;
 use Database\Seeders\PersonSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class DatabaseTest extends TestCase
@@ -32,15 +31,15 @@ class DatabaseTest extends TestCase
     /**
      * Migriert die Datnbank nur, wenn das Schema nicht aktuell ist -> Schema passt
      * Seed Daten werden vllt gelöscht
-     * Abgeänerte Form in in der TestCase: führt auch ein Seeding durch
+     * Abgeänerte Form in in der TestCase: führt auch ein Seeding durch:Funktioniert
      */
-    use RefreshDatabase;
+    // use RefreshDatabase;
 
     /** 
      * RefreshDatabase, aber Speichert den Zustand zwischen und erkennt, 
      * wenn nichts geändert wurde
      */
-    // use LazilyRefreshDatabase;
+    use LazilyRefreshDatabase;
 
     /** Setzt die Authentifizierung und andere Middlewares außer Kraft */
     // use WithoutMiddleware;
@@ -53,7 +52,7 @@ class DatabaseTest extends TestCase
     public function test_db_default_user_name()
     {
         $this->seed(PersonSeeder::class);
-        $defaultUser = User::find(1);
+        $defaultUser = User::findOrFail(1);
         $this->assertEquals("Max Mustermann", $defaultUser->name);
     }
 
@@ -99,7 +98,7 @@ class DatabaseTest extends TestCase
      */
     public function test_debug_entry_is_true()
     {
-        $defaultentry = Debug::find(1, 'debug');
+        $defaultentry = Debug::findOrFail(1, 'debug');
         $defaultentryValue = $defaultentry->debug;
         $this->assertEquals($defaultentryValue, true);
     }

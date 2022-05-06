@@ -19,15 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
+// Image Upload Example TODO: combine to all classes
+Route::get('image-upload', [ ImageController::class, 'index' ]);
+Route::post('image-upload', [ ImageController::class, 'store' ])->name('image.store');
 
 
 
 // Debug, Info, Test
 Route::redirect('debug/debug', '/debug', 301);
 
-$debugRoutes = array('test', 'debug', 'info', 'help');
+$debugRoutes = array('test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route){
     Route::get($route.'/user', [PersonController::class, 'index'])->name('info.user');
     Route::get($route.'/{name?}', [debugController::class, 'index'])->name('debug');

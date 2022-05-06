@@ -2,9 +2,7 @@
 
 namespace Tests\Browser;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
-use Laravel\Dusk\Chrome;
 use Tests\DuskTestCase;
 
 class DebugTest extends DuskTestCase
@@ -33,16 +31,18 @@ class DebugTest extends DuskTestCase
     public function testDump_and_Debug()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/debug/views')
-                ->assertSee('array');
+            $browser->visit('/test/views')
+                ->assertSee('array')
+                ->assertPathIs('/test/views');
         });
     }
 
     public function testRidirect()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-                ->assertSee('Telescope');
+            $browser->visit('/debug/debug')
+                ->assertSee('Übersicht')
+                ->assertPathIs('/debug');
         });
     }
 }

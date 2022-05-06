@@ -47,17 +47,20 @@
 
     <a href="/info/db">DatenbankVerbindung</a>
     <a href="/debug/php">PHP Info</a>
-
     <blockquote></blockquote>
+
     <a href="/info/template">template</a>
     <a href="/info/user">users_people</a>
     <a href="/debug/views">views</a>
     <a href="/debug/controllers">controllers</a>
-
     <blockquote></blockquote>
-    <a class="disabled" href="/route-list">Ansicht Route-List</a>
+
+    <a class="disabled" href="/route:list">Ansicht Route-List( apih )</a>
     <a href="/telescope">Telescope</a>
     <a class="disabled" href="">Swagger</a>
+    <blockquote></blockquote>
+
+    <a href="/image-upload">Image Upload</a>
 
     @yield('c')
 

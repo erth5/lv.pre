@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Schema;
 
 class ModelTest extends TestCase
 {
+    //Access to debug true needed
     use DatabaseMigrations;
 
     /**
@@ -62,8 +63,24 @@ class ModelTest extends TestCase
             1
         );
     }
+
     /**
-     * Teste Standard Datenbank Tabellen aud Existenz
+     * Teste, das Datenbank Schema von Image
+     *
+     * @return void
+     */
+    public function test_db_schema_image()
+    {
+        $this->assertTrue(
+            Schema::hasColumns('images', [
+                'id', 'name', 'path', 'created_at', 'updated_at'
+            ]),
+            1
+        );
+    }
+
+    /**
+     * Teste ob ein Nutzer angelegt werden kann
      *
      * @return void
      */
@@ -83,7 +100,7 @@ class ModelTest extends TestCase
      */
     public function test_db_schema_all_exist()
     {
-        $allDbNames = array('users', 'debugs', 'people');
+        $allDbNames = array('users', 'debugs', 'people', 'images');
         // Mit foreach wird der Index des Array automatisch entfernt
         foreach ($allDbNames as $dbScheme) {
             if (Schema::hasTable($dbScheme)) {

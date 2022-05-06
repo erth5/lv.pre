@@ -10,6 +10,7 @@ use App\Http\Requests\UpdatedebugRequest;
 // Nur eine Abhängigkeit kann genutzt werden
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route;
+use Spatie\FlareClient\Http\Exceptions\NotFound;
 
 class DebugController extends Controller
 {
@@ -32,33 +33,36 @@ class DebugController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($name = 'overview')
+    public function index($name = 'menu')
     {
-        if ($name == 'db'){
-            return view('debug.db');
-        }
-        if ($name == 'debug'){
-            return view('debug.debug');
-        }
-        if ($name == 'model'){
-            return view('debug.modeldebug');
-        }
-        if ($name == 'php'){
-            return view('debug.info');
-        }
+        if (debug::find(1)->debug == true) {
+            if ($name == 'db') {
+                return view('debug.db');
+            }
+            if ($name == 'debug') {
+                return view('debug.debug');
+            }
+            if ($name == 'model') {
+                return view('debug.modeldebug');
+            }
+            if ($name == 'php') {
+                return view('debug.info');
+            }
 
-        if ($name == 'template'){
-            return view('debug.template');
-        }
-        if ($name == 'views'){
-            return view('debug.views');
-        }
-        if ($name == 'controllers'){
-            return view('debug.controllers');
-        }
+            if ($name == 'template') {
+                return view('debug.template');
+            }
+            if ($name == 'views') {
+                return view('debug.views');
+            }
+            if ($name == 'controllers') {
+                return view('debug.controllers');
+            }
 
-        return view('debug.menu');
-
+            return view('debug.menu');
+        } else {
+            abort(404);
+        }
     }
 
     /**
