@@ -60,7 +60,9 @@
     <a class="disabled" href="">Swagger</a>
     <blockquote></blockquote>
 
+    <a href="/image-upload">Image Index</a>
     <a href="/image-upload">Image Upload</a>
+    <!-- THEN:update:bild ändern, edit:Bildname ändern, show:Bild ansehen Destroy:Image löschen-->
 
     @yield('c')
 

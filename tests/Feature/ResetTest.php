@@ -17,15 +17,14 @@ class ResetTest extends TestCase
      * @return void
      */
 
-     use DatabaseMigrations;
+    //  use DatabaseMigrations;
 
     public function test_migrations()
     {
         /**
-         * DatabaseMigrations erzielt hier keine Änderung,
-         * TestDaten bleiben jedoch nach den Tests erhalten
-         * Das hier Testdaten vorhanden sind ist völlig unlogisch
+         * TODO: Seed Database
          */
+        $this->seed();
         $defaultentry = Debug::findOrFail(1, 'debug');
         $defaultentryValue = $defaultentry->debug;
         $this->assertEquals($defaultentryValue, true);
