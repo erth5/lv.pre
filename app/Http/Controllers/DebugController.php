@@ -58,6 +58,18 @@ class DebugController extends Controller
             if ($name == 'controllers') {
                 return view('debug.controllers');
             }
+            if ($name == 'path') {
+                // Path to the project's root folder
+                echo base_path() . "<br>";
+                // Path to the 'app' folder
+                echo app_path() . "<br>";
+                // Path to the 'public' folder
+                echo public_path() . "<br>";
+                // Path to the 'storage' folder
+                echo storage_path() . "<br>";
+                // Path to the 'storage/app' folder
+                echo storage_path('app') . "<br>";
+            }
 
             return view('debug.menu');
         } else {

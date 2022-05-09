@@ -34,6 +34,10 @@ foreach ($debugRoutes as $route){
     Route::get($route.'/{name?}', [debugController::class, 'index'])->name('debug');
 }Route::get('hello', function(){echo 'hello World';});
 
+Route::get('env', function () {
+    // return view('env');
+});
+
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');
 // public function someAction($alias)

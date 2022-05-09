@@ -21,8 +21,14 @@ class DatabaseSeeder extends Seeder
          * Debug für Entwicklung
          * TODO: aus, wenn in Produktivbetrieb
          */
-        Debug::factory(1)->create([
-            'debug' => true,
-        ]);
+        if (env('APP_DEBUG') == true) {
+            Debug::factory(1)->create([
+                'debug' => true,
+            ]);
+        } else {
+            Debug::factory(1)->create([
+                'debug' => false,
+            ]);
+        }
     }
 }

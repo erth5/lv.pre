@@ -47,12 +47,14 @@
 
     <a href="/info/db">DatenbankVerbindung</a>
     <a href="/debug/php">PHP Info</a>
+    <a href="/env">Environement</a>
     <blockquote></blockquote>
 
     <a href="/info/template">template</a>
     <a href="/info/user">users_people</a>
     <a href="/debug/views">views</a>
     <a href="/debug/controllers">controllers</a>
+    <a href="/debug/path">paths</a>
     <blockquote></blockquote>
 
     <a class="disabled" href="/route:list">Ansicht Route-List( apih )</a>
@@ -63,6 +65,8 @@
     <a href="/image-upload">Image Index</a>
     <a href="/image-upload">Image Upload</a>
     <!-- THEN:update:bild ändern, edit:Bildname ändern, show:Bild ansehen Destroy:Image löschen-->
+
+
 
     @yield('c')
 
