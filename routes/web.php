@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\debugController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\PersonController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,23 +20,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 // Image Upload Example TODO: combine to all classes
-Route::get('image-upload', [ ImageController::class, 'index' ]);
-Route::post('image-upload', [ ImageController::class, 'store' ])->name('image.store');
-
-
+Route::get('/images', [ImageController::class, 'index']);
+Route::post('/image-upload', [ImageController::class, 'store'])->name('image.store');
 
 // Debug, Info, Test
 Route::redirect('debug/debug', '/debug', 301);
 
 $debugRoutes = array('test', 'debug', 'info', 'help', 'www');
-foreach ($debugRoutes as $route){
-    Route::get($route.'/user', [PersonController::class, 'index'])->name('info.user');
-    Route::get($route.'/{name?}', [debugController::class, 'index'])->name('debug');
-}Route::get('hello', function(){echo 'hello World';});
-
-Route::get('env', function () {
-    // return view('env');
+foreach ($debugRoutes as $route) {
+    Route::get($route . '/user', [PersonController::class, 'index'])->name('info.user');
+    Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
+}
+Route::get('hello', function () {
+    echo 'hello World';
 });
 
 // Route::get('{alias}', 'HomeController@someAction')

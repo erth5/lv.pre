@@ -47,7 +47,7 @@
 
     <a href="/info/db">DatenbankVerbindung</a>
     <a href="/debug/php">PHP Info</a>
-    <a href="/env">Environement</a>
+    <a href="debug/env">Environement</a>
     <blockquote></blockquote>
 
     <a href="/info/template">template</a>
@@ -62,7 +62,7 @@
     <a class="disabled" href="">Swagger</a>
     <blockquote></blockquote>
 
-    <a href="/image-upload">Image Index</a>
+    <a href="/images">Image Index</a>
     <a href="/image-upload">Image Upload</a>
     <!-- THEN:update:bild ändern, edit:Bildname ändern, show:Bild ansehen Destroy:Image löschen-->
 

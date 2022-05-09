@@ -48,6 +48,9 @@ class DebugController extends Controller
             if ($name == 'php') {
                 return view('debug.info');
             }
+            if ($name == 'env') {
+                return view('debug.env');
+            }
 
             if ($name == 'template') {
                 return view('debug.template');
