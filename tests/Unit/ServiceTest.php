@@ -25,7 +25,7 @@ class ServiceTest extends TestCase
      *
      * @return void
      */
-    public function test_debug_service_exist()
+    public function test_debug_service_function_exist()
     {
         $sresp = new DebugService;
         $this->assertEquals(false, $sresp->debugFunction(false));

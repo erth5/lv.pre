@@ -3,12 +3,13 @@
 namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
 class RouteViewTest extends TestCase
 {
     //Access to debug true needed
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /**
      * A basic unit test for debug.

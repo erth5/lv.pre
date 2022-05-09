@@ -4,13 +4,13 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Models\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Schema;
 
 class ModelTest extends TestCase
 {
     //Access to debug true needed
-    use DatabaseMigrations;
+    use DatabaseTransactions;
 
     /**
      * Teste Standard Datenbank Schema

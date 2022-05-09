@@ -39,7 +39,7 @@ class DatabaseTest extends TestCase
      * RefreshDatabase, aber Speichert den Zustand zwischen und erkennt, 
      * wenn nichts geändert wurde
      */
-    use LazilyRefreshDatabase;
+    use DatabaseTransactions;
 
     /** Setzt die Authentifizierung und andere Middlewares außer Kraft */
     // use WithoutMiddleware;
@@ -51,9 +51,14 @@ class DatabaseTest extends TestCase
      */
     public function test_db_default_user_name()
     {
-        $this->seed(PersonSeeder::class);
-        $defaultUser = User::findOrFail(1);
-        $this->assertEquals("Max Mustermann", $defaultUser->name);
+        $this->seed('PersonSeeder');
+        // Funktionsfähig
+        $defaultUser = User::where('name', "=", 'Max Mustermann')->first();
+
+        // Nicht funktionsfähig
+        // $defaultUser = User::findOrFail(1)->first();
+
+        $this->assertEquals('Max Mustermann', $defaultUser->name);
     }
 
     /**
@@ -64,8 +69,8 @@ class DatabaseTest extends TestCase
     public function test_db_default_person_username()
     {
         $this->seed(PersonSeeder::class);
-        $defaultUser = Person::where('username', "=", 'laraveller')->first();
-        $this->assertEquals("laraveller", $defaultUser->username);
+        $defaultPerson = Person::where('username', "=", 'laraveller')->first();
+        $this->assertEquals("laraveller", $defaultPerson->username);
     }
 
     /**
