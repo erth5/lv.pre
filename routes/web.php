@@ -1,11 +1,10 @@
 <?php
 
-use App\Http\Controllers\debugController;
-use App\Http\Controllers\ImageController;
-use App\Http\Controllers\PersonController;
-use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\debugController;
+use App\Http\Controllers\PersonController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,15 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/marquee', function(){
-    echo  Storage::disk('local')->get('router/web.php');
-});
-
 Route::get('/hier', [TestController::class, 'index']);
 
 // Image Upload Example TODO: combine to all classes
-Route::get('/images', [ImageController::class, 'index']);
-Route::post('/image-upload', [ImageController::class, 'store'])->name('image.store');
+Route::get('image-upload', [ImageController::class, 'index']);
+Route::post('image-upload', [ImageController::class, 'store'])->name('image.store');
 
 // Debug, Info, Test
 Route::redirect('debug/debug', '/debug', 301);

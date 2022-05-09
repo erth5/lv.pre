@@ -94,14 +94,59 @@ class ModelTest extends TestCase
     }
 
     /**
-     * Teste alle Datenbanken auf id
+     * Teste alle Datenbanken auf existenz - intern
      *
      * @return void
      */
-    public function test_db_schema_all_exist()
+    public function test_db_schema_all_exist_intern()
     {
         $allDbNames = array('users', 'debugs', 'people', 'images');
         // Mit foreach wird der Index des Array automatisch entfernt
+        foreach ($allDbNames as $dbScheme) {
+            if (Schema::hasTable($dbScheme)) {
+                $this->assertTrue(true);
+            } else {
+                dd("The Table Name: " . $dbScheme . " is not in the database");
+                $this->assertFalse(true);
+            }
+        }
+    }
+
+    /**
+     * Teste alle Datenbanken auf existenz - batch
+     *
+     * @return void
+     */
+    public function test_db_schema_all_exist_batch()
+    {
+        // https://code-boxx.com/php-read-file/
+        // $allDbNames =  file("database/migrations/migration_list.txt", FILE_SKIP_EMPTY_LINES);
+
+        $allDbNamesArray = array();
+        $allDbNames = fopen("database/migrations/migration_list.txt", 'r') or die('error reading file');
+        while (!feof($allDbNames)) {
+            $textperline = fgets($allDbNames);
+            echo ($textperline);
+            array_push($allDbNamesArray, $textperline);
+        }
+        foreach ($allDbNamesArray as $dbScheme) {
+            if (Schema::hasTable($textperline)) {
+                $this->assertTrue(true);
+            } else {
+                $this->assertFalse(true);
+            }
+        }
+        fclose($allDbNames);
+    }
+
+    /**
+     * Teste alle Datenbanken auf existenz - folder
+     *
+     * @return void
+     */
+    public function test_db_schema_all_exist_folder()
+    {
+        $allDbNames = array('users', 'debugs', 'people', 'images');
         foreach ($allDbNames as $dbScheme) {
             if (Schema::hasTable($dbScheme)) {
                 $this->assertTrue(true);
