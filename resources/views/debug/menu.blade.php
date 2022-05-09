@@ -62,7 +62,7 @@
     <a class="disabled" href="">Swagger</a>
     <blockquote></blockquote>
 
-    <a href="/images">Image Index</a>
+    {{-- <a href="/public/images">Image Index</a> --}}
     <a href="/image-upload">Image Upload</a>
     <a href="/image-change"></a>
     <a href="image-edit"></a>
