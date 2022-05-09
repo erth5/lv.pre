@@ -51,6 +51,12 @@ class DebugController extends Controller
             if ($name == 'env') {
                 return view('debug.env');
             }
+            if ($name == 'env2') {
+                $array = file("../.env", FILE_SKIP_EMPTY_LINES);
+                print_r($array);
+                echo ('<br>');
+            }
+
 
             if ($name == 'template') {
                 return view('debug.template');

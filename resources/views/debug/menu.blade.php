@@ -40,33 +40,35 @@
 
     <script></script>
 
-    <!-- Menue bei allen Seiten anzeigen lassen -->
-    <a href="/debug">Übersicht</a>
-    <a href="/debug/debug">Weiterleitung doppelter Eintrag</a>
+    <a href="/debug">Overview</a>
+    <a href="/debug/debug">Redirect</a>
     <blockquote></blockquote>
 
-    <a href="/info/db">DatenbankVerbindung</a>
+    <a href="/info/db">Database Connection</a>
     <a href="/debug/php">PHP Info</a>
-    <a href="debug/env">Environement</a>
+    <a href="debug/env">Environement Part</a>
+    <a href="/debug/env2">Environement Full</a>
     <blockquote></blockquote>
 
     <a href="/info/template">template</a>
+    <a href="/debug/path">paths</a>
     <a href="/info/user">users_people</a>
     <a href="/debug/views">views</a>
     <a href="/debug/controllers">controllers</a>
-    <a href="/debug/path">paths</a>
     <blockquote></blockquote>
 
-    <a class="disabled" href="/route:list">Ansicht Route-List( apih )</a>
+    <a class="disabled" href="/route:list">Route-List(apih)</a>
     <a href="/telescope">Telescope</a>
     <a class="disabled" href="">Swagger</a>
     <blockquote></blockquote>
 
     <a href="/images">Image Index</a>
     <a href="/image-upload">Image Upload</a>
+    <a href="/image-change"></a>
+    <a href="image-edit"></a>
+    <a href="image-show"></a>
+    <a href="image-delete"></a>
     <!-- THEN:update:bild ändern, edit:Bildname ändern, show:Bild ansehen Destroy:Image löschen-->
-
-
 
     @yield('c')
 
