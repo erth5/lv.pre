@@ -3,9 +3,12 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+
+use function PHPUnit\Framework\assertEquals;
 
 class ModelTest extends TestCase
 {
@@ -80,7 +83,7 @@ class ModelTest extends TestCase
     }
 
     /**
-     * Teste alle Datenbanken auf existenz - intern
+     * Teste alle Datenbanken auf existenz - Abfrage intern
      *
      * @return void
      */
@@ -99,7 +102,7 @@ class ModelTest extends TestCase
     }
 
     /**
-     * Teste alle Datenbanken auf existenz - batch
+     * Teste alle Datenbanken auf existenz, Abfrage durch eine Datei
      *
      * @return void
      */
@@ -118,27 +121,36 @@ class ModelTest extends TestCase
         foreach ($allDbNamesArray as $dbScheme) {
             if (Schema::hasTable($textperline)) {
                 $this->assertTrue(true);
-            } else {
+            } else
                 $this->assertFalse(true);
-            }
         }
         fclose($allDbNames);
     }
 
     /**
-     * Teste alle Datenbanken auf existenz - folder
+     * Teste alle Models darauf, ob ein DatenbankSchema existiert
      *
      * @return void
      */
-    public function test_db_schema_all_exist_folder_direct()
+    public function test_db_schema_all_exist_by_model()
     {
-        $allDbNames = array('users', 'debugs', 'people', 'images');
-        foreach ($allDbNames as $dbScheme) {
-            if (Schema::hasTable($dbScheme)) {
-                $this->assertTrue(true);
-            } else {
-                $this->assertFalse(true);
+        $modelDirectory = "app/Models";
+        foreach (glob($modelDirectory . '/*.*') as $filePath) {
+            // $FluentNotPossible = $filePath->substr(11)->substr(0, -4)->Str::lower()->Str::plural();
+            $fileName = substr($filePath, 11);
+            $fileNameWithoutEnding = substr($fileName, 0, -4);
+            $fileNameWithoutEnding = Str::lower($fileNameWithoutEnding);
+            $pluralFileNameWithoutEnding = Str::plural($fileNameWithoutEnding);
+            // echo ($pluralFileNameWithoutEnding . " ");
+
+            // Name Konvention, Backup ohne Plural notwendig
+            if (Schema::hasTable($pluralFileNameWithoutEnding) == false) {
+                if (Schema::hasTable($fileNameWithoutEnding) == false) {
+                    echo $fileName . " is the first found Model, which has no Name-Konvention Database Schema";
+                    $this->assertFalse(true);
+                }
             }
         }
+        $this->assertTrue(true);
     }
 }
