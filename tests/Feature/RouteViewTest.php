@@ -35,12 +35,7 @@ class RouteViewTest extends TestCase
         $viewDb->assertStatus(200);
         $viewDb->assertSee('Successfully connected to the database');
     }
-    public function test_telescope_view_need_DUSK()
-    {
-        $viewTelescope = $this->get('/telescope');
-        $viewTelescope->assertSee('Not Found');
-        $viewTelescope->assertStatus(404);
-    }
+
     public function test_users_and_peoples_table_view()
     {
         $viewUser = $this->get('/debug/user');
