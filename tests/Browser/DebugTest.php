@@ -23,7 +23,7 @@ class DebugTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/telescope/requests')
                 // Prüft, ob im Body Element das Schlüsselwort "Telescope" steht
-                ->assertSee('Telescope')
+                ->assertTitle('Requests - Telescope')
                 ->assertPathIs('/telescope/requests');
         });
     }
@@ -41,7 +41,7 @@ class DebugTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/debug/debug')
-                ->assertSee('Übersicht')
+                ->assertTitle('Laravel Debug')
                 ->assertPathIs('/debug');
         });
     }

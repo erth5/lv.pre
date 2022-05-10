@@ -4,6 +4,14 @@
          bootstrap="vendor/autoload.php"
          colors="true"
 >
+
+<!-- 
+    Change Testing Database
+<server name="DB_CONNECTION" value="sqlite"/>
+<server name="DB_DATABASE" value=":memory:"/>
+-->
+
+
     <testsuites>
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>

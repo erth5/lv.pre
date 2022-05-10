@@ -2,14 +2,21 @@
 
 namespace Tests\Unit;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
 class RouteViewTest extends TestCase
 {
-    //Access to debug true needed
-    use DatabaseTransactions;
+
+    /**
+     * A basic unit test that proof if the domain root is visible.
+     *
+     * @return void
+     */
+    public function test_routing_main()
+    {
+        $pathResponse = $this->get('/');
+        $pathResponse->assertStatus(200);
+    }
 
     /**
      * A basic unit test for debug.
@@ -40,6 +47,4 @@ class RouteViewTest extends TestCase
         $viewUser->assertStatus(200);
         // AssertEuqals(Person surname = User surname);
     }
-
 }
-

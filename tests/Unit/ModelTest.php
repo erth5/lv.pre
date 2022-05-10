@@ -126,7 +126,7 @@ class ModelTest extends TestCase
         $allDbNames = fopen("database/migrations/migration_list.txt", 'r') or die('error reading file');
         while (!feof($allDbNames)) {
             $textperline = fgets($allDbNames);
-            echo ($textperline);
+            // echo ($textperline);
             array_push($allDbNamesArray, $textperline);
         }
         foreach ($allDbNamesArray as $dbScheme) {
@@ -144,7 +144,7 @@ class ModelTest extends TestCase
      *
      * @return void
      */
-    public function test_db_schema_all_exist_folder()
+    public function test_db_schema_all_exist_folder_direct()
     {
         $allDbNames = array('users', 'debugs', 'people', 'images');
         foreach ($allDbNames as $dbScheme) {
