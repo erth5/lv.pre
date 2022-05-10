@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\Models\User;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ModelTest extends TestCase
 {
@@ -77,20 +77,6 @@ class ModelTest extends TestCase
             ]),
             1
         );
-    }
-
-    /**
-     * Teste ob ein Nutzer angelegt werden kann
-     *
-     * @return void
-     */
-
-    public function test_db_can_create_and_delete_user()
-    {
-        $user = User::factory()->create();
-        $this->assertModelExists($user);
-        $user->delete();
-        $this->assertModelMissing($user);
     }
 
     /**

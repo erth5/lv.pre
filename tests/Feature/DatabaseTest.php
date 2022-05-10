@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Debug;
 use App\Models\Person;
 use Database\Seeders\PersonSeeder;
+
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -84,6 +85,19 @@ class DatabaseTest extends TestCase
         $this->assertDatabaseHas('people', [
             'last_name' => 'Mustermann',
         ]);
+    }
+    /**
+     * Teste ob ein Nutzer angelegt werden kann
+     *
+     * @return void
+     */
+
+    public function test_db_can_create_and_delete_user()
+    {
+        $user = User::factory()->create();
+        $this->assertModelExists($user);
+        $user->delete();
+        $this->assertModelMissing($user);
     }
 
     /**

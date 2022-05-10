@@ -78,50 +78,6 @@ class DebugController extends Controller
                 return view('debug.menu');
         }
         // abort(404);
-
-        // if (debug::find(1)->debug == true) {
-        //     if ($name == 'db') {
-        //         return view('debug.db');
-        //     }
-        //     if ($name == 'debug') {
-        //         return view('debug.debug');
-        //     }
-
-        //     if ($name == 'php') {
-        //         return view('debug.info');
-        //     }
-        //     if ($name == 'env') {
-        //         return view('debug.env');
-        //     }
-        //     if ($name == 'env2') {
-        //         $array = file("../.env", FILE_SKIP_EMPTY_LINES);
-        //         print_r($array);
-        //         echo ('<br>');
-        //     }
-
-        //     if ($name == 'template') {
-        //         return view('debug.template');
-        //     }
-        //     if ($name == 'views') {
-        //         return view('debug.views');
-        //     }
-        //     if ($name == 'controllers') {
-        //         return view('debug.controllers');
-        //     }
-        //     if ($name == 'path') {
-        //         // Path to the project's root folder
-        //         echo base_path() . "<br>";
-        //         // Path to the 'app' folder
-        //         echo app_path() . "<br>";
-        //         // Path to the 'public' folder
-        //         echo public_path() . "<br>";
-        //         // Path to the 'storage' folder
-        //         echo storage_path() . "<br>";
-        //         // Path to the 'storage/app' folder
-        //         echo storage_path('app') . "<br>";
-        //     }
-
-        //     return view('debug.menu');
     }
 
     /**

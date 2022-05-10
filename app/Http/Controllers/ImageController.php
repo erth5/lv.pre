@@ -32,7 +32,7 @@ class ImageController extends Controller
 
         $save->save();
         // dd($save, $validatedData);
-        return redirect('image-upload')->with('status', 'Image Has been uploaded')->with('image', $name);
+        return redirect('image-upload')->with('status', 'Image Has been uploaded:')->with('image', $name);
     }
 
     
