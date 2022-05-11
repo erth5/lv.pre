@@ -16,7 +16,7 @@ class Person extends Model
      */
     protected $fillable = [
         'surname',
-        //last name will be written with blank line
+        //Spell-checked:Last Name will be written with blank line
         'last_name',
         'username',
     ];
