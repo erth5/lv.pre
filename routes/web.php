@@ -21,9 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Image Upload Example TODO: combine to all classes
-Route::get('image-upload', [ImageController::class, 'index']);
-Route::post('image-upload', [ImageController::class, 'store'])->name('image.store');
+// Image Upload Example TODO: ->get()->groupBy(function - alles sichtbar 
+Route::get('image', [ImageController::class, 'index']);
+
+Route::post('image', [ImageController::class, 'store'])->name('image.store');
 
 // Debug, Info, Test
 Route::redirect('debug/debug', '/debug', 301);

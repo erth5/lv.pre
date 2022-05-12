@@ -2,54 +2,35 @@
 <html>
 
 <head>
-    <title>Laravel 9 Image Upload Example - Tutsmake.com</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Laravel 9 Image Upload</title>
 </head>
 
 <body>
     <div class="container">
-
         {{ session('status') }}
         {{ session('image') }}
 
+        <h2>Laravel 9 Image Upload</h2>
 
-        <div class="panel panel-primary">
-
-            <div class="panel-heading">
-                <h2>Laravel 9 Image Upload Example - Tutsmake.com</h2>
+        @if ($message = Session::get('success'))
+            <div>
+                <button type="button">×</button>
+                <strong style="text-align: center">{{ $message }}</strong>
             </div>
+            <img src="images/{{ Session::get('image') }}">
+        @endif
 
-            <div class="panel-body">
+        <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <label class="form-label" for="inputImage">Image:</label>
+            <input type="file" name="image" id="inputImage" class="form-control @error('image') is-invalid @enderror">
 
-                @if ($message = Session::get('success'))
-                    <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong>{{ $message }}</strong>
-                    </div>
-                    <img src="images/{{ Session::get('image') }}">
-                @endif
+            @error('image')
+                <span style="color:red;">{{ $message }}</span>
+            @enderror
 
-                <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-
-                    <div class="mb-3">
-                        <label class="form-label" for="inputImage">Image:</label>
-                        <input type="file" name="image" id="inputImage"
-                            class="form-control @error('image') is-invalid @enderror">
-
-                        @error('image')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-success">Upload</button>
-                    </div>
-
-                </form>
-
-            </div>
-        </div>
+            <button type="submit">Upload</button>
+        </form>
     </div>
 </body>
 

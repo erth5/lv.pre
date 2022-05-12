@@ -10,7 +10,7 @@
 
 <body>
 
-    <x-debug.menu/>
+    <x-debug.menu />
     @yield('c')
 
 </body>
