@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Person;
-use App\Http\Requests\StorePersonRequest;
-use App\Http\Requests\UpdatePersonRequest;
-use Exception;
 
 class PersonController extends Controller
 {
@@ -17,72 +14,9 @@ class PersonController extends Controller
      */
     public function index()
     {
-        try 
-        {
-            $users = User::all();
-            return view('debug.user_and_person', compact('users'));
-        }
-        catch(Exception $e)
-        {
-            return view('debug.user_and_person');
-        }
-        
-
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePersonRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StorePersonRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Person  $person
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Person $person)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Person  $person
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Person $person)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePersonRequest  $request
-     * @param  \App\Models\Person  $person
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePersonRequest $request, Person $person)
-    {
-        //
+        // Leere User wird mitgeschickt
+        $users = User::all();
+        return view('debug.people', compact('users'));
     }
 
     /**
@@ -93,6 +27,7 @@ class PersonController extends Controller
      */
     public function destroy(Person $person)
     {
-        //
+        $person->delete();
+        return view('debug.people');
     }
 }

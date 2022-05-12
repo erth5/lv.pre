@@ -21,8 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hier', [TestController::class, 'index']);
-
 // Image Upload Example TODO: combine to all classes
 Route::get('image-upload', [ImageController::class, 'index']);
 Route::post('image-upload', [ImageController::class, 'store'])->name('image.store');

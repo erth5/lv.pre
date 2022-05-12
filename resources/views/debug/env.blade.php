@@ -1,4 +1,4 @@
-@extends('debug.menu')
+@extends('debug.main')
 @section('c')
 @if (env('APP_ENV') == 'local')
     Local Enviroment

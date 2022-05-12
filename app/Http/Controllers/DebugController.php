@@ -33,7 +33,7 @@ class DebugController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($name = 'menu')
+    public function index($name = 'main')
     {
         switch ($name) {
             case 'db':
@@ -75,7 +75,7 @@ class DebugController extends Controller
                 echo storage_path('app') . "<br>";;
                 break;
             default:
-                return view('debug.menu');
+                return view('debug.main');
         }
         // abort(404);
     }
