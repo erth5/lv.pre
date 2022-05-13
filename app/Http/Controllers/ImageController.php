@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pic;
+use App\Http\Controllers\Modules\ImageValidator;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class ImageController extends Controller
@@ -19,18 +20,24 @@ class ImageController extends Controller
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
-
-
         $name = $request->file('image')->getClientOriginalName();
-
         $path = $request->file('image')->store('images');
 
-        $save = new Pic();
-        $save->name = $name;
-        $save->path = $path;
-        $save->save();
-        // dd($save, $validatedData, $name, $path);
-        return redirect('image')->with('status', 'Image Has been uploaded:')->with('image', $name);
+        $dbItem = new Image();
+        $dbItem->name = $name;
+        // path descripes the name in Path "storage/app/images
+        $dbItem->path = $path;
+        $dbItem->save();
+
+        $images = Image::all();
+        // dd($dbItem, $validatedData, $name, $path);
+        return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
+    }
+
+    public function remove(Image $image){
+        // $image = Imagename;
+        // $image->delete();
+        // return redirect('images', compact('$dbItems = Image::all()'))->with('status', 'Image Has been removed')->with('Image', $name);
     }
 
 

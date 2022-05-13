@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title>Laravel 9 Image Upload</title>
+    <title>Image Handling</title>
 </head>
 
 <body>
     <div class="container">
         {{ session('status') }}
-        {{ session('image') }}
+        {{ session('imageName') }}
 
         <h2>Laravel 9 Image Upload</h2>
 
@@ -28,10 +28,25 @@
             @error('image')
                 <span style="color:red;">{{ $message }}</span>
             @enderror
-
             <button type="submit">Upload</button>
         </form>
     </div>
+
+    <br>
+    @php
+        $images = session::get('images');
+    @endphp
+    @isset($images)
+        @forelse ($images as $image)
+        {{-- TODO Verschiebe von storage nach oder sein lassen --}}
+            <img src="{{ asset("$image->path") }}" maxwidth="100" maxheight="100" alt="Bildbeschreibung" />
+        @empty
+            <p>No Images Saved</p>
+        @endforelse
+    @endisset
+
+
+
 </body>
 
 </html>

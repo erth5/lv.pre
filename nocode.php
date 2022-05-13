@@ -1,8 +1,6 @@
-        // User::create([
-        //     'name' => 'Max Mustermann',
-        //     'email' => 'fdsdwp@protonmail.com',
-        //     'password' => bcrypt('password'),
-        //     'email_verified_at' => now(),
-        //     'remember_token' => token_name(10),
-        // ]);
-        // User::factory(10)->create();
+        $requestData = $request->all();
+        $fileName = time().$request->file('photo')->getClientOriginalName();
+        $path = $request->file('photo')->storeAs('images', $fileName, 'public'); 
+        $requestData["photo"] = '/storage/'.$path;
+        Employee::create($requestData);
+        return redirect('employee')->with('flash_message', 'Employee Addedd!');
