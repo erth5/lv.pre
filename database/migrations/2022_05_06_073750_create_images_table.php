@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('path');
-            $table->timestamps();
+            $table->timestamp('upload_time', 0)->nullable();
+            $table->timestamp('update_time', 0)->nullable();
+            $table->softDeletes('remove_time')->nullable();
         });
     }
 

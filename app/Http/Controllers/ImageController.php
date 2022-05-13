@@ -19,6 +19,8 @@ class ImageController extends Controller
             'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
 
+
+
         $name = $request->file('image')->getClientOriginalName();
 
         $path = $request->file('image')->store('images');
@@ -28,13 +30,13 @@ class ImageController extends Controller
         $save->path = $path;
         $save->save();
         // dd($save, $validatedData, $name, $path);
-        return redirect('image-upload')->with('status', 'Image Has been uploaded:')->with('image', $name);
+        return redirect('image')->with('status', 'Image Has been uploaded:')->with('image', $name);
     }
 
-    
-// Funktionen
-// destroy
-// edit
-// rename->
-//   ...
+
+    // Funktionen
+    // destroy
+    // edit
+    // rename->
+    //   ...
 }

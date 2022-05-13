@@ -9,7 +9,7 @@ use App\Models\Debug;
 
 class DebugService
 {
-    public function debugFunction($debugValue = true)
+    public function debugFunction($debugValue = false)
     {
         return $debugValue;
     }

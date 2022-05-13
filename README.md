@@ -2,6 +2,8 @@
 
 Template for Laravel Projects
 
+MADE For Europe/German Use
+
 ## TODO
 
 <https://github.com/apih/laravel-route-list-web>
