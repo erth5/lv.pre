@@ -51,7 +51,7 @@
 <blockquote></blockquote>
 
 {{-- <a href="/public/images">Image Index</a> --}}
-<a href="/image-upload">Image Upload</a>
+<a href="/image-upload">Image</a>
 <a href="/image-change"></a>
 <a href="image-edit"></a>
 <a href="image-show"></a>

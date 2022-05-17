@@ -38,14 +38,12 @@
     @endphp
     @isset($images)
         @forelse ($images as $image)
-        {{-- TODO Verschiebe von storage nach oder sein lassen --}}
+            {{-- TODO Verschiebe von storage nach oder sein lassen --}}
             <img src="{{ asset("$image->path") }}" maxwidth="100" maxheight="100" alt="Bildbeschreibung" />
         @empty
             <p>No Images Saved</p>
         @endforelse
     @endisset
-
-
 
 </body>
 
