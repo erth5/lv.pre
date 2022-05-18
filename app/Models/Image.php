@@ -23,4 +23,13 @@ class Image extends Model
     const CREATED_AT = 'upload_time';
     const UPDATED_AT = 'update_time';
     const DELETED_AT = 'remove_time';
+
+
+    /**
+     * Relationship: get person that owns images
+     */
+    public function person()
+    {
+        return $this->belongsToMany(Person::class);
+    }
 }

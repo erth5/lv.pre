@@ -16,30 +16,13 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class DatabaseTest extends TestCase
 {
-    /**
-     * Laravel 5, SQLite
-     * Speichert Zustand, Stellt Zustand nach dem Test wieder her
-     * Seed Daten ???
-     */
-    // use DatabaseTransactions;
-
-    /**
-     * Migriert das Schema, Rollback zur Migration nach dem Test
-     * Herausgefunden: Seed Daten werden gelöscht
-     */
+    /** Migriert vor dem Test, Entfernt alles nach dem Test */
     // use DatabaseMigrations;
 
-    /**
-     * Migriert die Datnbank nur, wenn das Schema nicht aktuell ist -> Schema passt
-     * Seed Daten werden vllt gelöscht
-     * Abgeänerte Form in in der TestCase: führt auch ein Seeding durch:Funktioniert
-     */
+    /** Migriert vor und nach dem Test */
     // use RefreshDatabase;
 
-    /** 
-     * RefreshDatabase, aber Speichert den Zustand zwischen und erkennt, 
-     * wenn nichts geändert wurde
-     */
+    /** fuer SQLite, Speichert den Zustand zwischen und stellt ihn wieder her */
     use DatabaseTransactions;
 
     /** Setzt die Authentifizierung und andere Middlewares außer Kraft */

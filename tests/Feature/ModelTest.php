@@ -76,7 +76,7 @@ class ModelTest extends TestCase
     {
         $this->assertTrue(
             Schema::hasColumns('images', [
-                'id', 'name', 'path', 'created_at', 'updated_at'
+                'id', 'name', 'path', 'person_id', 'upload_time', 'update_time', 'remove_time'
             ]),
             1
         );
@@ -101,18 +101,46 @@ class ModelTest extends TestCase
         }
     }
 
+    /** possible Refactor? */
+
     /**
-     * Teste alle Datenbanken auf existenz, Abfrage durch eine Datei
+     * Teste Vordergrund Datenbanken auf existenz, Abfrage durch eine Datei
      *
      * @return void
      */
-    public function test_db_schema_all_exist_batch()
+    public function test_db_schema_voreground_exist_batch()
     {
         // https://code-boxx.com/php-read-file/
         // $allDbNames =  file("database/migrations/migration_list.txt", FILE_SKIP_EMPTY_LINES);
 
         $allDbNamesArray = array();
-        $allDbNames = fopen("database/migrations/migration_list.txt", 'r') or die('error reading file');
+        $allDbNames = fopen("database/migrations/voreground_tables.txt", 'r') or die('error reading file');
+        while (!feof($allDbNames)) {
+            $textperline = fgets($allDbNames);
+            // echo ($textperline);
+            array_push($allDbNamesArray, $textperline);
+        }
+        foreach ($allDbNamesArray as $dbScheme) {
+            if (Schema::hasTable($textperline)) {
+                $this->assertTrue(true);
+            } else
+                $this->assertFalse(true);
+        }
+        fclose($allDbNames);
+    }
+
+    /**
+     * Teste Hintergrund Datenbanken auf existenz, Abfrage durch eine Datei
+     *
+     * @return void
+     */
+    public function test_db_schema_background_exist_batch()
+    {
+        // https://code-boxx.com/php-read-file/
+        // $allDbNames =  file("database/migrations/migration_list.txt", FILE_SKIP_EMPTY_LINES);
+
+        $allDbNamesArray = array();
+        $allDbNames = fopen("database/migrations/background_tables.txt", 'r') or die('error reading file');
         while (!feof($allDbNames)) {
             $textperline = fgets($allDbNames);
             // echo ($textperline);

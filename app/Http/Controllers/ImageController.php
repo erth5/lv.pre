@@ -10,15 +10,17 @@ class ImageController extends Controller
 {
     public function index()
     {
-        return view('image');
+        return view('overall/image');
     }
 
+    /**
+     * save a picture
+     * @param validatedData 
+     */
     public function store(Request $request)
     {
-        // PHP Abhängigkeit - greift auf den PHP Ordner zu
-        $validatedData = $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-        ]);
+        $validation = new ImageValidator($request);
+        $validation->imageValidator();
 
         $name = $request->file('image')->getClientOriginalName();
         $path = $request->file('image')->store('images');
@@ -34,7 +36,8 @@ class ImageController extends Controller
         return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
     }
 
-    public function remove(Image $image){
+    public function remove(Image $image)
+    {
         // $image = Imagename;
         // $image->delete();
         // return redirect('images', compact('$dbItems = Image::all()'))->with('status', 'Image Has been removed')->with('Image', $name);

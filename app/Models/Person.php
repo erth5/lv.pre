@@ -28,4 +28,12 @@ class Person extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Relationship: get images associated with person
+     */
+    public function image()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

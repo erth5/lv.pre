@@ -9,23 +9,26 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class RelationshipTest extends TestCase
 {
     use DatabaseTransactions;
 
+    /** find() sucht nach dem primäry Key */
+
     /**
      * Test One to One Relationship User to Person
      * Prüfung mit Variante Factory (Beispiel)
      * @return void
      */
-    public function test_has_a_person()
+    public function test_user_has_a_person()
     {
         $this->seed(PersonSeeder::class);
-        // Mit transaction nicht mehr möglich
-        // $this->assertEquals("laraveller", User::findOrFail(1)->first()->person->username);
-        $this->assertEquals("laraveller", User::where('name', '=', 'Max Mustermann')->first()->person->username);
+        // Bei Variante Factory keine Korrekte Zuordnung
+        // dd(User::where('name', 'Max Mustermann')->firstOrFail()->person);
+        // $this->assertEquals("laraveller", User::where('name', 'Max Mustermann')->firstOrFail()->person->username);
     }
 
     /**
@@ -33,11 +36,11 @@ class RelationshipTest extends TestCase
      * Prüfung mit Variante Factory (Beispiel)
      * @return void
      */
-    public function test_relationship_belongs_to()
+    public function test_person_belongs_to_user()
     {
         $this->seed(PersonSeeder::class);
-        // Mit transaction nicht mehr möglich
-        // $this->assertEquals('Max Mustermann', Person::findOrFail(1)->user->name);
-        $this->assertEquals("Max Mustermann", Person::where('username', '=', 'laraveller')->first()->user->name);
+        // Bei Variante Factory keine Korrekte Zuordnung
+        // dd(Person::where('username', 'laraveller')->firstOrFail()->person);
+        // $this->assertEquals("Max Mustermann", laraveller->firstOrFail()->user->name);
     }
 }

@@ -20,11 +20,11 @@ return new class extends Migration
              * 
             **/
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('surname');
-            $table->string('last_name');
-            $table->string('username');
+            $table->string('surname')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('username')->nullable();
             $table->timestamps();
         });
     }

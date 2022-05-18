@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('path');
+            $table->integer('person_id')->unsigned()->nullable();
+            $table->foreign('person_id')->references('id')->on('people');
             $table->timestamp('upload_time', 0)->nullable();
             $table->timestamp('update_time', 0)->nullable();
             $table->softDeletes('remove_time')->nullable();

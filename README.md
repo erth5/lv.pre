@@ -9,6 +9,9 @@ MADE For Europe/German use
 <https://github.com/apih/laravel-route-list-web>
 Missing updates
 
+<https://github.com/CrestApps/laravel-code-generator>
+can be better
+
 ### Tutorials(not implemented)
 
 #### ...toMany relationships
@@ -18,3 +21,11 @@ Missing updates
 ### Outcludet
 
 - Validation (LiveWire)
+
+### Artisans
+
+php artisan migrate:fresh --seed
+php artisan db:seed --class=UserSeeder
+php artisan db:seed --class=PersonSeeder
+
+php artisan db:wipe --force

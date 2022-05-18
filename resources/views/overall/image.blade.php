@@ -7,6 +7,14 @@
 
 <body>
     <div class="container">
+
+
+
+
+
+
+
+
         {{ session('status') }}
         {{ session('imageName') }}
 
@@ -31,15 +39,17 @@
             <button type="submit">Upload</button>
         </form>
     </div>
-
     <br>
     @php
         $images = session::get('images');
     @endphp
+
+    {{-- TODO Image Grid --}}
     @isset($images)
         @forelse ($images as $image)
-            {{-- TODO Verschiebe von storage nach oder sein lassen --}}
-            <img src="{{ asset("$image->path") }}" maxwidth="100" maxheight="100" alt="Bildbeschreibung" />
+            {{-- TODO Ressource Route nutzen --}}
+            <img src="{{ asset("$image->path") }}" maxwidth="100" maxheight="100" alt="{{ $image->name }}" />
+            <img src="{{ asset('storage/' . $images[0]->image) }} " />
         @empty
             <p>No Images Saved</p>
         @endforelse

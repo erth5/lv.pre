@@ -1,7 +1,9 @@
 @extends('debug.main')
 @section('c')
+
+<blockquote></blockquote>
 @if (env('APP_ENV') == 'local')
-    Local Enviroment
+    Local Enviroment:
 @endif
 
 <p>{{ env('DB_CONNECTION', 'default') }}</p>

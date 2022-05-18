@@ -1,0 +1,14 @@
+Meeting
++rules
+
+Creator
+-migration
+
+Situation
+
+
+creator->meeting
+meeting<-creator
+
+situation-many>creator
+creator<many-situation

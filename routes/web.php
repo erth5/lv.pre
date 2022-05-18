@@ -21,12 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Image Upload Example TODO: ->get()->groupBy(function - alles sichtbar 
 Route::get('image', [ImageController::class, 'index']);
-
 Route::post('image', [ImageController::class, 'store'])->name('image.store');
 
-// Debug, Info, Test
+// Debug
 Route::redirect('debug/debug', '/debug', 301);
 
 $debugRoutes = array('test', 'debug', 'info', 'help', 'www');
@@ -44,3 +42,8 @@ Route::get('hello', function () {
 // {
 //     ...
 // }
+
+// Route::match(array('GET', 'POST'), '/', function()
+// {
+//     return 'Hello World';
+// });

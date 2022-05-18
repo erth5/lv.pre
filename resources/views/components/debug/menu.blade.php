@@ -40,7 +40,6 @@
 
 <a href="/info/template">template</a>
 <a href="/debug/path">paths</a>
-<a href="/info/user">users_people</a>
 <a href="/debug/views">views</a>
 <a href="/debug/controllers">controllers</a>
 <blockquote></blockquote>
@@ -51,9 +50,12 @@
 <blockquote></blockquote>
 
 {{-- <a href="/public/images">Image Index</a> --}}
-<a href="/image-upload">Image</a>
-<a href="/image-change"></a>
+<a href="/info/user">user-person</a>
+<a href="/image">Image</a>
+
+
+{{-- <a href="/image-change"></a>
 <a href="image-edit"></a>
 <a href="image-show"></a>
-<a href="image-delete"></a>
+<a href="image-delete"></a> --}}
 <!-- THEN:update:bild ändern, edit:Bildname ändern, show:Bild ansehen Destroy:Image löschen-->

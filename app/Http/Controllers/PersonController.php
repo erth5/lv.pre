@@ -16,7 +16,7 @@ class PersonController extends Controller
     {
         // Leere User wird mitgeschickt
         $users = User::all();
-        return view('debug.people', compact('users'));
+        return view('overall.person', compact('users'));
     }
 
     /**
@@ -28,6 +28,6 @@ class PersonController extends Controller
     public function destroy(Person $person)
     {
         $person->delete();
-        return view('debug.people');
+        return view('overall.person');
     }
 }

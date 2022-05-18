@@ -14,7 +14,7 @@ class PersonFactory extends Factory
      * Variante: Factory
      * Generierung von Person zugehöriger User in der Factory
      * + Zu Person wird immer user generiert
-     *
+     * - Falsche Zuordnung
      * @return array<string, mixed>
      */
     public function definition()
@@ -30,8 +30,8 @@ class PersonFactory extends Factory
     /**
      * Variante: Seeder
      * Generierung zugehöriger User im Seeder
-     * + Zugehöriger User muss angegeben werden
-     *
+     * - Zugehöriger User muss angegeben werden
+     * + Richtige Zuordnung
      * @return array<string, mixed>
      */
     // public function definition()
