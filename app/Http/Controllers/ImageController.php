@@ -6,33 +6,33 @@ use App\Http\Controllers\Modules\ImageValidator;
 use App\Models\Image;
 use Illuminate\Http\Request;
 
+/** (folder)
+ * 1a: yield, public 
+ * 1b: yield, storage
+ * 2a: components, public
+ * 2b: components, storage
+ */
+
 class ImageController extends Controller
 {
-    public function index()
+
+    /**
+     * upload an image
+     */
+    public function upload(Request $request)
     {
-        return view('overall/image');
+        return view('image/upload');
     }
 
     /**
-     * save a picture
+     * save an image
      * @param validatedData 
      */
     public function store(Request $request)
     {
+        //2b
         $validation = new ImageValidator($request);
         $validation->imageValidator();
-
-        /**
-         * 1a: several files, public folder
-         * 1b: several files, storage folder
-         * 2a: one file, public folder
-         * 2b: one file, storage folder
-         */
-
-        //several files, public folder
-
-
-        //one file, storage folder
         $name = $request->file('image')->getClientOriginalName();
         $path = $request->file('image')->store('images');
 
@@ -43,8 +43,8 @@ class ImageController extends Controller
         $dbItem->save();
 
         $images = Image::all();
-        // dd($dbItem, $validatedData, $name, $path);
-        return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
+        // dd($request, $validation, $dbItem, $name, $path);
+        return redirect('upload')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
     }
 
     public function remove(Image $image)
@@ -60,4 +60,10 @@ class ImageController extends Controller
     // edit
     // rename->
     //   ...
+
+    //1a
+    public function image()
+    {
+        return view('image/image');
+    }
 }

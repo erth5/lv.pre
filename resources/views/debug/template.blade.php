@@ -1,4 +1,4 @@
-@extends('debug.main')
+@extends('debug.layout')
 @section('c')
 
 @endsection

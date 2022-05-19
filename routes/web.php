@@ -20,15 +20,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('image', [ImageController::class, 'index'])->name('image');
-Route::post('image', [ImageController::class, 'store']);
+/* 1a: yield, public */
+Route::get('upload', [ImageController::class, 'upload']);
+Route::post('upload', [ImageController::class, 'store'])->name('upload');
 
-// Debug
+Route::get('show', [ImageController::class, 'show'])->name('show');
+
+/* 2b: components, storage */
+Route::get('image', [ImageController::class, 'image']);
+
+/* Debug  */
 Route::redirect('debug/debug', '/debug', 301);
 
 $debugRoutes = array('test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route) {
-    Route::get($route . '/user', [PersonController::class, 'index'])->name('info.user');
+    Route::get($route . '/user', [PersonController::class, 'index']);
     Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
 }
 Route::get('hello', function () {

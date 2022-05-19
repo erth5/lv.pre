@@ -49,11 +49,16 @@
 <a class="disabled" href="">Swagger</a>
 <blockquote></blockquote>
 
-{{-- <a href="/public/images">Image Index</a> --}}
 <a href="/info/user">user-person</a>
-<a href="/image">Image</a>
-
-
+<blockquote></blockquote>
+<br>
+<p>Image-1a: yield, public</p>
+<a href="/upload">upload</a>
+<a href="/show">show</a>
+<p>Image-2b: components, storage</p>
+<a href="/image">index</a>
+<blockquote></blockquote>
+<br>
 {{-- <a href="/image-change"></a>
 <a href="image-edit"></a>
 <a href="image-show"></a>

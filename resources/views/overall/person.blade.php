@@ -1,4 +1,4 @@
-@extends('debug.main')
+@extends('debug.layout')
 @section('c')
 
     @empty($users)
@@ -8,16 +8,23 @@
 
     @isset($users)
         <h3>
-            @foreach ($users as $user)
-                {{ $user->name }}
+            @forelse ($users as $user)
+                {{-- {{ $user->name }}
                 {{ $user->email }}
-                <blockquote></blockquote>
-
+            
                 {{ $user->person()->get('surname') }}
                 {{ $user->person()->get('last_name') }}
-                {{ $user->person()->get('username') }}
+                {{ $user->person()->get('username') }} --}}
+
+                @forelse ($user->getAttributes() as $attribute)
+                    {{ $attribute }},
+                @empty
+                    <p>No Columns</p>
+                @endforelse
                 <blockquote></blockquote>
-            @endforeach
+            @empty
+                <p>No Database Entrys</p>
+            @endforelse
         </h3>
     @endisset
 
