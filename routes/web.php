@@ -23,7 +23,6 @@ Route::get('/', function () {
 /* 1a: yield, public */
 Route::get('upload', [ImageController::class, 'upload']);
 Route::post('upload', [ImageController::class, 'store'])->name('upload');
-
 Route::get('show', [ImageController::class, 'show'])->name('show');
 
 /* 2b: components, storage */

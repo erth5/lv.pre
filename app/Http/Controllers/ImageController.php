@@ -6,10 +6,10 @@ use App\Http\Controllers\Modules\ImageValidator;
 use App\Models\Image;
 use Illuminate\Http\Request;
 
-/** (folder)
- * 1a: yield, public 
+/**
+ * --: yield, public ->public_path()
  * 1b: yield, storage
- * 2a: components, public
+ * --: components, public
  * 2b: components, storage
  */
 
@@ -30,15 +30,17 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //2b
+        //1b
         $validation = new ImageValidator($request);
         $validation->imageValidator();
+        // name desciptes the uploaders file-system name
         $name = $request->file('image')->getClientOriginalName();
-        $path = $request->file('image')->store('images');
+        // path descripes the Path from "storage/app/"
+        // $path = $request->file('image')->store('images');
+        $path = $request->file('image')->store('image');
 
         $dbItem = new Image();
         $dbItem->name = $name;
-        // path descripes the name in Path "storage/app/images
         $dbItem->path = $path;
         $dbItem->save();
 
@@ -55,15 +57,45 @@ class ImageController extends Controller
     }
 
 
+    public function show()
+    {
+        $images = Image::all();
+        return view('image.show', compact('images'));
+    }
     // Funktionen
+
     // destroy
     // edit
     // rename->
     //   ...
 
-    //1a
-    public function image()
+    //2b
+    /**
+     * index
+     */
+    public function imageIndex()
     {
         return view('image/image');
+    }
+
+    /**
+     * store function
+     */
+    public function image(Request $request)
+    {
+        $validation = new ImageValidator($request);
+        $validation->imageValidator();
+        $name = $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->store('image');
+
+        $dbItem = new Image();
+        $dbItem->name = $name;
+        // path descripes the name in Path "storage/app/images
+        $dbItem->path = $path;
+        $dbItem->save();
+
+        $images = Image::all();
+        // dd($request, $validation, $dbItem, $name, $path);
+        return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
     }
 }

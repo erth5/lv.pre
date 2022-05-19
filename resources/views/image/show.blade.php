@@ -5,8 +5,20 @@
     @isset($images)
         @forelse ($images as $image)
             {{-- TODO Ressource Route nutzen --}}
-            <img src="{{ asset("$image->path") }}" maxwidth="100" maxheight="100" alt="{{ $image->name }}" />
-            <img src="{{ asset('storage/' . $images[0]->image) }} " />
+            <table style="block">
+                <tr>
+                    <th>
+                        {{ $image->name }}
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        {{asset('/storage/app/' . $image->path)}}
+                        <img src="{{ asset('/storage/' . $image->path) }}" />
+                        <img src="{{ asset("$image->path") }}" maxwidth="100" maxheight="100" alt="{{ $image->name }}" />
+                    </td>
+                </tr>
+            </table>
         @empty
             <p>No Images Saved</p>
         @endforelse
