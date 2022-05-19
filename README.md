@@ -44,3 +44,11 @@ Controllers\Modules only Objective
 Object type
 Objective     Instantiate
 Procedurally   static
+
+## Attention - Symlink -- need to run storage:link on each environment
+
+php artisan storage:link
+from: <https://www.tutussfunny.com/laravel-9-image-upload-and-display/>
+
+The [C:\Users\Eggo5\repo\lv.pre\public\storage] link has been connected to [C:\Users\Eggo5\repo\lv.pre\storage\app/public].
+The links have been created.

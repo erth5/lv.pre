@@ -13,8 +13,8 @@
                 </tr>
                 <tr>
                     <td>
-                        {{asset('/storage/app/' . $image->path)}}
-                        <img src="{{ asset('/storage/' . $image->path) }}" />
+                        {{-- {{ asset('/storage/app/' . $image->path) }} --}}
+                        <img src="{{ asset($image->path) }}" />
                         <img src="{{ asset("$image->path") }}" maxwidth="100" maxheight="100" alt="{{ $image->name }}" />
                     </td>
                 </tr>

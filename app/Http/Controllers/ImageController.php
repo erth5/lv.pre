@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Modules\ImageValidator;
-use App\Models\Image;
 use Illuminate\Http\Request;
+use App\Models\Image;
+use App\Http\Controllers\Modules\ImageValidator;
 
 /**
  * --: yield, public ->public_path()
@@ -15,7 +15,6 @@ use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
-
     /**
      * upload an image
      */
@@ -25,19 +24,42 @@ class ImageController extends Controller
     }
 
     /**
-     * save an image
-     * @param validatedData 
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $images = Image::all();
+        return view('image.show', compact('images'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //1b
         $validation = new ImageValidator($request);
         $validation->imageValidator();
+
         // name desciptes the uploaders file-system name
         $name = $request->file('image')->getClientOriginalName();
-        // path descripes the Path from "storage/app/"
-        // $path = $request->file('image')->store('images');
-        $path = $request->file('image')->store('image');
+        // path descripes the Path from "storage/app/" with symlink to public
+        $path = $request->file('image')->store('public');
 
         $dbItem = new Image();
         $dbItem->name = $name;
@@ -49,25 +71,52 @@ class ImageController extends Controller
         return redirect('upload')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
     }
 
-    public function remove(Image $image)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
     {
         // $image = Imagename;
         // $image->delete();
         // return redirect('images', compact('$dbItems = Image::all()'))->with('status', 'Image Has been removed')->with('Image', $name);
     }
-
-
-    public function show()
-    {
-        $images = Image::all();
-        return view('image.show', compact('images'));
-    }
-    // Funktionen
-
-    // destroy
-    // edit
-    // rename->
-    //   ...
 
     //2b
     /**
@@ -77,6 +126,7 @@ class ImageController extends Controller
     {
         return view('image/image');
     }
+
 
     /**
      * store function
