@@ -29,3 +29,18 @@ php artisan db:seed --class=UserSeeder
 php artisan db:seed --class=PersonSeeder
 
 php artisan db:wipe --force
+
+## distriction
+
+First Language English (US)
+Second Language German (DE)
+
+views/components    No Routing
+
+app\Http\
+Services            only Procedurally
+Controllers\Modules only Objective
+
+Object type
+Objective     Instantiate
+Procedurally   static

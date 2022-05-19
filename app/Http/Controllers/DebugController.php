@@ -75,7 +75,7 @@ class DebugController extends Controller
                 echo storage_path('app') . "<br>";;
                 break;
             default:
-                return view('debug.main');
+                return view('debug.layout');
         }
         // abort(404);
     }

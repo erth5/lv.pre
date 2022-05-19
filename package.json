@@ -1,6 +1,8 @@
 {
     "private": true,
     "scripts": {
+        "fg": "php artisan serve",
+        "bg": "mix watch",
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",

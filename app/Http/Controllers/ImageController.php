@@ -22,6 +22,17 @@ class ImageController extends Controller
         $validation = new ImageValidator($request);
         $validation->imageValidator();
 
+        /**
+         * 1a: several files, public folder
+         * 1b: several files, storage folder
+         * 2a: one file, public folder
+         * 2b: one file, storage folder
+         */
+
+        //several files, public folder
+
+
+        //one file, storage folder
         $name = $request->file('image')->getClientOriginalName();
         $path = $request->file('image')->store('images');
 

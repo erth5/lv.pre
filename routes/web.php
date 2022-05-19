@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\debugController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ImageController;
-use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +20,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('image', [ImageController::class, 'index']);
-Route::post('image', [ImageController::class, 'store'])->name('image.store');
+Route::get('image', [ImageController::class, 'index'])->name('image');
+Route::post('image', [ImageController::class, 'store']);
 
 // Debug
 Route::redirect('debug/debug', '/debug', 301);
