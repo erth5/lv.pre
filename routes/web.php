@@ -23,16 +23,16 @@ Route::get('/', function () {
 /* 1a: yield, public */
 Route::get('upload', [ImageController::class, 'upload']);
 Route::post('upload', [ImageController::class, 'store'])->name('upload');
+Route::resource('show', ImageController::class); // Syntax 1, no array anomaly
 Route::get('show', [ImageController::class, 'index'])->name('index');
 
 /* 2b: components, storage */
 Route::get('image', [ImageController::class, 'image']);
 
 /* Debug  */
-Route::redirect('debug/debug', '/debug', 301);
-
 $debugRoutes = array('test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route) {
+    Route::redirect($route . '/debug', '/debug', 301);
     Route::get($route . '/user', [PersonController::class, 'index']);
     Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
 }

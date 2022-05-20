@@ -10,7 +10,7 @@
             <button type="button">×</button>
             <strong style="text-align: center">{{ $message }}</strong>
         </div>
-        <img src="images/{{ Session::get('image') }}">
+        <img src="image/{{ Session::get('image') }}">
     @endif
 
     <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data">
@@ -26,6 +26,6 @@
 
     <br>
     @php
-    $images = session::get('images');
+    $image = session::get('image');
     @endphp
 @endsection

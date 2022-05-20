@@ -46,6 +46,11 @@ class ImageController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * 
+     * @param image array all saved images
+     * @param name string name of image
+     * @param path string path of image
+     * @param requestData meta data from image
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -56,19 +61,18 @@ class ImageController extends Controller
         $validation = new ImageValidator($request);
         $validation->imageValidator();
 
-        // name desciptes the uploaders file-system name
-        $name = $request->file('image')->getClientOriginalName();
-        // path descripes the Path from "storage/app/" with symlink to public
-        $path = $request->file('image')->store('public');
-
-        $dbItem = new Image();
-        $dbItem->name = $name;
-        $dbItem->path = $path;
-        $dbItem->save();
-
-        $images = Image::all();
-        // dd($request, $validation, $dbItem, $name, $path);
-        return redirect('upload')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
+        /**Syntax 1
+         * 
+         */
+        $requestData = $request->all();
+        // dd($requestData);
+        $name = time() . $request->file('image')->getClientOriginalName();
+        // storeAs: $path, $name, $options = []
+        $path = $request->file('image')->storeAs('images', $name, 'public');
+        $requestData["image"] = '/storage/' . $path;
+        Image::create($requestData);
+        $image = Image::all();
+        return redirect('upload')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('image', $image);
     }
 
     /**

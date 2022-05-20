@@ -13,8 +13,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <img src="{{ asset($image->path) }}" maxwidth="100" maxheight="100" alt="{{ $image->name }}" />''
-                        <img src="{{ asset($image->path) }}" width= '50' height='50' />
+                        {{-- // einsetzen in path funktioniert nicht? --}}
+                        {{ asset($image->path) }}
+                        {{-- <img src="{{ asset($image->path) }}" maxwidth="100" maxheight="100" alt="{{ $image->name }}" /> --}}
+                        {{-- <img src="{{ asset('storage/yn05gYmMjLx5zS0JIcyGOOMbMGaC9tBsOGcGmttr.jpg') }}" width='50'
+                            height='50' /> --}}
+                        <img src="{{ asset($image->path) }}" width='150' height='50' />
                     </td>
                 </tr>
             </table>
