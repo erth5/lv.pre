@@ -41,7 +41,7 @@ class DebugTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/debug/debug')
-                ->assertTitle('Laravel Debug')
+                ->assertTitle('Debug: debug')
                 ->assertPathIs('/debug');
         });
     }
