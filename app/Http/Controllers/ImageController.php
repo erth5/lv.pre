@@ -117,9 +117,9 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        // $image = Imagename;
-        // $image->delete();
-        // return redirect('images', compact('$dbItems = Image::all()'))->with('status', 'Image Has been removed')->with('Image', $name);
+        $deleteableImage = Image::find($id);
+        $deleteableImage->delete();
+        return redirect('images', compact('$dbItems = Image::all()'))->with('status', 'Image Has been removed')->with('Image', $deleteableImage);
     }
 
     //2b

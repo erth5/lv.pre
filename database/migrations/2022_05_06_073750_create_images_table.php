@@ -8,6 +8,8 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * 
+     * uploader can be guest -> nullable
      *
      * @return void
      */

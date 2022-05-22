@@ -23,8 +23,12 @@ Route::get('/', function () {
 /* 1a: yield, public */
 Route::get('upload', [ImageController::class, 'upload']);
 Route::post('upload', [ImageController::class, 'store'])->name('upload');
-Route::resource('show', ImageController::class); // Syntax 1, no array anomaly
-Route::get('show', [ImageController::class, 'index'])->name('index');
+// Syntax 1, no array anomaly
+Route::resource('show', ImageController::class);
+// Route::get('show', [ImageController::class, 'index'])->name('index');
+
+// TODO ? correct post method for that
+Route::delete('remove/{id?}', [ImageController::class, 'show']);
 
 /* 2b: components, storage */
 Route::get('image', [ImageController::class, 'image']);
