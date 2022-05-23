@@ -60,6 +60,10 @@ class ImageController extends Controller
         //1b
         $validation = new ImageValidator($request);
         $validation->imageValidator();
+        // Not implement jet
+        if ($validation != true){
+            return back()->with('status', 'dismiss');
+        }
 
         /**Syntax 1
          * 

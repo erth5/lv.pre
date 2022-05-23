@@ -17,8 +17,8 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('path');
+            $table->string('name')->default('Fehler:Pflichtangabe sollte hier nicht sein');
+            $table->string('path')->default('Fehler:Pflichtangabe sollte hier nicht sein');
             $table->integer('person_id')->unsigned()->nullable();
             $table->foreign('person_id')->references('id')->on('people');
             $table->timestamp('upload_time', 0)->nullable();
