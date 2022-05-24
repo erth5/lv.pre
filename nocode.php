@@ -13,3 +13,13 @@ https://www.tutsmake.com/laravel-9-upload-image-example-tutorial/
         dd($request, $validation, $dbItem, $name, $path);
 
         
+    
+
+
+
+
+
+
+
+
+        // Route::get('image', [ImageController::class, 'image']);

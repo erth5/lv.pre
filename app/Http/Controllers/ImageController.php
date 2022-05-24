@@ -61,7 +61,7 @@ class ImageController extends Controller
         $validation = new ImageValidator($request);
         $validation->imageValidator();
         // Not implement jet
-        if ($validation != true){
+        if ($validation != true) {
             return back()->with('status', 'dismiss');
         }
 
@@ -126,21 +126,18 @@ class ImageController extends Controller
         return redirect('images', compact('$dbItems = Image::all()'))->with('status', 'Image Has been removed')->with('Image', $deleteableImage);
     }
 
-    //2b
-    /**
-     * index
-     */
-    public function imageIndex()
-    {
-        return view('image/image');
-    }
-
-
-    /**
+    /** 2b
      * store function
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
     public function image(Request $request)
     {
+        // TODO Erkenne post oder get
+        return view('image/image');
+
+        //
+
         $validation = new ImageValidator($request);
         $validation->imageValidator();
         $name = $request->file('image')->getClientOriginalName();
@@ -156,4 +153,32 @@ class ImageController extends Controller
         // dd($request, $validation, $dbItem, $name, $path);
         return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
     }
+
+    /** Debug */
+    public function debug(Request $req)
+    {
+        //Display File Name
+        echo 'File Name: ' . $req->getClientOriginalName();
+        echo '<br>';
+
+        //Display File Extension
+        echo 'File Extension: ' . $req->getClientOriginalExtension();
+        echo '<br>';
+
+        //Display File Real Path
+        echo 'File Real Path: ' . $req->getRealPath();
+        echo '<br>';
+
+        //Display File Size
+        echo 'File Size: ' . $req->getSize();
+        echo '<br>';
+
+        //Display File Mime Type
+        echo 'File Mime Type: ' . $req->getMimeType('JJJJ:MM:DD');
+
+        //copy Uploaded File
+        $destinationPath = 'debugPath';
+        $req->copy($destinationPath, $req->getClientOriginalName());
+    }
+    /** Debug */
 }
