@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4292c30d2ed6a15ba5b040b3c764120",
+    "content-hash": "2a811156dff74031033e3c5d6637487c",
     "packages": [
         {
             "name": "brick/math",
@@ -5238,6 +5238,64 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "apih/laravel-route-list-web",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/apih/laravel-route-list-web.git",
+                "reference": "843f62ab023f6ee11285e0add3badd6b5d782d5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/apih/laravel-route-list-web/zipball/843f62ab023f6ee11285e0add3badd6b5d782d5b",
+                "reference": "843f62ab023f6ee11285e0add3badd6b5d782d5b",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.0|^9.0",
+                "php": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Apih\\RouteListWeb\\RouteListWebServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Apih\\RouteListWeb\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohd Hafizuddin M Marzuki",
+                    "email": "hafizuddin_83@yahoo.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "View all routes for your Laravel app via a web page in a browser",
+            "homepage": "https://github.com/apih/laravel-route-list-web",
+            "keywords": [
+                "apih",
+                "browser",
+                "gui",
+                "laravel",
+                "php",
+                "route list"
+            ],
+            "support": {
+                "issues": "https://github.com/apih/laravel-route-list-web/issues",
+                "source": "https://github.com/apih/laravel-route-list-web/tree/v1.0.0"
+            },
+            "time": "2022-02-19T04:27:15+00:00"
+        },
         {
             "name": "brianium/paratest",
             "version": "v6.4.4",

@@ -44,7 +44,7 @@
 <a href="/debug/controllers">controllers</a>
 <blockquote></blockquote>
 
-<a class="disabled" href="/route:list">Route-List(apih)</a>
+<a href="/route:list">Route-List(apih)</a>
 <a href="/telescope">Telescope</a>
 <a class="disabled" href="">Swagger</a>
 <blockquote></blockquote>
@@ -53,11 +53,12 @@
 <blockquote></blockquote>
 <br>
 <p>Image-1a: yield, public</p>
-<a href="/upload">upload</a>
-<a href="/show">show</a>
-<a href="/edit">edit</a>
-<a href="/change">change</a>
-<a href="/destroy">remove</a>
+<a href="image">index</a>
+<a href="image/create">upload</a>
+<a href="image/edit/1">edit first</a>
+<a href="image/show/1">show first</a>
+<a href="image/change/1">change first</a>
+<a href="image/destroy/1">remove first</a>
 
 <p>Image-2b: components, storage</p>
 <a href="/image">index</a>

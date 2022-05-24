@@ -2,27 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Image;
 use App\Http\Controllers\Modules\ImageValidator;
-
-/**
- * --: yield, public ->public_path()
- * 1b: yield, storage
- * --: components, public
- * 2b: components, storage
- */
+use App\Models\Image;
+use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
-    /**
-     * upload an image
-     */
-    public function upload(Request $request)
-    {
-        return view('image/upload');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +16,7 @@ class ImageController extends Controller
     public function index()
     {
         $images = Image::all();
-        return view('image.show', compact('images'));
+        return view('image.index', compact('images'));
     }
 
     /**
@@ -41,16 +26,11 @@ class ImageController extends Controller
      */
     public function create()
     {
-        //
+        return view('image/upload');
     }
 
     /**
      * Store a newly created resource in storage.
-     * 
-     * @param image array all saved images
-     * @param name string name of image
-     * @param path string path of image
-     * @param requestData meta data from image
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -58,18 +38,22 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         //1b
-        $validation = new ImageValidator($request);
-        $validation->imageValidator();
-        // Not implement jet
-        if ($validation != true) {
-            return back()->with('status', 'dismiss');
+        $validator = new ImageValidator($request);
+        $validator->proofImageExist();
+        if ($validator != true) {
+            dd('f1');
         }
 
-        /**Syntax 1
-         * 
+        $validator->validateImage();
+        // Not implement jet
+        if ($validator != true) {
+            dd('f2');
+            // return back()
+        }
+
+        /** Syntax 1
          */
         $requestData = $request->all();
-        // dd($requestData);
         $name = time() . $request->file('image')->getClientOriginalName();
         // storeAs: $path, $name, $options = []
         $path = $request->file('image')->storeAs('images', $name, 'public');
@@ -77,15 +61,18 @@ class ImageController extends Controller
         Image::create($requestData);
         $image = Image::all();
         return redirect('upload')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('image', $image);
+
+        /** Syntax 2
+         */
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Image $image)
     {
         //
     }
@@ -93,10 +80,10 @@ class ImageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Image $image)
     {
         //
     }
@@ -105,10 +92,10 @@ class ImageController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Image $image)
     {
         //
     }
@@ -116,69 +103,13 @@ class ImageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Image $image)
     {
-        $deleteableImage = Image::find($id);
-        $deleteableImage->delete();
-        return redirect('images', compact('$dbItems = Image::all()'))->with('status', 'Image Has been removed')->with('Image', $deleteableImage);
+        // $deleteableImage = Image::find($image);
+        $image->delete();
+        return redirect('images', compact('$dbItems = Image::all()'))->with('status', 'Image Has been removed')->with('Image', $image);
     }
-
-    /** 2b
-     * store function
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function image(Request $request)
-    {
-        // TODO Erkenne post oder get
-        return view('image/image');
-
-        //
-
-        $validation = new ImageValidator($request);
-        $validation->imageValidator();
-        $name = $request->file('image')->getClientOriginalName();
-        $path = $request->file('image')->store('image');
-
-        $dbItem = new Image();
-        $dbItem->name = $name;
-        // path descripes the name in Path "storage/app/images
-        $dbItem->path = $path;
-        $dbItem->save();
-
-        $images = Image::all();
-        // dd($request, $validation, $dbItem, $name, $path);
-        return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
-    }
-
-    /** Debug */
-    public function debug(Request $req)
-    {
-        //Display File Name
-        echo 'File Name: ' . $req->getClientOriginalName();
-        echo '<br>';
-
-        //Display File Extension
-        echo 'File Extension: ' . $req->getClientOriginalExtension();
-        echo '<br>';
-
-        //Display File Real Path
-        echo 'File Real Path: ' . $req->getRealPath();
-        echo '<br>';
-
-        //Display File Size
-        echo 'File Size: ' . $req->getSize();
-        echo '<br>';
-
-        //Display File Mime Type
-        echo 'File Mime Type: ' . $req->getMimeType('JJJJ:MM:DD');
-
-        //copy Uploaded File
-        $destinationPath = 'debugPath';
-        $req->copy($destinationPath, $req->getClientOriginalName());
-    }
-    /** Debug */
 }

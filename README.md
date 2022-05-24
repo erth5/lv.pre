@@ -4,10 +4,11 @@ Template for Laravel Projects
 
 MADE For Europe/German use
 
-## TODO
+## Integrated
 
 <https://github.com/apih/laravel-route-list-web>
-Missing updates
+
+## TODO
 
 <https://github.com/CrestApps/laravel-code-generator>
 can be better

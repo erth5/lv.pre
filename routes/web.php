@@ -20,26 +20,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/* 1a: yield, public */
-Route::get('upload', [ImageController::class, 'upload']);
-Route::post('upload', [ImageController::class, 'store'])->name('upload');
-// Route::get('show', [ImageController::class, 'index'])->name('index');
-
-// Syntax: no array anomaly - not needet //
-Route::resource('index', ImageController::class);
-// TODO ? correct post method for that
-Route::delete('remove/{id?}', [ImageController::class, 'show']);
-
-/* 2b: components, storage */
-Route::match(array('GET', 'POST'), '/image', [ImageController::class, 'image'])->name('image');
+/* 1a: yield, public */ //TODO del comment
+/* 2b: components, storage */ //TODO del comment
+Route::resource('image', ImageController::class);
+// Route::match(array('GET', 'POST'), '/image', [ImageController::class, 'image'])->name('image');
 
 /* Debug  */
-Route::get('/debugImage', [ImageController::class, 'debug']);
-Route::post('/debugImage', [ImageController::class, 'debug']);
+Route::post('/image/debug', [ImageController::class, 'debug'])->name('image.debug');
 
 $debugRoutes = array('test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route) {
-    Route::redirect($route . '/debug', '/debug', 301);
+    Route::redirect($route . '/debug', '/debug', 301); //generate 'any'
     Route::get($route . '/user', [PersonController::class, 'index']);
     Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
 }

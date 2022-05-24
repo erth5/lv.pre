@@ -18,8 +18,8 @@ https://www.tutsmake.com/laravel-9-upload-image-example-tutorial/
 
 
 
-
-
+CRUD!
+        https://www.itsolutionstuff.com/post/laravel-9-resource-route-and-controller-exampleexample.html
 
 
         // Route::get('image', [ImageController::class, 'image']);
