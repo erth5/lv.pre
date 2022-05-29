@@ -53,14 +53,14 @@
 <blockquote></blockquote>
 <br>
 <p>Image-1a: yield, public</p>
-<a href="image">index</a>
-<a href="image/create">upload</a>
-<a href="image/edit/1">edit first</a>
-<a href="image/show/1">show first</a>
-<a href="image/change/1">change first</a>
-<a href="image/destroy/1">remove first</a>
+<a href="/image">index</a>
+<a href="/image/create">upload</a>
+<a href="/image/edit/1">edit first</a>
+<a href="/image/show/1">show first</a>
+<a href="/image/change/1">change first</a>
+<a href="/image/destroy/1">remove first</a>
 
 <p>Image-2b: components, storage</p>
-<a href="/image">index</a>
+<a href="/img">image</a>
 <blockquote></blockquote>
 <br>

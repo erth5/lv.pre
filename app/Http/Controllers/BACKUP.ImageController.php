@@ -153,31 +153,5 @@ class ImageController extends Controller
         return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
     }
 
-    /** Debug */
-    public function debug(Request $req)
-    {
-        //Display File Name
-        echo 'File Name: ' . $req->getClientOriginalName();
-        echo '<br>';
 
-        //Display File Extension
-        echo 'File Extension: ' . $req->getClientOriginalExtension();
-        echo '<br>';
-
-        //Display File Real Path
-        echo 'File Real Path: ' . $req->getRealPath();
-        echo '<br>';
-
-        //Display File Size
-        echo 'File Size: ' . $req->getSize();
-        echo '<br>';
-
-        //Display File Mime Type
-        echo 'File Mime Type: ' . $req->getMimeType('JJJJ:MM:DD');
-
-        //copy Uploaded File
-        $destinationPath = 'debugPath';
-        $req->copy($destinationPath, $req->getClientOriginalName());
-    }
-    /** Debug */
 }

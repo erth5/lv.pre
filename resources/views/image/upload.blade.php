@@ -13,7 +13,7 @@
         <img src="image/{{ Session::get('image') }}">
     @endif
 
-    <form action="{{ route('image/create') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label class="form-label" for="inputImage">Image:</label>
         <input type="file" name="image" id="inputImage" class="form-control @error('image') is-invalid @enderror">
@@ -24,9 +24,11 @@
         <button type="submit">Upload</button>
     </form>
 
-    <form action="{{ route('debugImage') }}" method="POST" enctype="multipart/form-data">
-        <input type="file" name="debug">
+    <form action="{{ route('image.debug') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        <label class="form-label" for="inputImage">Debug:</label>
+        <input type="file" name="debug">
+        <button type="submit">Debug</button>
     </form>
 
     <br>

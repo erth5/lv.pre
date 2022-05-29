@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Modules\ImageValidator;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -15,7 +16,7 @@ class ImageController extends Controller
      */
     public function index()
     {
-        $images = Image::all();
+        $images = Image::withTrashed()->get();
         return view('image.index', compact('images'));
     }
 
@@ -26,7 +27,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        return view('image/upload');
+        return view('/image.upload');
     }
 
     /**
@@ -37,33 +38,32 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        //1b
         $validator = new ImageValidator($request);
-        $validator->proofImageExist();
-        if ($validator != true) {
-            dd('f1');
-        }
+        //1b
+        // $validator->proofImageExist();
+        // if ($validator != true) {
+        // dd('f1');
+        // }
 
-        $validator->validateImage();
         // Not implement jet
-        if ($validator != true) {
-            dd('f2');
-            // return back()
-        }
+        // $validator->validateImage();
+        // if ($validator != true) {
+        // dd('f2');
+        // return back()
+        // }
 
         /** Syntax 1
+         * storeAs: $path, $name, $options = []
          */
         $requestData = $request->all();
         $name = time() . $request->file('image')->getClientOriginalName();
-        // storeAs: $path, $name, $options = []
         $path = $request->file('image')->storeAs('images', $name, 'public');
         $requestData["image"] = '/storage/' . $path;
-        Image::create($requestData);
-        $image = Image::all();
-        return redirect('upload')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('image', $image);
-
-        /** Syntax 2
-         */
+        $metadata = Image::create();
+        $metadata->name = $name;
+        $metadata->path = $path;
+        $metadata->saveOrFail();
+        return redirect('/image/create')->with('status', 'Image Has been uploaded:')->with('imageName', $name);
     }
 
     /**
@@ -108,8 +108,44 @@ class ImageController extends Controller
      */
     public function destroy(Image $image)
     {
-        // $deleteableImage = Image::find($image);
+        /** Soft-delete */
         $image->delete();
-        return redirect('images', compact('$dbItems = Image::all()'))->with('status', 'Image Has been removed')->with('Image', $image);
+
+        /** Hard-delete */
+        // $image->forceDelete();
+        // if (Storage::exists('public/' . $image->path)) {
+        //     Storage::delete('public/' . $image->path);
+        // }
+
+        return redirect('image')->with('status', 'Image Has been removed');
     }
+
+    /** Debug */
+    public function debug(Request $req)
+    {
+        return $req;
+        //Display File Name
+        echo 'File Name: ' . $req->getClientOriginalName();
+        echo '<br>';
+
+        //Display File Extension
+        echo 'File Extension: ' . $req->getClientOriginalExtension();
+        echo '<br>';
+
+        //Display File Real Path
+        echo 'File Real Path: ' . $req->getRealPath();
+        echo '<br>';
+
+        //Display File Size
+        echo 'File Size: ' . $req->getSize();
+        echo '<br>';
+
+        //Display File Mime Type
+        echo 'File Mime Type: ' . $req->getMimeType('JJJJ:MM:DD');
+
+        //copy Uploaded File
+        $destinationPath = 'debugPath';
+        $req->copy($destinationPath, $req->getClientOriginalName());
+    }
+    /** Debug */
 }

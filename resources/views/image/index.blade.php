@@ -5,28 +5,24 @@
     @isset($images)
         @forelse ($images as $image)
             {{-- TODO Ressource Route nutzen --}}
-            <table style="block">
-                <tr>
-                    <th>
-                        {{ $image->name }}
-                    </th>
-                </tr>
-                <tr>
-                    <td>
+            <div style="display: inline-block">
+                <p>{{ $image->name }}</p>
+                @if ($image->remove_time != null)
+                    <p>deleted at: {{ $image->remove_time }}</p>
+                    <button type="submit">restore</button>
+                @else
+                    <p>online</p>
+                    <p>{{ asset('storage/' . $image->path) }}</p>
 
+                    <img src="{{ asset('storage/' . $image->path) }}" width='250' />
+                    <form action="{{ url('image/' . $image->id) }}" method="post">
                         @csrf
-                        {{-- // einsetzen in path funktioniert nicht? --}}
-                        {{ asset($image->path) }}
-                        {{-- <img src="{{ asset($image->path) }}" maxwidth="100" maxheight="100" alt="{{ $image->name }}" /> --}}
-                        {{-- <img src="{{ asset('storage/yn05gYmMjLx5zS0JIcyGOOMbMGaC9tBsOGcGmttr.jpg') }}" width='50'
-                            height='50' /> --}}
-                        <img src="{{ asset($image->path) }}" width='150' height='50' />
-                        <form action="{{ url('remove/' . $image->id) }}" method="post">
-                            <button type="submit">remove</button>
-                        </form>
-                    </td>
-                </tr>
-            </table>
+                        @method('DELETE')
+                        {{-- <a href="delete/{{ $image->id }}">remove</a> --}}
+                        <button type="submit" value="submit">remove</button>
+                    </form>
+                @endif
+            </div>
         @empty
             <p>No Images Saved</p>
         @endforelse

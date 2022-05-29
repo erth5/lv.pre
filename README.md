@@ -19,6 +19,13 @@ can be better
 
 <https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
 
+https://laravel-news.com/config-validator
+
+## variants
+
+image v1: has-pics, seperated-yield, ressource
+image v2: named-pics, merged-component, any?
+
 ### Outcludet
 
 - Validation (LiveWire)

@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Image extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -18,6 +19,8 @@ class Image extends Model
         'name',
         'path',
     ];
+
+    protected $dates = ['deleted_at'];
 
     // reverse changed column name to original
     const CREATED_AT = 'upload_time';

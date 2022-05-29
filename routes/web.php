@@ -23,6 +23,7 @@ Route::get('/', function () {
 /* 1a: yield, public */ //TODO del comment
 /* 2b: components, storage */ //TODO del comment
 Route::resource('image', ImageController::class);
+Route::get('upload', [ImageController::class, 'create']);
 // Route::match(array('GET', 'POST'), '/image', [ImageController::class, 'image'])->name('image');
 
 /* Debug  */
@@ -30,7 +31,7 @@ Route::post('/image/debug', [ImageController::class, 'debug'])->name('image.debu
 
 $debugRoutes = array('test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route) {
-    Route::redirect($route . '/debug', '/debug', 301); //generate 'any'
+    Route::redirect($route . '/debug', '/debug', 301); //generates 'any'
     Route::get($route . '/user', [PersonController::class, 'index']);
     Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
 }
