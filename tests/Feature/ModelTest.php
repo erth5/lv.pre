@@ -108,25 +108,28 @@ class ModelTest extends TestCase
      *
      * @return void
      */
-    public function test_db_schema_voreground_exist_batch()
+    public function test_db_schema_foreground_exist_batch()
     {
         // https://code-boxx.com/php-read-file/
         // $allDbNames =  file("database/migrations/migration_list.txt", FILE_SKIP_EMPTY_LINES);
 
         $allDbNamesArray = array();
-        $allDbNames = fopen("database/migrations/voreground_tables.txt", 'r') or die('error reading file');
-        while (!feof($allDbNames)) {
-            $textperline = fgets($allDbNames);
-            // echo ($textperline);
-            array_push($allDbNamesArray, $textperline);
+        if (file_exists("database/migrations/foreground_tables.txt")) {
+
+            $allDbNames = fopen("database/migrations/foreground_tables.txt", 'r') or die('error reading file');
+            while (!feof($allDbNames)) {
+                $textperline = fgets($allDbNames);
+                // echo ($textperline);
+                array_push($allDbNamesArray, $textperline);
+            }
+            foreach ($allDbNamesArray as $dbScheme) {
+                if (Schema::hasTable($textperline)) {
+                    $this->assertTrue(true);
+                } else
+                    $this->assertFalse(true);
+            }
+            fclose($allDbNames);
         }
-        foreach ($allDbNamesArray as $dbScheme) {
-            if (Schema::hasTable($textperline)) {
-                $this->assertTrue(true);
-            } else
-                $this->assertFalse(true);
-        }
-        fclose($allDbNames);
     }
 
     /**
@@ -139,20 +142,22 @@ class ModelTest extends TestCase
         // https://code-boxx.com/php-read-file/
         // $allDbNames =  file("database/migrations/migration_list.txt", FILE_SKIP_EMPTY_LINES);
 
-        $allDbNamesArray = array();
-        $allDbNames = fopen("database/migrations/background_tables.txt", 'r') or die('error reading file');
-        while (!feof($allDbNames)) {
-            $textperline = fgets($allDbNames);
-            // echo ($textperline);
-            array_push($allDbNamesArray, $textperline);
+        if (file_exists("database/migrations/background_tables.txt")) {
+            $allDbNamesArray = array();
+            $allDbNames = fopen("database/migrations/background_tables.txt", 'r') or die('error reading file');
+            while (!feof($allDbNames)) {
+                $textperline = fgets($allDbNames);
+                // echo ($textperline);
+                array_push($allDbNamesArray, $textperline);
+            }
+            foreach ($allDbNamesArray as $dbScheme) {
+                if (Schema::hasTable($textperline)) {
+                    $this->assertTrue(true);
+                } else
+                    $this->assertFalse(true);
+            }
+            fclose($allDbNames);
         }
-        foreach ($allDbNamesArray as $dbScheme) {
-            if (Schema::hasTable($textperline)) {
-                $this->assertTrue(true);
-            } else
-                $this->assertFalse(true);
-        }
-        fclose($allDbNames);
     }
 
     /**
