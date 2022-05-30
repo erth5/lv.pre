@@ -16,18 +16,18 @@ class PersonSeeder extends Seeder
      */
     public function run()
     {
-        // Standard Demo Nutzer
+        // Default Demo User
         Person::factory()->create([
             'user_id' => User::factory()->create([
                 'name' => 'Max Mustermann',
                 'email' => 'fdsdwp@protonmail.com',
                 'password' => bcrypt('password'),
                 'email_verified_at' => now(),
-                'remember_token' => token_name(10),
+                'remember_token' => token_name(10)
             ])->first(),
             'surname' => 'Max',
             'last_name' => 'Mustermann',
-            'username' => 'laraveller',
+            'username' => 'laraveller'
         ]);
 
         /**
