@@ -30,6 +30,7 @@ class DebugController extends Controller
 
     /**
      * Display a listing of the resource.
+     * break not needed
      *
      * @return \Illuminate\Http\Response
      */
@@ -62,6 +63,9 @@ class DebugController extends Controller
             case 'controllers':
                 return view('debug.controllers');
                 break;
+            case 'lang':
+                return view('debug.lang');
+                break;
             case 'path':
                 // Path to the project's root folder
                 echo base_path() . "<br>";
@@ -78,61 +82,6 @@ class DebugController extends Controller
                 return view('debug.layout');
         }
         // abort(404);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoredebugRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreDebugRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\debug  $debug
-     * @return \Illuminate\Http\Response
-     */
-    public function show(debug $debug)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\debug  $debug
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(debug $debug)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatedebugRequest  $request
-     * @param  \App\Models\debug  $debug
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateDebugRequest $request, debug $debug)
-    {
-        //
     }
 
     /**

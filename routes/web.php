@@ -29,7 +29,7 @@ Route::get('upload', [ImageController::class, 'create']);
 /* Debug  */
 Route::post('/image/debug', [ImageController::class, 'debug'])->name('image.debug');
 
-$debugRoutes = array('test', 'debug', 'info', 'help', 'www');
+$debugRoutes = array('test', 'debug', 'info', 'help', 'www', 'lang');
 foreach ($debugRoutes as $route) {
     Route::redirect($route . '/debug', '/debug', 301); //generates 'any'
     Route::get($route . '/user', [PersonController::class, 'index']);

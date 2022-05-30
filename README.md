@@ -10,6 +10,11 @@ MADE For Europe/German use
 
 <https://publisher.laravel-lang.com>
 
+```
+composer require laravel-lang/publisher laravel-lang/lang --dev
+php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
+```
+
 ## Outcludet
 
 - Validations (for example Realize with: LiveWire)

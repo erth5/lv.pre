@@ -15,7 +15,7 @@
 
     <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <label class="form-label" for="inputImage">Image:</label>
+        <label for="inputImage">Image:</label>
         <input type="file" name="image" id="inputImage" class="form-control @error('image') is-invalid @enderror">
 
         @error('image')
@@ -26,7 +26,7 @@
 
     <form action="{{ route('image.debug') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <label class="form-label" for="inputImage">Debug:</label>
+        <label for="inputImage">Debug:</label>
         <input type="file" name="debug">
         <button type="submit">Debug</button>
     </form>
