@@ -8,35 +8,28 @@ MADE For Europe/German use
 
 <https://github.com/apih/laravel-route-list-web>
 
-## TODO
+<https://publisher.laravel-lang.com>
 
-<https://github.com/CrestApps/laravel-code-generator>
-can be better
+## Outcludet
 
-### Tutorials(not implemented)
+- Validations (for example Realize with: LiveWire)
 
-#### ...toMany relationships
+## Variants
 
-<https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
+- image v1: has-pics, seperated-yield, ressource
+- image v2: named-pics, merged-component, any?
 
-https://laravel-news.com/config-validator
+## Artisans
 
-## variants
-
-image v1: has-pics, seperated-yield, ressource
-image v2: named-pics, merged-component, any?
-
-### Outcludet
-
-- Validation (LiveWire)
-
-### Artisans
-
+```
 php artisan migrate:fresh --seed
 php artisan db:seed --class=UserSeeder
 php artisan db:seed --class=PersonSeeder
+```
 
+```
 php artisan db:wipe --force
+```
 
 ## distriction
 
@@ -53,10 +46,20 @@ Object type
 Objective     Instantiate
 Procedurally   static
 
-## Attention - Symlink -- need to run storage:link on each environment
+## Symlink is need to run storage:link on EACH environment
 
 php artisan storage:link
-from: <https://www.tutussfunny.com/laravel-9-image-upload-and-display/>
 
 The [C:\Users\Eggo5\repo\lv.pre\public\storage] link has been connected to [C:\Users\Eggo5\repo\lv.pre\storage\app/public].
 The links have been created.
+
+## TODO Tutorials(not implemented)
+
+<https://github.com/CrestApps/laravel-code-generator>
+can be better
+
+<https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
+many rel ships
+
+<https://laravel-news.com/config-validator>
+todo
