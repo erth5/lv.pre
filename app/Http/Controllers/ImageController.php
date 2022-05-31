@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Modules\ImageValidator;
 use App\Models\Image;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+
+/**
+ * 1b: yield, storage, withName
+ * 2b: components, storage
+ */
 
 class ImageController extends Controller
 {
@@ -32,6 +36,11 @@ class ImageController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * 
+     * @param image array all saved images
+     * @param name string name of image
+     * @param path string path of image
+     * @param requestData meta data from image
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -52,7 +61,7 @@ class ImageController extends Controller
         // return back()
         // }
 
-        /** Syntax 1
+        /** Syntax 1b
          * storeAs: $path, $name, $options = []
          */
         $requestData = $request->all();
@@ -119,6 +128,37 @@ class ImageController extends Controller
 
         return redirect('image')->with('status', 'Image Has been removed');
     }
+
+
+    // /** 2b
+    //  * store function
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function image(Request $request)
+    // {
+    //     // TODO Erkenne post oder get
+    //     return view('image/image');
+
+    //     //
+
+    //     $validation = new ImageValidator($request);
+    //     $validation->imageValidator();
+    //     $name = $request->file('image')->getClientOriginalName();
+    //     $path = $request->file('image')->store('image');
+
+    //     $dbItem = new Image();
+    //     $dbItem->name = $name;
+    //     // path descripes the name in Path "storage/app/images
+    //     $dbItem->path = $path;
+    //     $dbItem->save();
+
+    //     $images = Image::all();
+    //     // dd($request, $validation, $dbItem, $name, $path);
+    //     return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
+    // }
+
+
 
     /** Debug */
     public function debug(Request $req)

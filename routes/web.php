@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\debugController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\LangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::get('upload', [ImageController::class, 'create']);
 /* Debug  */
 Route::post('/image/debug', [ImageController::class, 'debug'])->name('image.debug');
 
-$debugRoutes = array('test', 'debug', 'info', 'help', 'www', 'lang');
+$debugRoutes = array('test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route) {
     Route::redirect($route . '/debug', '/debug', 301); //generates 'any'
     Route::get($route . '/user', [PersonController::class, 'index']);
@@ -38,6 +39,10 @@ foreach ($debugRoutes as $route) {
 Route::get('hello', function () {
     echo 'hello World';
 });
+
+/** Lang Test */
+Route::get('/lang/home', [LangController::class, 'index']); 
+Route::get('/lang/change', [LangController::class, 'change'])->name('changeLang');
 
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');

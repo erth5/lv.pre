@@ -28,6 +28,7 @@ class DatabaseTest extends TestCase
     /** Setzt die Authentifizierung und andere Middlewares außer Kraft */
     // use WithoutMiddleware;
 
+
     /**
      * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
      *
@@ -45,6 +46,7 @@ class DatabaseTest extends TestCase
         $this->assertEquals('Max Mustermann', $defaultUser->name);
     }
 
+
     /**
      * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
      *
@@ -56,6 +58,7 @@ class DatabaseTest extends TestCase
         $defaultPerson = Person::where('username', "=", 'laraveller')->first();
         $this->assertEquals("laraveller", $defaultPerson->username);
     }
+
 
     /**
      * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
@@ -69,19 +72,24 @@ class DatabaseTest extends TestCase
             'last_name' => 'Mustermann',
         ]);
     }
+
+
     /**
      * Teste ob ein Nutzer angelegt werden kann
+     * Testet nicht auf Basis von softDeletes
      *
      * @return void
      */
+
 
     public function test_db_can_create_and_delete_user()
     {
         $user = User::factory()->create();
         $this->assertModelExists($user);
-        $user->delete();
+        $user->forceDelete();
         $this->assertModelMissing($user);
     }
+
 
     /**
      * Prüft, ob genau ein Eintrag in der Debug DB vorhanden ist.
@@ -92,6 +100,7 @@ class DatabaseTest extends TestCase
     {
         $this->assertDatabaseCount('debugs', 1);
     }
+
 
     /**
      * Prüft, ob der Eintrag in der Debug DB wahr ist

@@ -10,7 +10,7 @@ MADE For Europe/German use
 
 <https://publisher.laravel-lang.com>
 
-```
+```terminal
 composer require laravel-lang/publisher laravel-lang/lang --dev
 php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 ```
@@ -26,13 +26,13 @@ php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 
 ## Artisans
 
-```
+```terminal
 php artisan migrate:fresh --seed
 php artisan db:seed --class=UserSeeder
 php artisan db:seed --class=PersonSeeder
 ```
 
-```
+```terminal
 php artisan db:wipe --force
 ```
 
@@ -68,3 +68,14 @@ many rel ships
 
 <https://laravel-news.com/config-validator>
 todo
+
+## set Languages
+
+EN
+
+- Fallback
+
+ DE
+
+- Localisation
+- Faker

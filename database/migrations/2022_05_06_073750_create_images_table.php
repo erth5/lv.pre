@@ -34,6 +34,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::table('images', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+            // Schema::dropIfExists('images');
+        });
     }
 };
