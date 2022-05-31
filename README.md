@@ -4,6 +4,14 @@ Template for Laravel Projects
 
 MADE For Europe/German use
 
+## TODO Tutorials(not implemented)
+
+<https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
+many rel ships
+
+<https://laravel-news.com/config-validator>
+todo
+
 ## Integrated
 
 <https://github.com/apih/laravel-route-list-web>
@@ -18,6 +26,7 @@ php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 ## Outcludet
 
 - Validations (for example Realize with: LiveWire)
+- Code generator (e. g. CrestApps)
 
 ## Variants
 
@@ -57,17 +66,6 @@ php artisan storage:link
 
 The [C:\Users\Eggo5\repo\lv.pre\public\storage] link has been connected to [C:\Users\Eggo5\repo\lv.pre\storage\app/public].
 The links have been created.
-
-## TODO Tutorials(not implemented)
-
-<https://github.com/CrestApps/laravel-code-generator>
-can be better
-
-<https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
-many rel ships
-
-<https://laravel-news.com/config-validator>
-todo
 
 ## set Languages
 

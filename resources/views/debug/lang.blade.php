@@ -22,8 +22,8 @@
             // console.log('lang selector query: ' + document.querySelector('#lang'));
             document.querySelector('#lang').addEventListener('change', function() {
                 lang = selector.options[selector.selectedIndex].value
-                console.log('new lang: ' + selector.options[selector.selectedIndex].value);
                 window.location.href = url + "?lang=" + lang;
+                console.log('new language set: ' + selector.options[selector.selectedIndex].value);
             });
         }
     </script>
