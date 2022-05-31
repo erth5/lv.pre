@@ -46,6 +46,7 @@
 
 <a href="/route:list">Route-List(apih)</a>
 <a href="/info/lang">lang</a>
+<a href="/lang/lang_debug">lang_debug</a>
 <a href="/telescope">Telescope</a>
 <a class="disabled" href="">Swagger</a>
 <blockquote></blockquote>

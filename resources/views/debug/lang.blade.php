@@ -27,4 +27,32 @@
             });
         }
     </script>
+
+    @if (isset($data))
+        {{-- {{ $data }} --}}
+        @forelse ($data as $list)
+            @if (is_array($list))
+                @foreach ($list as $dat)
+                    @if (is_array($dat))
+                        <p>
+                            @foreach ($dat as $sub)
+                                {{ $sub }}
+                            @endforeach
+                        </p>
+                    @elseif (is_bool($dat))
+                        <p>{{ $dat }}</p>
+                    @else
+                        {{ $dat }}
+                    @endif
+                @endforeach
+            @else
+                <p> {{ $list }}</p>
+            @endif
+
+        @empty
+            <p>No Element in data</p>
+        @endforelse
+    @else
+        <p>No Debug Data</p>
+    @endif
 @endsection

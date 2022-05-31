@@ -41,7 +41,8 @@ Route::get('hello', function () {
 });
 
 /** Lang Test */
-Route::get('/lang/home', [LangController::class, 'index']); 
+Route::get('/lang/home', [LangController::class, 'index']);
+Route::get('/lang/lang_debug', [LangController::class, 'debug']);
 Route::get('/lang/change', [LangController::class, 'change'])->name('changeLang');
 
 // Route::get('{alias}', 'HomeController@someAction')
