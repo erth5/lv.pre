@@ -4,4 +4,4 @@
         {{ __('debug.db_test_msg') }}
         {{ DB::connection()->getDatabaseName() }}
     @endif
-@endsection
+@endsection;

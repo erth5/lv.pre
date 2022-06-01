@@ -1,3 +1,9 @@
+<?php if (DB::connection()->getPdo()) {
+    echo 'Successfully connected to the database => ' . DB::connection()->getDatabaseName();
+}
+
+
+
 https://www.tutsmake.com/laravel-9-upload-image-example-tutorial/
 /**Syntax 2
          * name desciptes the uploaders file-system name
