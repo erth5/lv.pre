@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Modules;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ImageValidator extends Controller
+class ImageValidatorModule extends Controller
 {
     // PHP Abhängigkeit - greift auf den PHP Ordner zu
     function __construct(Request $request)

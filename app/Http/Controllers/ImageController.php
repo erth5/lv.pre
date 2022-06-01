@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Modules\ImageValidator;
+use App\Http\Controllers\Modules\ImageValidatorModule;
 use App\Models\Image;
 use Illuminate\Http\Request;
 
@@ -47,7 +48,7 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = new ImageValidator($request);
+        $validator = new ImageValidatorModule($request);
         //1b
         // $validator->proofImageExist();
         // if ($validator != true) {

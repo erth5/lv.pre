@@ -10,6 +10,16 @@
 
 <body>
 
+    @if (session('statusSuccess'))
+        {{ session('statusSuccess') }}
+    @endif
+    @if (session('statusError'))
+        {{ session('statusError') }}
+    @endif
+    @if (session('status'))
+        {{ session('status') }}
+    @endif
+
     <x-debug.menu />
     @yield('c')
 
