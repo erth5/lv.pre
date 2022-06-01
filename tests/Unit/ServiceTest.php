@@ -2,9 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Http\Controllers\DebugController;
+use App\Services\DebugService;
 use PHPUnit\Framework\TestCase;
-use App\Http\Services\DebugService;
 
 class ServiceTest extends TestCase
 {

@@ -18,6 +18,8 @@ todo
 
 <https://publisher.laravel-lang.com>
 
+<https://github.com/getsolaris/laravel-make-service-command>
+
 ```terminal
 composer require laravel-lang/publisher laravel-lang/lang --dev
 php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
@@ -52,8 +54,10 @@ Second Language German (DE)
 
 views/components    No Routing
 
-app\Http\
+app\
 Services            only Procedurally
+
+Http\
 Controllers\Modules only Objective
 
 Object type

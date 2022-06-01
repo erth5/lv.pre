@@ -27,7 +27,7 @@ Route::resource('image', ImageController::class);
 Route::get('upload', [ImageController::class, 'create']);
 // Route::match(array('GET', 'POST'), '/image', [ImageController::class, 'image'])->name('image');
 
-/* Debug  */
+/** Debug  */
 Route::post('/image/debug', [ImageController::class, 'debug'])->name('image.debug');
 
 $debugRoutes = array('test', 'debug', 'info', 'help', 'www');
@@ -39,8 +39,6 @@ foreach ($debugRoutes as $route) {
 Route::get('hello', function () {
     echo 'hello World';
 });
-
-/** Lang Test */
 Route::get('/lang/home', [LangController::class, 'index']);
 Route::get('/lang/lang_debug', [LangController::class, 'debug']);
 Route::get('/lang/change', [LangController::class, 'change'])->name('changeLang');

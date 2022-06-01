@@ -2,26 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\debug;
 use App\Services\DebugService;
-use App\Http\Requests\StoredebugRequest;
-use App\Http\Requests\UpdatedebugRequest;
+use App\Models\debug;
 
-// Nur eine Abhängigkeit kann genutzt werden
-// use Illuminate\Routing\Route;
-use Illuminate\Support\Facades\Route;
-use Spatie\FlareClient\Http\Exceptions\NotFound;
+/** Freie Wahl (wenn benötigt)
+ * use Illuminate\Routing\Route;
+ * use Illuminate\Support\Facades\Route;
+ */
 
 class DebugController extends Controller
 {
-
-    // /**
-    //  * Use a Service
-    //  */
-    // public function __construct(debugService $debugService)
-    // {
-    //     $this->debugService = $debugService;
-    // }
+    /** Use a Service
+     * @param DebugService $debugService auslagerung des Controllers
+     */
+    protected $debugService;
+    public function __construct(DebugService $debugService)
+    {
+        $this->debugService = $debugService;
+    }
 
     /**
      * control debug calls
@@ -30,7 +28,7 @@ class DebugController extends Controller
 
     /**
      * Display a listing of the resource.
-     * break not needed
+     * break not needed?
      *
      * @return \Illuminate\Http\Response
      */

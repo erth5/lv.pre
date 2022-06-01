@@ -4,16 +4,19 @@ Mail
 Models
 Providers
 Rules
-Scopes
-Services
 Traits
 Utils
+Policies
+
+Scopes
+View\Components
 
 /Http/
 Controllers
-Livewire
 Middleware
 Requests
 Resources
 Kernel.php
 
+Services
+Livewire
