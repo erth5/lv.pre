@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Modules;
+namespace App\Http\Controllers\Modules;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
