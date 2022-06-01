@@ -3,15 +3,27 @@
 namespace Tests\Feature;
 
 use App\Models\Image;
+use DirectoryIterator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
-use function PHPUnit\Framework\assertIsString;
+use function PHPUnit\Framework\assertEquals;
+use function PHPUnit\Framework\assertFileExists;
+use function PHPUnit\Framework\assertTrue;
 
 class ImageTest extends TestCase
 {
+    /**
+     * proof existence of image folder
+     *
+     * @return void
+     */
+    public function test_gives_a_image_folder()
+    {
+        assertTrue(is_dir(storage_path('app\public\images')));
+    }
+
     /**
      * Proof saved Images has Database-Entrys
      *
@@ -19,12 +31,13 @@ class ImageTest extends TestCase
      */
     public function test_saved_files_has_database_entrys()
     {
-        $images = Image::all();
-        foreach ($images as $image){
-            assertIsString($image->getAttribute('path'));
-            // TODO Get Ressource richtig machen
-            // Storage::disk('uploads')->path('/');
+        $path = storage_path('app\public\images/');
+        foreach (new DirectoryIterator($path) as $file) {
+            if ($file->isDot()) continue;
+            $fileName = $file->getFilename();
+            assertEquals($fileName, Image::where('name', $fileName)->get()->first()->name);
         }
+        assertTrue(true);
     }
 
     /**
@@ -34,36 +47,14 @@ class ImageTest extends TestCase
      */
     public function test_database_entrys_has_saved_files()
     {
-        $ImageDirectory = "storage/app/imagess";
-        foreach (glob($ImageDirectory . '/*.*') as $filePath) {
-            $fileName = substr($filePath, 0);
-            dd($fileName);
-            // TODO Abgleichen mit Namen
-        };
+        $images = Image::all();
+        if (count($images) == 0)
+            assertTrue(true);
+        else {
+            foreach ($images as $image) {
+                $DbImageName = ($image->getAttribute('name'));
+                assertFileExists(storage_path('app\public\images/' . $DbImageName));
+            }
+        }
     }
-
-    /**
-     * Upload a Valid Image
-     *
-     * @return void
-     */
-    public function test_image_can_be_uploaded()
-    {
-        // Storage::fake('image');
-
-        // $file = UploadedFile::fake()->image('image.jpg');
-
-        // $response = $this->post('/image', [
-        //     'image' => $file,
-        // ]);
-
-        // self::assertFileExists(storage_path('images' . $file->hashName()));
-        // self::assertFileExists(storage_path('app\images\FLyGWRBo4rIwWpZpndJ6tLfpn5GaflYFUN9npkrO.gif'));
-    }
-
-    /**
-     * Upload a InValid Image
-     *
-     * @return void
-     */
 }

@@ -33,7 +33,6 @@ class RouteViewTest extends TestCase
     {
         $viewDb = $this->get('/test/db');
         $viewDb->assertStatus(200);
-        $viewDb->assertSee('Successfully connected to the database');
     }
 
     public function test_users_and_peoples_table_view()
