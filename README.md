@@ -12,6 +12,8 @@ many rel ships
 <https://laravel-news.com/config-validator>
 todo
 
+<https://github.com/fruitcake/laravel-telescope-toolbar>
+
 ## Integrated
 
 <https://github.com/apih/laravel-route-list-web>
@@ -20,6 +22,8 @@ todo
 
 <https://github.com/getsolaris/laravel-make-service-command>
 
+<https://www.tutsmake.com/laravel-9-create-multi-language-website-example-tutorial/>
+
 ```terminal
 composer require laravel-lang/publisher laravel-lang/lang --dev
 php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
@@ -27,8 +31,9 @@ php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 
 ## Outcludet
 
-- Validations (for example Realize with: LiveWire)
+- Validations (e. g. LiveWire)
 - Code generator (e. g. CrestApps)
+- <https://github.com/staudenmeir/eloquent-has-many-deep>
 
 ## Variants
 
@@ -71,7 +76,7 @@ php artisan storage:link
 The [C:\Users\Eggo5\repo\lv.pre\public\storage] link has been connected to [C:\Users\Eggo5\repo\lv.pre\storage\app/public].
 The links have been created.
 
-## set Languages
+## Languages setttings
 
 EN
 

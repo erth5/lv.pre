@@ -21,13 +21,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/* 1a: yield, public */ //TODO del comment
-/* 2b: components, storage */ //TODO del comment
+
+
+
+/** Debug  
+ * 1a: yield, public
+ * 2b: components, storage
+ */
 Route::resource('image', ImageController::class);
 Route::get('upload', [ImageController::class, 'create']);
 // Route::match(array('GET', 'POST'), '/image', [ImageController::class, 'image'])->name('image');
 
-/** Debug  */
 Route::post('/image/debug', [ImageController::class, 'debug'])->name('image.debug');
 
 $debugRoutes = array('test', 'debug', 'info', 'help', 'www');
