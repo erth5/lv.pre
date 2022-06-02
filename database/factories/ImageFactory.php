@@ -17,7 +17,8 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            //
+            // $this->faker->image('https://source.unsplash.com/random');
+            'image' => 'https://source.unsplash.com/random',
         ];
     }
 }
