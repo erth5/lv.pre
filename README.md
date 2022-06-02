@@ -31,6 +31,10 @@ composer require laravel-lang/publisher laravel-lang/lang --dev
 php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 ```
 
+### Testing
+
+<https://laravel.com/docs/9.x/dusk>
+
 ## Outcludet
 
 - Validations (e. g. LiveWire)
