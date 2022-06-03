@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Models\User;
-use App\Models\Debug;
 use App\Models\Person;
 use Database\Seeders\PersonSeeder;
 
@@ -91,26 +90,5 @@ class DatabaseTest extends TestCase
     }
 
 
-    /**
-     * Prüft, ob genau ein Eintrag in der Debug DB vorhanden ist.
-     *
-     * @return void
-     */
-    public function test_db_debug_has_one_entry()
-    {
-        $this->assertDatabaseCount('debugs', 1);
-    }
 
-
-    /**
-     * Prüft, ob der Eintrag in der Debug DB wahr ist
-     *
-     * @return void
-     */
-    public function test_debug_entry_is_true()
-    {
-        $defaultentry = Debug::findOrFail(1, 'debug');
-        $defaultentryValue = $defaultentry->debug;
-        $this->assertEquals($defaultentryValue, true);
-    }
 }
