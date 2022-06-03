@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\DebugService;
 use App\Models\debug;
+use App\Services\DebugService;
 
 /** Freie Wahl (wenn benötigt)
  * use Illuminate\Routing\Route;
@@ -90,6 +90,6 @@ class DebugController extends Controller
      */
     public function destroy(debug $debug)
     {
-        //
+        Debug::truncate();
     }
 }

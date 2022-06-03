@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +27,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //Carbon::setLocale('fr');
+        if (App::environment() === 'local') {
+
+            (new ConfigValidator())
+                ->run();
+        }
+
+        // Carbon Time Language
+        $lang = (Config::get('app.locale'));
+        Carbon::setLocale($lang);
     }
 }

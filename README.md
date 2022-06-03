@@ -9,9 +9,6 @@ MADE For Europe/German use
 <https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
 many rel ships
 
-<https://laravel-news.com/config-validator>
-todo
-
 <https://github.com/fruitcake/laravel-telescope-toolbar>
 
 assertThat
@@ -25,6 +22,8 @@ assertThat
 <https://github.com/getsolaris/laravel-make-service-command>
 
 <https://www.tutsmake.com/laravel-9-create-multi-language-website-example-tutorial/>
+
+<https://laravel-news.com/config-validator>
 
 ```terminal
 composer require laravel-lang/publisher laravel-lang/lang --dev
