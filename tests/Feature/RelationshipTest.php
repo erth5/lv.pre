@@ -21,7 +21,7 @@ class RelationshipTest extends TestCase
      * Prüfung mit Variante Factory (Beispiel)
      * @return void
      */
-    public function test_user_has_a_person()
+    public function test_ONLYDEBUG_user_has_a_person()
     {
         $this->seed(PersonSeeder::class);
         // dd(User::where('name', 'Max Mustermann')->firstOrFail()->person);
@@ -33,7 +33,7 @@ class RelationshipTest extends TestCase
      * Prüfung mit Variante Factory (Beispiel)
      * @return void
      */
-    public function test_person_belongs_to_user()
+    public function test_ONLYDEBUG_person_belongs_to_user()
     {
         $this->seed(PersonSeeder::class);
         // dd(Person::where('username', 'laraveller')->firstOrFail()->person);

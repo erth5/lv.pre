@@ -33,7 +33,7 @@ class DatabaseTest extends TestCase
      *
      * @return void
      */
-    public function test_db_default_user_name()
+    public function test_ONLYDEBUG_db_default_user_name()
     {
         $this->seed('PersonSeeder');
         // Funktionsfähig
@@ -51,7 +51,7 @@ class DatabaseTest extends TestCase
      *
      * @return void
      */
-    public function test_db_default_person_username()
+    public function test_ONLYDEBUG_db_default_person_username()
     {
         $this->seed(PersonSeeder::class);
         $defaultPerson = Person::where('username', "=", 'laraveller')->first();
@@ -64,7 +64,7 @@ class DatabaseTest extends TestCase
      *
      * @return void
      */
-    public function test_db_default_person_last_name()
+    public function test_ONLYDEBUG_db_default_person_last_name()
     {
         $this->seed(PersonSeeder::class);
         $this->assertDatabaseHas('people', [
