@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\debug;
 use App\Services\DebugService;
+use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
 
 /** Freie Wahl (wenn benötigt)
  * use Illuminate\Routing\Route;
@@ -75,6 +76,10 @@ class DebugController extends Controller
                 echo storage_path() . "<br>";
                 // Path to the 'storage/app' folder
                 echo storage_path('app') . "<br>";;
+                break;
+            case 'config':
+                $configValidation = (new ConfigValidator())->run();
+                return $configValidation;
                 break;
             default:
                 return view('debug.layout');

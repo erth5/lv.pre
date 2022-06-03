@@ -26,4 +26,6 @@
     'var1' => 'Variante1a: @yield, öffentlich',
     'var2' => 'Variante2b: Komponenten, storage',
     'db_test_msg' => 'Erfolgreich mit der Datanbank verbunden =>',
+
+    'config' => 'KonfigurationsValidierung',
 ];

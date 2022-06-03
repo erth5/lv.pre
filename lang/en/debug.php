@@ -27,4 +27,6 @@ return [
     'var1' => 'variant1a: @yield, public',
     'var2' => 'variant2b: components, storage',
     'db_test_msg' => 'Successfully connected to the database => ',
+
+    'config' => 'configValidation',
 ];

@@ -45,6 +45,7 @@
 <blockquote></blockquote>
 
 <a href="/route:list">{{ __('debug.rl') }}</a>
+<a href="/debug/config">{{ __('debug.config') }}</a>
 <a href="/info/lang">{{ __('debug.lang') }}</a>
 <a href="/lang/lang_debug">{{ __('debug.lang_debug') }}</a>
 <a href="/telescope">{{ __('debug.telescope') }}</a>
