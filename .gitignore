@@ -37,4 +37,6 @@ yarn-error.log
 /.idea
 /.vscode
 
+# own, Telescope
 nocode.txt
+public/vendor/
