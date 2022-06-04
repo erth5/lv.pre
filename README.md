@@ -13,6 +13,12 @@ many rel ships
 
 assertThat
 
+refactor:
+user, person to view: rel
+all without contr to view: menu
+last table: HTTP Session
+move controllers to extra folder?
+
 ## Integrated
 
 <https://github.com/apih/laravel-route-list-web>

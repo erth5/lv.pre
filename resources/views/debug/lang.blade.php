@@ -7,10 +7,14 @@
         <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>France</option>
         {{-- <option value="sp" {{ session()->get('locale') == 'sp' ? 'selected' : '' }}>Spanish</option> --}}
     </select>
-
+    
+    <h3>Browser Sprache:
+        {{session()->get('locale')}}
+    </h3>
     <h3>{{ __('messages.lang-message') }}
         {{ Config::get('app.locale') }}
     </h3>
+
 
     <script type="text/javascript">
         var lang = null;
