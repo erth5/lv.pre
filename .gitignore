@@ -39,4 +39,4 @@ yarn-error.log
 
 # own, Telescope
 nocode.txt
-public/vendor/
+public/vendor/*
