@@ -19,7 +19,7 @@ class ImageTest extends TestCase
      *
      * @return void
      */
-    public function test_gives_a_image_folder()
+    public function test_gives_it_a_image_folder()
     {
         assertTrue(is_dir(storage_path('app\public\images')));
     }
