@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Modules;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
 
 /**
  * füllt ein Model mit den Request Daten (inklusive Checkboxen), sofern der Spaltenname der Migration angegeben
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Log;
  * @param checkboxTableColumnNames array Array von attribut-Namen (string) die checkbox-werte (boolean-werte) repräsentieren, die aus dem Request, die im Objekt gefüllt werden sollen
  * @param req request request
  * */
-class GlobalUtilsModule
+class GlobalUtilsModule extends Controller
 {
     public function fillObjectFromRequest($object, $standardTableColumnNames,  $checkboxTableColumnNames, Request $req)
     {

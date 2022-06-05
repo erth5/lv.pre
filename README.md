@@ -6,6 +6,8 @@ MADE For Europe/German use
 
 ## TODO Tutorials(not implemented)
 
+Debug Eintrag bezieht sich auf ENV File -> Datanbankeintrag löschen?!
+
 <https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
 many rel ships
 
@@ -40,6 +42,11 @@ Route "debug" oder "info" Registrieren und web original wiederherstellen
 Route Subfolder Gruppieren
 
 Umstellen auf Hilfsklasse von Michael, wenn verwendbar
+
+Abschluss:
+Abhöngigkeiten durchgehen
+NamenskoventionsTest?
+
 
 ## Integratedusr
 

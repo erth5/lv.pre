@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\debug;
+namespace App\Http\Controllers\Debug;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
-use LaravelLang\Publisher\Facades\Helpers\Locales;
 use App\Http\Controllers\Controller;
+use LaravelLang\Publisher\Facades\Helpers\Locales;
 
 class LangController extends Controller
 {

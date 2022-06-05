@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Example;
 
-use App\Http\Controllers\Modules\ImageValidator;
-use App\Http\Controllers\Modules\ImageValidatorModule;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Modules\ImageValidatorModule;
 
 /**
  * 1b: yield, storage, withName

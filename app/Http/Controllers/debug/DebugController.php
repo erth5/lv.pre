@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Debug;
 
-use App\Models\debug;
+use App\Models\Debug;
 use App\Services\DebugService;
+use App\Http\Controllers\Controller;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
 
 /** Freie Wahl (wenn benötigt)
@@ -86,7 +87,6 @@ class DebugController extends Controller
         }
         // abort(404);
     }
-
     /**
      * Remove the specified resource from storage.
      *
