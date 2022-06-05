@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Debug;
 
-use App\Models\Debug;
+use App\Models\Debug\Debug;
 use App\Services\DebugService;
 use App\Http\Controllers\Controller;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;

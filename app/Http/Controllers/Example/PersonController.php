@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Example;
 
-use App\Models\User;
-use App\Models\Person;
 use App\Http\Controllers\Controller;
+use App\Models\Example\Person;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PersonController extends Controller

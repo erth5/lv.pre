@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Person;
 use App\Models\User;
+use App\Models\Example\Person;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

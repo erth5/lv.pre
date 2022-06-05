@@ -1,20 +1,18 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Factories\Example;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Person>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Example\Person>
  */
 class PersonFactory extends Factory
 {
     /**
-     * Variante: Factory
-     * Generierung von Person zugehöriger User in der Factory
-     * + Zu Person wird immer user generiert
-     * - Falsche Zuordnung
+     * Define the model's default state.
+     *
      * @return array<string, mixed>
      */
     public function definition()
