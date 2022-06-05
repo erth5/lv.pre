@@ -17,9 +17,31 @@ refactor:
 user, person to view: rel
 all without contr to view: menu
 last table: HTTP Session
-move controllers to extra folder?
+move controllers and Models to extra folder
 
-## Integrated
+debug:(Info über das System, heißt Umgebungsinfo)
+
+- lang
+- db
+
+info:(Beispiel wie code geschrieben werden kann)
+-user
+-person
+-image
+-session
+-template
+
+test ist ausschließoich für Tests
+
+Einseiter für Debug auf dem alles zu sehen ist
+
+Route "debug" oder "info" Registrieren und web original wiederherstellen
+
+Route Subfolder Gruppieren
+
+Umstellen auf Hilfsklasse von Michael, wenn verwendbar
+
+## Integratedusr
 
 <https://github.com/apih/laravel-route-list-web>
 
@@ -42,14 +64,14 @@ php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 
 ## Outcludet
 
-- Validations (e. g. LiveWire)
-- Code generator (e. g. CrestApps)
-- <https://github.com/staudenmeir/eloquent-has-many-deep>
+-   Validations (e. g. LiveWire)
+-   Code generator (e. g. CrestApps)
+-   <https://github.com/staudenmeir/eloquent-has-many-deep>
 
 ## Variants
 
-- image v1: has-pics, seperated-yield, ressource
-- image v2: named-pics, merged-component, any?
+-   image v1: has-pics, seperated-yield, ressource
+-   image v2: named-pics, merged-component, any?
 
 ## Artisans
 
@@ -68,17 +90,17 @@ php artisan db:wipe --force
 First Language English (US)
 Second Language German (DE)
 
-views/components    No Routing
+views/components No Routing
 
 app\
-Services            only Procedurally
+Services only Procedurally
 
 Http\
 Controllers\Modules only Objective
 
 Object type
-Objective     Instantiate
-Procedurally   static
+Objective Instantiate
+Procedurally static
 
 ## Symlink is need to run storage:link on EACH environment
 
@@ -91,9 +113,9 @@ The links have been created.
 
 EN
 
-- Fallback
+-   Fallback
 
- DE
+DE
 
-- Localisation
-- Faker
+-   Localisation
+-   Faker
