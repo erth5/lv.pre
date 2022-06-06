@@ -5,6 +5,7 @@
     @isset($images)
         @forelse ($images as $image)
             {{-- TODO Ressource Route nutzen --}}
+            {{-- TODO Wenn gelöscht nicht anzeigen, wen softeddeleete? --}}
             <div style="display: inline-block">
                 <p>{{ $image->name }}</p>
                 @if ($image->remove_time != null)

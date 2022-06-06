@@ -37,8 +37,6 @@ test ist ausschließoich für Tests
 
 Einseiter für Debug auf dem alles zu sehen ist
 
-Route "debug" oder "info" Registrieren und web original wiederherstellen
-
 Route Subfolder Gruppieren
 
 Umstellen auf Hilfsklasse von Michael, wenn verwendbar
