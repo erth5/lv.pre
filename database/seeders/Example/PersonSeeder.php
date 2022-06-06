@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Example;
 
-use App\Models\User;
 use App\Models\Example\Person;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -53,6 +53,5 @@ class PersonSeeder extends Seeder
         //     $person = Person::factory()->make();
         //     $user->person()->save($person);
         // });
-
     }
 }
