@@ -60,7 +60,7 @@
 <a href="/image">{{ __('debug.index') }}</a>
 <a href="/image/create">{{ __('debug.upload') }}</a>
 <a href="/image/edit/1">{{ __('debug.edit') }}</a>
-<a href="/image/show/1">{{ __('debug.show') }}</a>
+<a href="/image/1">{{ __('debug.show') }}</a>
 <a href="/image/change/1">{{ __('debug.change') }}</a>
 <a href="/image/destroy/1">{{ __('debug.rm') }}</a>
 

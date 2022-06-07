@@ -81,9 +81,10 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function show(Image $image)
+    public function show()
     {
-        //
+        $image = (Image::first());
+        return view('image.show', compact('image'));
     }
 
     /**
