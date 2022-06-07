@@ -21,10 +21,15 @@ all without contr to view: menu
 last table: HTTP Session
 move controllers and Models to extra folder
 
+Sämtliche DB Abfragen, Logik aufgaben und Views Automatisieren:
+$columns = $this->getFillable();
+$attributes = $this->getAttributes();
+...
+
 debug:(Info über das System, heißt Umgebungsinfo)
 
-- lang
-- db
+-   lang
+-   db
 
 info:(Beispiel wie code geschrieben werden kann)
 -user
@@ -44,7 +49,6 @@ Umstellen auf Hilfsklasse von Michael, wenn verwendbar
 Abschluss:
 Abhöngigkeiten durchgehen
 NamenskoventionsTest?
-
 
 ## Integratedusr
 

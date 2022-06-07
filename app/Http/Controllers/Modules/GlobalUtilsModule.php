@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Modules;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * füllt ein Model mit den Request Daten (inklusive Checkboxen), sofern der Spaltenname der Migration angegeben
@@ -29,5 +30,22 @@ class GlobalUtilsModule extends Controller
             }
         }
         return $object;
+    }
+
+    /**
+     * prüft, ob das Objekt Request den angegebenen Regeln entspricht
+     * @param req request request
+     * @param validationRules associative array Array mit Validierungsregeln see https://laravel.com/docs/8.x/validation#manually-creating-validators
+     * @param validationErrorMessage string Fehlermeldung wenn Validierung mit Fehler abbricht
+     * */
+    public function validateRequest(Request $req, $validationRules)
+    {
+        $validator = Validator::make($req->all(), $validationRules);
+
+        if ($validator->fails()) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

@@ -21,11 +21,17 @@ use App\Http\Controllers\Example\PersonController;
  * 1a: yield, public
  * 2b: components, storage
  */
-Route::resource('image', ImageController::class);
-Route::get('upload', [ImageController::class, 'create']);
-// Route::match(array('GET', 'POST'), '/image', [ImageController::class, 'image'])->name('image');
+Route::controller(ImageController::class)->group(function(){
+    Route::resource('image', ImageController::class);
+    Route::get('upload', 'create')->name('image.upload'); // müsste noch rausnehmbar sein
+    Route::post('image/debug', 'debug')->name('image.debug');
+});
 
-Route::post('/image/debug', [ImageController::class, 'debug'])->name('image.debug');
+// Route::resource('image', ImageController::class);
+// Route::get('upload', [ImageController::class, 'create'])->name('image.upload');
+// Route::post('/image/debug', [ImageController::class, 'debug'])->name('image.debug');
+// // Route::match(array('GET', 'POST'), '/image', [ImageController::class, 'image'])->name('image');
+
 
 $debugRoutes = array('example', 'test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route) {
@@ -51,3 +57,14 @@ Route::get('/lang/change', [LangController::class, 'change'])->name('changeLang'
 // {
 //     return 'Hello World';
 // });
+
+// Route::controller(ItemController::class)->group(function () {
+//     Route::get('items', 'index')->name('items.index');
+//     Route::post('items', 'store')->name('items.store');
+//     Route::get('items/create', 'create')->name('items.create');
+//     Route::get('items/{item}', 'show')->name('items.show');
+//     Route::put('items/{item}', 'update')->name('items.update');
+//     Route::delete('items/{item}', 'destroy')->name('items.destroy');
+//     Route::get('items/{item}/edit', 'edit')->name('items.edit');
+// });
+// Route::resource('items', ItemController::class);

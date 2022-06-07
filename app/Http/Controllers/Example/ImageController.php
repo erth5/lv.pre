@@ -49,18 +49,17 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         $validator = new ImageValidatorModule($request);
-        //1b
-        // $validator->proofImageExist();
-        // if ($validator != true) {
-        // dd('f1');
-        // }
+        $validator->proofImageExist();
+        if ($validator != true) {
+            dd('Image exist Validation Fails');
+            return back()->with('statusError', 'No Image was send');
+        }
 
-        // Not implement jet
-        // $validator->validateImage();
-        // if ($validator != true) {
-        // dd('f2');
-        // return back()
-        // }
+        $validator->validateImage();
+        if ($validator != true) {
+            dd('Image has correct form Validation Fails');
+            return back()->with('statusError', 'Image has wrong Form');
+        }
 
         /** Syntax 1b
          * storeAs: $path, $name, $options = []

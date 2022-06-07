@@ -15,7 +15,8 @@ class ImageValidatorModule extends Controller
 
     public function proofImageExist()
     {
-        $validatedExistence = $this->request->validateImage([
+        // $request->validate ist eine Methode von Request
+        $validatedExistence = $this->request->validate([
             'image' => 'required',
         ]);
         return $validatedExistence;
