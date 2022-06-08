@@ -1,7 +1,5 @@
 @extends('image.layout')
 @section('image_views')
-    {{ session('status') }}
-    {{ session('imageName') }}
 
     <h2>Laravel 9 Image Upload</h2>
 

@@ -28,8 +28,8 @@ $attributes = $this->getAttributes();
 
 debug:(Info über das System, heißt Umgebungsinfo)
 
--   lang
--   db
+- lang
+- db
 
 info:(Beispiel wie code geschrieben werden kann)
 -user
@@ -50,7 +50,7 @@ Abschluss:
 Abhöngigkeiten durchgehen
 NamenskoventionsTest?
 
-## Integratedusr
+## Integrated
 
 <https://github.com/apih/laravel-route-list-web>
 
@@ -73,14 +73,14 @@ php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 
 ## Outcludet
 
--   Validations (e. g. LiveWire)
--   Code generator (e. g. CrestApps)
--   <https://github.com/staudenmeir/eloquent-has-many-deep>
+- Code generator (e. g. CrestApps)
+- <https://github.com/staudenmeir/eloquent-has-many-deep>
+- <https://laravelactions.com/>
 
 ## Variants
 
--   image v1: has-pics, seperated-yield, ressource
--   image v2: named-pics, merged-component, any?
+- image v1: has-pics, seperated-yield, ressource
+- image v2: named-pics, merged-component, any?
 
 ## Artisans
 
@@ -122,9 +122,9 @@ The links have been created.
 
 EN
 
--   Fallback
+- Fallback
 
 DE
 
--   Localisation
--   Faker
+- Localisation
+- Faker

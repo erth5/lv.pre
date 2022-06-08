@@ -52,13 +52,13 @@ class ImageController extends Controller
         $validator->proofImageExist();
         if ($validator != true) {
             dd('Image exist Validation Fails');
-            return back()->with('statusError', 'No Image was send');
+            return back()->with('statusError', __('image.existError'));
         }
 
         $validator->validateImage();
         if ($validator != true) {
             dd('Image has correct form Validation Fails');
-            return back()->with('statusError', 'Image has wrong Form');
+            return back()->with('statusError', __('image.validateError'));
         }
 
         /** Syntax 1b
@@ -72,7 +72,7 @@ class ImageController extends Controller
         $metadata->name = $name;
         $metadata->path = $path;
         $metadata->saveOrFail();
-        return redirect('/image/create')->with('status', 'Image Has been uploaded:')->with('imageName', $name);
+        return redirect('/image/create')->with('statusSuccess', __('image.uploadSuccess'))->with('imageName', $name);
     }
 
     /**

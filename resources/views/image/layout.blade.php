@@ -10,6 +10,13 @@
 
 <body>
 
+    @if (session('statusSuccess'))
+        {{ session('statusSuccess') }}
+    @endif
+    @if (session('statusError'))
+        {{ session('statusError') }}
+    @endif
+
     @yield('image_views')
 
 </body>
