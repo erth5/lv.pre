@@ -1,33 +1,3 @@
-<style>
-    /* unvisited link */
-    a:link {
-        color: black;
-        font-size: 20px
-    }
-
-    /* visited link */
-    a:visited {
-        color: green;
-    }
-
-    /* mouse over link */
-    a:hover {
-        color: hotpink;
-    }
-
-    /* selected link - braucht eine "active" Steuerung*/
-    a:active {
-        color: blue;
-    }
-
-    .disabled {
-        pointer-events: none
-    }
-
-</style>
-
-<script></script>
-
 <a href="/debug">{{ __('debug.overview') }}</a>
 <a href="/debug/debug">{{ __('debug.redirect') }}</a>
 <blockquote></blockquote>
@@ -54,17 +24,6 @@
 
 <a href="/info/user">{{ __('debug.rel_view_1') }}</a>
 <a href="/info/user">{{ __('debug.rel_view_2') }}</a>
-<blockquote></blockquote>
-<br>
-<p>{{ __('debug.var1') }}</p>
-<a href="/image">{{ __('debug.index') }}</a>
-<a href="/image/create">{{ __('debug.upload') }}</a>
-<a href="/image/edit/1">{{ __('debug.edit') }}</a>
-<a href="/image/1">{{ __('debug.show') }}</a>
-<a href="/image/change/1">{{ __('debug.change') }}</a>
-<a href="/image/destroy/1">{{ __('debug.rm') }}</a>
-
-<p>{{ __('debug.var2') }}</p>
-<a href="/img">{{ __('debug.image') }}</a>
+<a href="/image"> {{ __('image.image') }} </a>
 <blockquote></blockquote>
 <br>

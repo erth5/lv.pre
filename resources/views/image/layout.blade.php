@@ -5,18 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Image: {{ Route::current()->getName() }}</title>
+    <title>Debug: {{ Route::current()->getName() }}</title>
 </head>
 
 <body>
 
-    @if (session('statusSuccess'))
-        {{ session('statusSuccess') }}
-    @endif
-    @if (session('statusError'))
-        {{ session('statusError') }}
-    @endif
-
+    <x-debug.sessionStatus />
+    <x-image.style />
+    <x-image.menu />
     @yield('image_views')
 
 </body>

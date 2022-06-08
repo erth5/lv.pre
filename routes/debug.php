@@ -21,17 +21,12 @@ use App\Http\Controllers\Example\PersonController;
  * 1a: yield, public
  * 2b: components, storage
  */
-Route::controller(ImageController::class)->group(function(){
+Route::controller(ImageController::class)->group(function () {
     Route::resource('image', ImageController::class);
     Route::get('upload', 'create')->name('image.upload'); // müsste noch rausnehmbar sein
     Route::post('image/debug', 'debug')->name('image.debug');
+    Route::match(array('GET', 'POST'), '/all', 'image')->name('all');
 });
-
-// Route::resource('image', ImageController::class);
-// Route::get('upload', [ImageController::class, 'create'])->name('image.upload');
-// Route::post('/image/debug', [ImageController::class, 'debug'])->name('image.debug');
-// // Route::match(array('GET', 'POST'), '/image', [ImageController::class, 'image'])->name('image');
-
 
 $debugRoutes = array('example', 'test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route) {

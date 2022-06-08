@@ -83,7 +83,7 @@ class ImageController extends Controller
      */
     public function show()
     {
-        $image = (Image::first());
+        $image = Image::first();
         return view('image.show', compact('image'));
     }
 
@@ -95,7 +95,8 @@ class ImageController extends Controller
      */
     public function edit(Image $image)
     {
-        //
+        $image = Image::first();
+        return view('image.edit', compact('image'));
     }
 
     /**
@@ -107,7 +108,8 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
-        //
+        $image = Image::first();
+        return view('image.update', compact($request, $image));
     }
 
     /**
@@ -136,32 +138,33 @@ class ImageController extends Controller
     //  * @param  \Illuminate\Http\Request  $request
     //  * @return \Illuminate\Http\Response
     //  */
-    // public function image(Request $request)
-    // {
-    //     // TODO Erkenne post oder get
-    //     return view('image/image');
-
-    //     //
-
-    //     $validation = new ImageValidator($request);
-    //     $validation->imageValidator();
-    //     $name = $request->file('image')->getClientOriginalName();
-    //     $path = $request->file('image')->store('image');
-
-    //     $dbItem = new Image();
-    //     $dbItem->name = $name;
-    //     // path descripes the name in Path "storage/app/images
-    //     $dbItem->path = $path;
-    //     $dbItem->save();
-
-    //     $images = Image::all();
-    //     // dd($request, $validation, $dbItem, $name, $path);
-    //     return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
-    // }
+    public function image(Request $request)
+    {
+        // TODO Erkenne post oder get: Wenn get:
+        return view('image.all');
 
 
+        // Wenn post:
 
-    /** Debug */
+        // $validation = new ImageValidator($request);
+        // $validation->imageValidator();
+        // $name = $request->file('image')->getClientOriginalName();
+        // $path = $request->file('image')->store('image');
+
+        // $dbItem = new Image();
+        // $dbItem->name = $name;
+        // // path descripes the name in Path "storage/app/images
+        // $dbItem->path = $path;
+        // $dbItem->save();
+
+        // $images = Image::all();
+        // // dd($request, $validation, $dbItem, $name, $path);
+        // return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
+    }
+
+
+
+    /** Debug Image Data*/
     public function debug(Request $req)
     {
         return $req;

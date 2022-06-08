@@ -10,13 +10,8 @@
 
 <body>
 
-    @if (session('status'))
-        {{ session('status') }}
-    @endif
-    @if (session('statusInfo'))
-        {{ session('statusInfo') }}
-    @endif
-
+    <x-debug.sessionStatus />
+    <x-image.style />
     <x-debug.menu />
     @yield('c')
 

@@ -16,15 +16,7 @@
     'swagger' => 'Swagger',
     'rel_view_1' => 'Nutzer->Person',
     'rel_view_2' => 'Person->Nutzer',
-    'index' => 'index',
-    'upload' => 'hochladen',
-    'edit' => 'editFirst',
-    'show' => 'showFirst',
-    'change' => 'changeFirst',
-    'rm' => 'removeFirst',
-    'image' => 'Bild',
-    'var1' => 'Variante1a: @yield, öffentlich',
-    'var2' => 'Variante2b: Komponenten, storage',
+
     'db_test_msg' => 'Erfolgreich mit der Datanbank verbunden =>',
 
     'config' => 'KonfigurationsValidierung',

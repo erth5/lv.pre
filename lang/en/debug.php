@@ -17,15 +17,7 @@ return [
     'swagger' => 'swagger',
     'rel_view_1' => 'user->Person',
     'rel_view_2' => 'person->User',
-    'index' => 'index',
-    'upload' => 'upload',
-    'edit' => 'editFirst',
-    'show' => 'showFirst',
-    'change' => 'changeFirst',
-    'rm' => 'removeFirst',
-    'image' => 'image',
-    'var1' => 'variant1a: @yield, public',
-    'var2' => 'variant2b: components, storage',
+
     'db_test_msg' => 'Successfully connected to the database => ',
 
     'config' => 'configValidation',

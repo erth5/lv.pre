@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class menu extends Component
+class INLINEEXAMPLE extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,10 @@ class menu extends Component
      */
     public function render()
     {
-        return view('components.menu');
+        return <<<'blade'
+<div>
+    <!-- Simplicity is the consequence of refined emotions. - Jean D'Alembert -->
+</div>
+blade;
     }
 }
