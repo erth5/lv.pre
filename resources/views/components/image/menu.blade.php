@@ -11,5 +11,5 @@
 <a href="/all">{{ __('image.image') }}</a>
 <blockquote></blockquote>
 <br>
-<a href="/image">Debug</a>
+<a href="/debug">Debug</a>
 <blockquote></blockquote>

@@ -129,9 +129,22 @@ class ImageController extends Controller
         //     Storage::delete('public/' . $image->path);
         // }
 
-        return redirect('image')->with('status', 'Image Has been removed');
+        return redirect()->back()->with('status', 'Image Has been removed');
     }
 
+    /** 
+     * Restore the specific resource, when it's soft-deleted
+     * 
+     * @param \App\Models\Example\Image
+     * @return \Illuminate\Http\Response
+     */
+    public function restore($image)
+    {
+        $image = Image::withTrashed()->findOrFail($image);
+        $image->remove_time = null;
+        $image->saveOrFail();
+        return redirect()->back()->with('status', 'Image Has been restored');
+    }
 
     // /** 2b
     //  * store function
