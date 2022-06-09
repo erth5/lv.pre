@@ -14,12 +14,12 @@
     <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="inputImage">Image:</label>
-        <input type="file" name="image" id="inputImage" class="form-control @error('image') is-invalid @enderror">
+        <input type="file" name="image" id="inputImage" @error('image') is-invalid @enderror">
 
         @error('image')
             <span style="color:red;">{{ $message }}</span>
         @enderror
-        <button type="submit">Upload</button>
+        <button type="submit">upload</button>
     </form>
 
     <form action="{{ route('image.debug') }}" method="POST" enctype="multipart/form-data">

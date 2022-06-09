@@ -109,7 +109,7 @@ class ImageController extends Controller
     public function update(Request $request, Image $image)
     {
         $image = Image::first();
-        return view('image.update', compact($request, $image));
+        return view('image', compact($request, $image));
     }
 
     /**

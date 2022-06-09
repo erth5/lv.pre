@@ -15,5 +15,9 @@
         @method('DELETE')
         {{-- <a href="delete/{{ $image->id }}">remove</a> --}}
         <button type="submit" value="submit">remove</button>
+
+        @method('PUT')
+        <input type="text" name="update">
+        <button type="submit" value="submit">update</button>
     </form>
 @endif
