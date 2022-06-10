@@ -11,9 +11,11 @@
 <body>
 
     <x-debug.sessionStatus />
-    <x-image.style />
+    <x-debug.style />
     <x-debug.menu />
     @yield('c')
+
+    <x-debug.constants />
 
 </body>
 
