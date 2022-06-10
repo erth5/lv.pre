@@ -6,9 +6,10 @@
     'env_part' => 'UmgebungTeil',
     'env_full' => 'UmgebungVoll',
     'template' => 'Vorlage',
-    'path' => 'Pfad',
-    'view' => 'Ansicht',
-    'contr' => 'Controller',
+    'path' => 'Projektpfade',
+    'view' => 'Ansichts-Dateien',
+    'contr' => 'Controller-Dateien',
+    'model' => 'Modell-Dateien',
     'rl' => 'routeList(aphi)',
     'lang' => 'Sprache',
     'lang_debug' => 'SpracheDebug',
@@ -16,8 +17,9 @@
     'swagger' => 'Swagger',
     'rel_view_1' => 'Nutzer->Person',
     'rel_view_2' => 'Person->Nutzer',
+    'session_data' => 'Aktuelle Session',
+    'session_table' => 'Session Daten',
 
     'db_test_msg' => 'Erfolgreich mit der Datanbank verbunden =>',
-
     'config' => 'KonfigurationsValidierung',
 ];

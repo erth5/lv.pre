@@ -6,6 +6,7 @@ use App\Models\Debug\Debug;
 use App\Services\DebugService;
 use App\Http\Controllers\Controller;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
+use Illuminate\Support\Facades\File;
 
 /** Freie Wahl (wenn benötigt)
  * use Illuminate\Routing\Route;
@@ -39,16 +40,12 @@ class DebugController extends Controller
         switch ($name) {
             case 'db':
                 return view('debug.db');
-                break;
             case 'debug':
                 return view('debug.debug');
-                break;
             case 'php':
                 return view('debug.info');
-                break;
             case 'env':
                 return view('debug.env');
-                break;
             case 'env2':
                 $array = file("../.env", FILE_SKIP_EMPTY_LINES);
                 print_r($array);
@@ -56,16 +53,18 @@ class DebugController extends Controller
                 break;
             case 'template':
                 return view('debug.template');
-                break;
             case 'views':
                 return view('debug.views');
-                break;
             case 'controllers':
-                return view('debug.controllers');
-                break;
+                $path = public_path('../app/Http/Controllers');
+                $files = File::allFiles($path);
+                dd($files);
+            case 'models':
+                $path = public_path('../app/Models');
+                $files = File::allFiles($path);
+                dd($files);
             case 'lang':
                 return view('debug.lang');
-                break;
             case 'path':
                 // Path to the project's root folder
                 echo base_path() . "<br>";
@@ -82,6 +81,12 @@ class DebugController extends Controller
                 $configValidation = (new ConfigValidator())->run();
                 return $configValidation;
                 break;
+            case 'session':
+                $allSessions = session()->all();
+                dd($allSessions);
+                return view('debug.session');
+            case 'sessions':
+                return view('debug.sessions');
             default:
                 return view('debug.layout');
         }

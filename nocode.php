@@ -29,3 +29,20 @@ CRUD!
 
 
         // Route::get('image', [ImageController::class, 'image']);
+
+
+
+
+                    /**
+             * 
+             * FEHLENDE BEREECHTIGUNGEN ?
+             * 
+             * 
+             */
+            // $array = [
+            //     'name' => 'configName',
+            //     'employee' => 'configEmployee'
+            //   ];
+            //   $fp = fopen(base_path('config/user.php'), 'w');
+            //   fwrite($fp, '<?php return ' . var_export($array, true) . ';');
+            //   fclose($fp);

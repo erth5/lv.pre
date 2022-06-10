@@ -63,6 +63,10 @@ NamenskoventionsTest?
 <https://laravel-news.com/config-validator>
 
 ```terminal
+php artisan session:table
+```
+
+```terminal
 composer require laravel-lang/publisher laravel-lang/lang --dev
 php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 ```

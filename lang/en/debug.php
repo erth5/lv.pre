@@ -17,8 +17,9 @@ return [
     'swagger' => 'swagger',
     'rel_view_1' => 'user->Person',
     'rel_view_2' => 'person->User',
+    'session_data' => 'current session',
+    'session_table' => 'session data',
 
     'db_test_msg' => 'Successfully connected to the database => ',
-
     'config' => 'configValidation',
 ];
