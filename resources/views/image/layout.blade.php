@@ -11,7 +11,7 @@
 <body>
 
     <x-debug.sessionStatus />
-    <x-image.style />
+    <x-debug.style />
     <x-image.menu />
     @yield('image_views')
 

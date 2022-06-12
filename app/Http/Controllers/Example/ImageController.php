@@ -108,7 +108,15 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
-        $image = Image::first();
+        /** Syntax 2b */
+        $image = Image::find($image);
+        $requestData = $request->all();
+        $name = time() . $request->file('image')->getClientOriginalName();
+        dd($request);
+        $request->file('image')->move('images', $name, 'public');
+        $image->name = $name;
+        $image->path = ('images' . $name);
+        $image->saveOrFail();
         return view('image', compact($request, $image));
     }
 

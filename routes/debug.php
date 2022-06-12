@@ -24,7 +24,7 @@ use App\Http\Controllers\Example\PersonController;
 Route::controller(ImageController::class)->group(function () {
     Route::resource('image', ImageController::class);
     Route::post('image/debug', 'debug')->name('image.debug');
-    Route::post('image/{image}/restore', 'restore')->name('image.restore');
+    Route::get('image/{image}/restore', 'restore')->name('image.restore');
     Route::match(array('GET', 'POST'), '/all', 'image')->name('all');
 });
 
