@@ -22,6 +22,19 @@ class PersonController extends Controller
     }
 
     /**
+     * Set users.names by relationship from people.surname and people.last_name
+     * person -> user
+     */
+    public function adjust()
+    {
+        $persons = Person::all();
+        foreach ($persons as $person) {
+            if ($person->user_id != null)
+                $person->user_id->name = ($person->surname . $person->last_name);
+        }
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Person  $person
