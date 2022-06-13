@@ -6,6 +6,7 @@ use App\Models\Debug\Debug;
 use App\Services\DebugService;
 use App\Http\Controllers\Controller;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 
 /** Freie Wahl (wenn benötigt)
@@ -37,6 +38,7 @@ class DebugController extends Controller
      */
     public function index($name = 'main')
     {
+        $url = Config::set('constants.info.url', 'http://example.de');
         switch ($name) {
             case 'db':
                 return view('debug.db');

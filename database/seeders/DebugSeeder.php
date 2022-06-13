@@ -1,9 +1,8 @@
 <?php
 
-namespace Database\Seeders\Debug;
+namespace Database\Seeders;
 
 use App\Models\Debug\Debug;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DebugSeeder extends Seeder

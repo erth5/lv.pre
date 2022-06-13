@@ -38,6 +38,8 @@ info:(Beispiel wie code geschrieben werden kann)
 -session
 -template
 
+ANALYse mit PHP Storm
+
 test ist ausschließoich für Tests
 
 Einseiter für Debug auf dem alles zu sehen ist
@@ -91,11 +93,15 @@ php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 ```terminal
 php artisan migrate:fresh --seed
 php artisan db:seed --class=UserSeeder
-php artisan db:seed --class=PersonSeeder
+php artisan db:seed --class=Example\PersonSeeder
 ```
 
 ```terminal
 php artisan db:wipe --force
+```
+
+```terminal
+php artisan vendor:publish
 ```
 
 ## distriction
@@ -132,3 +138,6 @@ DE
 
 - Localisation
 - Faker
+
+## resource using
+<https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers>

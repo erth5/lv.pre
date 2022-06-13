@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Example;
 
-use App\Http\Controllers\Controller;
-use App\Models\Example\Person;
 use App\Models\User;
+use App\Models\Example\Person;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Config;
+use App\Http\Controllers\Modules\GlobalUtilsModule;
 
 class PersonController extends Controller
 {
@@ -21,6 +23,23 @@ class PersonController extends Controller
         return view('debug.person', compact('users'));
     }
 
+    /** 
+     * Speichert eine vorhandene oder neue Person ab
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Person $person, Request $request)
+    {
+        $person = Person::findOrFail($person);
+        $person = new GlobalUtilsModule;
+        $TableColumnNames = Config::get('identifier.database.people');
+        $checkboxTableColumnNames = Config::get('identifier.databasepeople.checkbox');
+        dd($TableColumnNames);
+        $person->fillObjectFromRequest($person, $TableColumnNames, $checkboxTableColumnNames, $request);
+        $person->saveOrFail();
+        dd($person);
+    }
+
     /**
      * Set users.names by relationship from people.surname and people.last_name
      * person -> user
@@ -32,6 +51,8 @@ class PersonController extends Controller
             if ($person->user_id != null)
                 $person->user_id->name = ($person->surname . $person->last_name);
         }
+        $persons = Person::all();
+        return redirect()->back(compact('persons'));;
     }
 
     /**

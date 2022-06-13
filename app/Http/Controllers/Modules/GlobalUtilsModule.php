@@ -11,20 +11,25 @@ use Illuminate\Support\Facades\Validator;
  * füllt ein Model mit den Request Daten (inklusive Checkboxen), sofern der Spaltenname der Migration angegeben
  * und gibt dieses zurück.
  *
- * @param object object Objekt dessen Attribute gefüllt werden sollen
+ * @param object object Objekt Tabelle, dessen Attribute gefüllt werden sollen
  * @param standardTableColumnNames array Array von attribut-Namen (string) aus dem Request, die im Objekt gefüllt werden sollen
  * @param checkboxTableColumnNames array Array von attribut-Namen (string) die checkbox-werte (boolean-werte) repräsentieren, die aus dem Request, die im Objekt gefüllt werden sollen
  * @param req request request
  * */
 class GlobalUtilsModule extends Controller
 {
-    public function fillObjectFromRequest($object, $standardTableColumnNames,  $checkboxTableColumnNames, Request $req)
+    public function fillObjectFromRequest($object, $TableColumnNames = null,  $checkboxTableColumnNames = null, Request $req)
     {
-        foreach ($standardTableColumnNames as $columnName) {
-            if ($req->has($columnName)) {
-                Log::info("columnName; columnValue:", [$columnName, $req->{$columnName}]);
-                $object->{$columnName} = $req->{$columnName};
+        if (isset($TableColumnNames)) {
+            foreach ($TableColumnNames as $columnName) {
+                if ($req->has($columnName)) {
+                    Log::info("columnName; columnValue:", [$columnName, $req->{$columnName}]);
+                    $object->{$columnName} = $req->{$columnName};
+                }
             }
+        }
+
+        if (isset($checkboxTableColumnNames)) {
             foreach ($checkboxTableColumnNames as $checkboxColumnName) {
                 $req->has($checkboxColumnName) ? $object->{$checkboxColumnName} = true : $object->{$checkboxColumnName} = false;
             }

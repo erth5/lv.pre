@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Example;
+namespace Database\Seeders;
 
 use App\Models\Example\Image;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
