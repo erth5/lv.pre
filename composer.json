@@ -13,7 +13,8 @@
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
         "laravel/telescope": "^4.8",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "spatie/laravel-translatable": "^6.0"
     },
     "require-dev": {
         "apih/laravel-route-list-web": "^1.0",
