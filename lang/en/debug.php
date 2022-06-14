@@ -22,4 +22,8 @@ return [
 
     'db_test_msg' => 'Successfully connected to the database => ',
     'config' => 'configValidation',
+
+    'status' =>'State Message',
+    'error' => 'Error Message',
+    'name' => 'name,'
 ];

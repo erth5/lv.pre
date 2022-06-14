@@ -33,6 +33,6 @@ class Image extends Model
      */
     public function person()
     {
-        return $this->belongsToMany(Person::class);
+        return $this->belongsTo(Person::class);
     }
 }

@@ -26,11 +26,16 @@
 <blockquote></blockquote>
 <br>
 <a href="/info/user">{{ __('debug.rel_view_1') }}</a>
-<a href="/info/user">{{ __('debug.rel_view_2') }}</a>
+<a href="/info/person">{{ __('debug.rel_view_2') }}</a>
+<a href="/info/name">{{ __('debug.name') }}</a>
 <blockquote></blockquote>
 
 <a href="/image"> {{ __('image.image') }} </a>
 <a href="/debug/session"> {{ __('debug.session_data') }} </a>
 <a href="/debug/sessions"> {{ __('debug.session_table') }} </a>
+<blockquote></blockquote>
+
+<a href="/debug/status"> {{ __('debug.status') }} </a>
+<a href="/debug/error"> {{ __('debug.error') }} </a>
 <blockquote></blockquote>
 <br>

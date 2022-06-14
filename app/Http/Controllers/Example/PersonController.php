@@ -12,15 +12,27 @@ use App\Http\Controllers\Modules\GlobalUtilsModule;
 class PersonController extends Controller
 {
     /**
-     * Display all users and his relationship to persons
+     * Display all users and his persons
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexUser()
     {
         // Leere User wird mitgeschickt
         $users = User::all();
         return view('debug.person', compact('users'));
+    }
+
+    /**
+     * Display all persons and his relations to users
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexPerson()
+    {
+        // Leere Partner wird mitgeschickt
+        $persons = Person::all();
+        return view('debug.user', compact('persons'));
     }
 
     /** 
@@ -55,6 +67,13 @@ class PersonController extends Controller
         return redirect()->back(compact('persons'));;
     }
 
+    public function getValuesDirect()
+    {
+        // $names =  User::get(array('name'));
+        $names =  User::select('name')->get();
+        dd($names);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -67,3 +86,6 @@ class PersonController extends Controller
         return view('debug.person');
     }
 }
+
+// fügt jeden Attribut alle Values hinzu
+// $tmpPartnerData = array_fill_keys($tmpPartnerKeys, $tmpPartnerValues);

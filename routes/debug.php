@@ -17,21 +17,28 @@ use App\Http\Controllers\Example\PersonController;
 |
 */
 
-/** Debug  
+/** Debug
  * 1a: yield, public
  * 2b: components, storage
  */
 Route::controller(ImageController::class)->group(function () {
-    Route::resource('image', ImageController::class);
+    Route::resource('image', ImageController::class);   //proof: first route can block others
     Route::post('image/debug', 'debug')->name('image.debug');
     Route::get('image/{image}/restore', 'restore')->name('image.restore');
     Route::match(array('GET', 'POST'), '/all', 'image')->name('all');
 });
-
+// unconventional, because no redirect
 $debugRoutes = array('example', 'test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route) {
-    Route::redirect($route . '/debug', '/debug', 301); //generates 'any'
-    Route::get($route . '/user', [PersonController::class, 'index']);
+    Route::redirect($route . '/debug', '/debug', 301);  //generates 'any'
+    // Route::controller(PersonController::class)->group(function ($route) {
+    //     Route::get($route . '/user', 'indexUser');
+    //     Route::get($route . '/person', 'indexPerson');
+    //     Route::get($route . '/person', 'indexPerson');
+    // });
+    Route::get($route . '/user', [PersonController::class, 'indexUser']);
+    Route::get($route . '/person', [PersonController::class, 'indexPerson']);
+    Route::get($route . '/name', [PersonController::class, 'getValuesDirect']);
     Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
 }
 Route::get('hello', function () {
@@ -40,7 +47,7 @@ Route::get('hello', function () {
 Route::get('/lang/home', [LangController::class, 'index']);
 Route::get('/lang/lang_debug', [LangController::class, 'debug']);
 Route::get('/lang/change', [LangController::class, 'change'])->name('changeLang');
-
+    
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');
 // public function someAction($alias)

@@ -89,6 +89,10 @@ class DebugController extends Controller
                 return view('debug.session');
             case 'sessions':
                 return view('debug.sessions');
+            case 'status':
+                return redirect()->route('debug')->with('status', "state message");
+            case 'error':
+                return redirect()->route('debug')->withErrors(['msg' => 'message for errors']);
             default:
                 return view('debug.layout');
         }

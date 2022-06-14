@@ -22,4 +22,8 @@
 
     'db_test_msg' => 'Erfolgreich mit der Datanbank verbunden =>',
     'config' => 'KonfigurationsValidierung',
+
+    'status' => 'Statusmeldung',
+    'error' => 'Fehlermeldung',
+    'name' => 'Name',
 ];
