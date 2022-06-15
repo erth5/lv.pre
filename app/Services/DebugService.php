@@ -17,9 +17,13 @@ class DebugService
         return $debugValue;
     }
 
-    public function proofDatabaseFields($model, $columns)
+    /**
+     * @param class-string  $model \Illuminate\Database\Eloquent\Model
+     * @param array $columns erwartete Datenbank-Spalten-Namen
+     */
+    public function proofDatabaseFields(string $modelClass, $columns)
     {
-        $currentColumns = Schema::getColumnListing($model);
+        $currentColumns = Schema::getColumnListing($modelClass);
         foreach ($columns as $column) {
             if (!in_array($column, $currentColumns))
                 return false;
