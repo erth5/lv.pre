@@ -22,7 +22,11 @@ class ImageController extends Controller
     public function index()
     {
         $images = Image::withTrashed()->get();
-        return view('image.index', compact('images'));
+        // performance: 1 querie->good
+        if ($images->isEmpty())
+            return view('image.index');
+        else
+            return view('image.index', compact('images'));
     }
 
     /**

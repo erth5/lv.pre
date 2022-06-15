@@ -18,9 +18,13 @@ class PersonController extends Controller
      */
     public function indexUser()
     {
-        // Leere User wird mitgeschickt
-        $users = User::all();
-        return view('debug.person', compact('users'));
+        // performance: 2 queries->bad
+        if (User::first() == null)
+            $users = null;
+        else {
+            $users = User::all();
+            return view('debug.person', compact('users'));
+        }
     }
 
     /**
@@ -30,8 +34,11 @@ class PersonController extends Controller
      */
     public function indexPerson()
     {
-        // Leere Partner wird mitgeschickt
-        $persons = Person::all();
+        // performance: 2 queries->bad
+        if (Person::count() == 0)
+            return view('debug.user');
+        else
+            $persons = Person::all();
         return view('debug.user', compact('persons'));
     }
 
@@ -43,6 +50,7 @@ class PersonController extends Controller
     public function store(Person $person, Request $request)
     {
         $person = Person::findOrFail($person);
+        // TODO kann ncht gehen
         $person = new GlobalUtilsModule;
         $TableColumnNames = Config::get('identifier.database.people');
         $checkboxTableColumnNames = Config::get('identifier.databasepeople.checkbox');
