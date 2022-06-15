@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Debug;
 use App\Models\Debug\Debug;
 use App\Services\DebugService;
 use App\Http\Controllers\Controller;
+use App\Models\Example\Person;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Config;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
+use Database\Factories\Example\PersonFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /** Freie Wahl (wenn benötigt)
  * use Illuminate\Routing\Route;
@@ -40,6 +43,9 @@ class DebugController extends Controller
     {
         $url = Config::set('constants.info.url', 'http://example.de');
         switch ($name) {
+            case 'current':
+                DebugController::test();
+                break;
             case 'db':
                 return view('debug.db');
             case 'debug':
@@ -107,5 +113,14 @@ class DebugController extends Controller
     public function destroy(debug $debug)
     {
         Debug::truncate();
+    }
+
+    public function test()
+    {
+        // $test = Person::username();
+        // dd($test);
+        $columns = ['id', 'user_id', 'surname', 'last_name', 'username', 'created_at', 'updated_at'];
+        $coloumschecker = $this->debugService->proofDatabaseFields('people', $columns);
+        dd($coloumschecker);
     }
 }

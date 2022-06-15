@@ -36,4 +36,10 @@ class Person extends Model
     {
         return $this->hasMany(Image::class);
     }
+
+    /** Example Function to get a value as method */
+    public static function username()
+    {
+        return Person::select('username')->get();
+    }
 }

@@ -96,7 +96,7 @@ php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 ```terminal
 php artisan migrate:fresh --seed
 php artisan db:seed --class=UserSeeder
-php artisan db:seed --class=Example\PersonSeeder
+php artisan db:seed --class=PersonSeeder
 ```
 
 ```terminal
