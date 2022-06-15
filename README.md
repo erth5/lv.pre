@@ -16,6 +16,9 @@ many rel ships
 assertThat
 
 refactor:
+
+add examplecontroller similar to personcontr?
+
 user, person to view: rel
 all without contr to view: menu
 last table: HTTP Session

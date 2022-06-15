@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Debug\DebugController;
 use App\Http\Controllers\Debug\LangController;
+use App\Http\Controllers\Example\ExampleController;
 use App\Http\Controllers\Example\ImageController;
 use App\Http\Controllers\Example\PersonController;
 
@@ -40,6 +41,7 @@ foreach ($debugRoutes as $route) {
     Route::get($route . '/person', [PersonController::class, 'indexPerson']);
     Route::get($route . '/name', [PersonController::class, 'getValuesDirect']);
     Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
+    Route::get($route . '/index', [ExampleController::class, 'index'])->name('index');
 }
 Route::get('hello', function () {
     echo 'hello World';
