@@ -37,5 +37,6 @@
 
 <a href="/debug/status"> {{ __('debug.status') }} </a>
 <a href="/debug/error"> {{ __('debug.error') }} </a>
+<a href="/debug/current"> {{__('debug.test')}} </a>
 <blockquote></blockquote>
 <br>

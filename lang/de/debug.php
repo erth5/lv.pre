@@ -26,4 +26,5 @@
     'status' => 'Statusmeldung',
     'error' => 'Fehlermeldung',
     'name' => 'Name',
+    'test' => 'Test',
 ];

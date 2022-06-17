@@ -25,5 +25,6 @@ return [
 
     'status' =>'State Message',
     'error' => 'Error Message',
-    'name' => 'name,'
+    'name' => 'name,',
+    'test' => 'test',
 ];

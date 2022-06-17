@@ -117,10 +117,18 @@ class DebugController extends Controller
 
     public function test()
     {
+        /** dons't works */
         // $test = Person::username();
         // dd($test);
-        $columns = ['id', 'user_id', 'surname', 'last_name', 'username', 'created_at', 'updated_at'];
-        $coloumschecker = $this->debugService->proofDatabaseFields('people', $columns);
-        dd($coloumschecker);
+
+        /** works */
+        // $columns = ['id', 'user_id', 'surname', 'last_name', 'username', 'created_at', 'updated_at'];
+        // $coloumschecker = $this->debugService->proofDatabaseFields('people', $columns);
+        // dd($coloumschecker);
+
+        /** works */
+        // $person = Person::first();
+        // $columnName = 'surname';
+        // dd($person->{$columnName});
     }
 }
