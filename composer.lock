@@ -2293,16 +2293,16 @@
         },
         {
             "name": "nunomaduro/termwind",
-            "version": "v1.10.1",
+            "version": "v1.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/termwind.git",
-                "reference": "b63e00e448af1d418cbb07a683187685a97ca0e6"
+                "reference": "8ae79be19eddeac25e6bf5b9e1696de87d4f1556"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/b63e00e448af1d418cbb07a683187685a97ca0e6",
-                "reference": "b63e00e448af1d418cbb07a683187685a97ca0e6",
+                "url": "https://api.github.com/repos/nunomaduro/termwind/zipball/8ae79be19eddeac25e6bf5b9e1696de87d4f1556",
+                "reference": "8ae79be19eddeac25e6bf5b9e1696de87d4f1556",
                 "shasum": ""
             },
             "require": {
@@ -2359,7 +2359,7 @@
             ],
             "support": {
                 "issues": "https://github.com/nunomaduro/termwind/issues",
-                "source": "https://github.com/nunomaduro/termwind/tree/v1.10.1"
+                "source": "https://github.com/nunomaduro/termwind/tree/v1.11.1"
             },
             "funding": [
                 {
@@ -2375,7 +2375,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-12T01:36:04+00:00"
+            "time": "2022-06-17T12:26:22+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -6484,16 +6484,16 @@
         },
         {
             "name": "laravel-lang/publisher",
-            "version": "v13.0.0",
+            "version": "v13.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/publisher.git",
-                "reference": "ecd13b0484fb3307d3261f6785e22f895e43fe74"
+                "reference": "0af88a10d491138c1b7e492d0f4556bb474816df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/publisher/zipball/ecd13b0484fb3307d3261f6785e22f895e43fe74",
-                "reference": "ecd13b0484fb3307d3261f6785e22f895e43fe74",
+                "url": "https://api.github.com/repos/Laravel-Lang/publisher/zipball/0af88a10d491138c1b7e492d0f4556bb474816df",
+                "reference": "0af88a10d491138c1b7e492d0f4556bb474816df",
                 "shasum": ""
             },
             "require": {
@@ -6505,6 +6505,11 @@
                 "illuminate/contracts": "^7.0 || ^8.0 || ^9.0",
                 "illuminate/support": "^7.0 || ^8.0 || ^9.0",
                 "php": "^8.0"
+            },
+            "conflict": {
+                "laravel-lang/attributes": ">=2.0.0",
+                "laravel-lang/http-statuses": ">=3.0.0",
+                "laravel-lang/lang": ">=11.0.0"
             },
             "require-dev": {
                 "laravel-lang/http-statuses": "^2.0",
@@ -6574,7 +6579,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-04-21T13:04:36+00:00"
+            "time": "2022-06-17T21:15:34+00:00"
         },
         {
             "name": "laravel/dusk",
@@ -9071,5 +9076,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
