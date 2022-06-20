@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Example;
 
 use App\Models\User;
-use App\Models\Example\Person;
 use Illuminate\Http\Request;
+use App\Models\Example\Person;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\Modules\GlobalUtilsModule;

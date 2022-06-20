@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
+use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
 
 class AppServiceProvider extends ServiceProvider
 {

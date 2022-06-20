@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Debug;
 use App\Models\User;
+use App\Models\Debug;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class DebugPolicy

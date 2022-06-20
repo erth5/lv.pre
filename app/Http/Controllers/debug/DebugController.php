@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Debug;
 
 use App\Models\Debug\Debug;
+use App\Models\Example\Person;
 use App\Services\DebugService;
 use App\Http\Controllers\Controller;
-use App\Models\Example\Person;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Config;
-use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
-use Database\Factories\Example\PersonFactory;
 use Illuminate\Database\Eloquent\Model;
+use Database\Factories\Example\PersonFactory;
+use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
 
 /** Freie Wahl (wenn benötigt)
  * use Illuminate\Routing\Route;
