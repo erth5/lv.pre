@@ -1,10 +1,14 @@
 @extends('image.layout')
 @section('image_views')
-    @forelse ($images as $image)
-        <div style="display: inline-block">
-            <x-image.index :image=$image />
-        </div>
-    @empty
-        <p>No Images Saved</p>
-    @endforelse
+    @isset($images)
+        @forelse ($images as $image)
+            <div style="display: inline-block">
+                <x-image.index :image=$image />
+            </div>
+        @empty
+            <p>No Images Saved</p>
+        @endforelse
+    @else
+        <p>No Images object Saved</p>
+    @endisset
 @endsection

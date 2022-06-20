@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Debug\DebugController;
 use App\Http\Controllers\Debug\LangController;
-use App\Http\Controllers\Example\ExampleController;
 use App\Http\Controllers\Example\ImageController;
 use App\Http\Controllers\Example\PersonController;
 
@@ -23,7 +22,8 @@ use App\Http\Controllers\Example\PersonController;
  * 2b: components, storage
  */
 Route::controller(ImageController::class)->group(function () {
-    Route::resource('image', ImageController::class);   //proof: first route can block others
+    //proof: first route can block others
+    Route::resource('image', ImageController::class);
     Route::post('image/debug', 'debug')->name('image.debug');
     Route::get('image/{image}/restore', 'restore')->name('image.restore');
     Route::match(array('GET', 'POST'), '/all', 'image')->name('all');
@@ -41,7 +41,7 @@ foreach ($debugRoutes as $route) {
     Route::get($route . '/person', [PersonController::class, 'indexPerson']);
     Route::get($route . '/name', [PersonController::class, 'getValuesDirect']);
     Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
-    Route::get($route . '/index', [ExampleController::class, 'index'])->name('index');
+    // Route::get($route . '/index', [ExampleController::class, 'index'])->name('index');
 }
 Route::get('hello', function () {
     echo 'hello World';
