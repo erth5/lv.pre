@@ -21,6 +21,14 @@ class Person extends Model
         'username',
     ];
 
+    /** 
+     * get person by id without pagination, without sort
+     */
+    public function person($id)
+    {
+        return Person::find($id);
+    }
+
     /**
      * Relationship: get user that owns person
      */

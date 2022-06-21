@@ -10,8 +10,10 @@ return [
     'path' => 'path',
     'view' => 'view',
     'contr' => 'controller',
+    'model' => 'model',
     'rl' => 'routeList(aphi)',
     'lang' => 'lang',
+    'lang_browser' => 'browser language',
     'lang_debug' => 'langDebug',
     'telescope' => 'telescope',
     'swagger' => 'swagger',
@@ -23,8 +25,8 @@ return [
     'db_test_msg' => 'Successfully connected to the database => ',
     'config' => 'configValidation',
 
-    'status' =>'State Message',
+    'status' => 'State Message',
     'error' => 'Error Message',
-    'name' => 'name,',
+    'name' => 'name',
     'test' => 'test',
 ];

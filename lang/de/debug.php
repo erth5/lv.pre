@@ -12,6 +12,7 @@
     'model' => 'Modell-Dateien',
     'rl' => 'routeList(aphi)',
     'lang' => 'Sprache',
+    'lang_browser' => 'Browsersprache',
     'lang_debug' => 'SpracheDebug',
     'telescope' => 'Telescope',
     'swagger' => 'Swagger',

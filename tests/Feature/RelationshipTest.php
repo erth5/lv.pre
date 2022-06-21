@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\Person;
+use App\Models\Example\Person;
 use App\Models\User;
 use Database\Seeders\PersonSeeder;
 use Illuminate\Foundation\Testing\DatabaseMigrations;

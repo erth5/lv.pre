@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Models\Image;
+use App\Models\Example\Image;
 use DirectoryIterator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;

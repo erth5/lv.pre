@@ -3,7 +3,7 @@
     @isset($images)
         @forelse ($images as $image)
             <div style="display: inline-block">
-                <x-image.index :image=$image />
+                <x-image.show :image=$image />
             </div>
         @empty
             <p>No Images Saved</p>

@@ -8,13 +8,12 @@
         {{-- <option value="sp" {{ session()->get('locale') == 'sp' ? 'selected' : '' }}>Spanish</option> --}}
     </select>
     
-    <h3>Browser Sprache:
+    <h3>{{__('debug.lang_browser')}}
         {{session()->get('locale')}}
     </h3>
     <h3>{{ __('messages.lang-message') }}
         {{ Config::get('app.locale') }}
     </h3>
-
 
     <script type="text/javascript">
         var lang = null;

@@ -88,7 +88,7 @@ class ImageController extends Controller
     public function show()
     {
         $image = Image::first();
-        return view('image.show', compact('image'));
+        return view('image.single', compact('image'));
     }
 
     /**

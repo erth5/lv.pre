@@ -2,7 +2,7 @@
 <a href="/image">{{ __('image.index') }}</a>
 <a href="/image/create">{{ __('image.upload') }}</a>
 <a href="/image/1/edit">{{ __('image.edit') }}</a>
-<a href="/image/1">{{ __('image.show') }}</a>
+<a href="/image/1">{{ __('image.single') }}</a>
 <a href="/image/1">{{ __('image.change') }}</a>
 <a href="/image/1">{{ __('image.rm') }}</a>
 <blockquote></blockquote>

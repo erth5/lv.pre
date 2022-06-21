@@ -17,7 +17,7 @@
         <button type="submit" value="submit">remove</button>
 
         @method('PUT')
-        <input type="text" name="update">
+        <input type="text" name="edit">
         <button type="submit" value="submit">rename(edit)</button>
     </form>
 

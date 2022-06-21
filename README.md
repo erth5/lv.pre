@@ -13,8 +13,6 @@ many rel ships
 
 <https://github.com/fruitcake/laravel-telescope-toolbar>
 
-assertThat
-
 refactor:
 
 add examplecontroller similar to personcontr?
@@ -22,7 +20,6 @@ add examplecontroller similar to personcontr?
 user, person to view: rel
 all without contr to view: menu
 last table: HTTP Session
-move controllers and Models to extra folder
 
 Sämtliche DB Abfragen, Logik aufgaben und Views Automatisieren:
 $columns = $this->getFillable();
@@ -143,4 +140,5 @@ DE
 - Faker
 
 ## resource using
+
 <https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers>
