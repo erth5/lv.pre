@@ -25,7 +25,10 @@ class ValidateImageRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        //
+        $validatedImage = $value->validate([
+            'image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+        ]);
+        return $validatedImage;
     }
 
     /**
@@ -35,6 +38,6 @@ class ValidateImageRule implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'misses required format jpg,png,jpeg,gif,svg with max:2048.';
     }
 }
