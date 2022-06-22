@@ -21,10 +21,6 @@ user, person to view: rel
 all without contr to view: menu
 last table: HTTP Session
 
-Sämtliche DB Abfragen, Logik aufgaben und Views Automatisieren:
-$columns = $this->getFillable();
-...
-
 info:(Beispiel wie code geschrieben werden kann)
 -user
 -person
