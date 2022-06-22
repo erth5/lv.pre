@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Database\Eloquent\Model;
 use Database\Factories\Example\PersonFactory;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
+use Illuminate\Support\Facades\Schema;
 
 /** Freie Wahl (wenn benötigt)
  * use Illuminate\Routing\Route;
@@ -123,12 +124,17 @@ class DebugController extends Controller
 
         /** works */
         // $columns = ['id', 'user_id', 'surname', 'last_name', 'username', 'created_at', 'updated_at'];
-        // $coloumschecker = $this->debugService->proofDatabaseFields('people', $columns);
+        // $coloumschecker = $this->debugService->proofAllDatabaseFields('people', $columns);
         // dd($coloumschecker);
 
         /** works */
         // $person = Person::first();
         // $columnName = 'surname';
         // dd($person->{$columnName});
+
+        /** works */
+        // $columns = ['surname', 'last_name', 'username'];
+        // $coloumschecker = $this->debugService->proofDatabaseFields(Person::class, $columns);
+        // dd($coloumschecker);
     }
 }

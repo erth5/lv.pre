@@ -23,13 +23,7 @@ last table: HTTP Session
 
 Sämtliche DB Abfragen, Logik aufgaben und Views Automatisieren:
 $columns = $this->getFillable();
-$attributes = $this->getAttributes();
 ...
-
-debug:(Info über das System, heißt Umgebungsinfo)
-
-- lang
-- db
 
 info:(Beispiel wie code geschrieben werden kann)
 -user
@@ -97,6 +91,7 @@ php artisan db:seed --class=PersonSeeder
 ```
 
 ```terminal
+php artisan migrate:status
 php artisan db:wipe --force
 ```
 

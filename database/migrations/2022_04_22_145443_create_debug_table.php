@@ -29,4 +29,15 @@ return new class extends Migration
     {
         Schema::dropIfExists('debugs');
     }
+
+    /** function to drop specific coloumn */
+    public function dropIfExists($table, $column)
+    {
+        if (Schema::hasColumn($table, $column)) //check the column
+        {
+            Schema::table($table, function (Blueprint $table) use ($column) {
+                $table->dropColumn($column); //drop it
+            });
+        }
+    }
 };
