@@ -34,9 +34,14 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('images', function (Blueprint $table) {
+        if (Schema::hasTable('images', function (Blueprint $table) {
+            if (Schema::hasColumns('images', ['name', 'path', 'person_id'])) {
+                $table->dropColumn('name');
+                $table->dropColumn('path');
+                $table->dropColumn('person_id');
+            }
             $table->dropSoftDeletes();
-            // Schema::dropIfExists('images');
-        });
+        }));
+        Schema::dropIfExists('images');
     }
 };

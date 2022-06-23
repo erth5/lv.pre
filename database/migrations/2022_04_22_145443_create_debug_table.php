@@ -30,7 +30,7 @@ return new class extends Migration
         Schema::dropIfExists('debugs');
     }
 
-    /** function to drop specific coloumn */
+    /** function to drop specified coloumn */
     public function dropIfExists($table, $column)
     {
         if (Schema::hasColumn($table, $column)) //check the column
