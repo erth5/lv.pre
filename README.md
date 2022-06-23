@@ -67,9 +67,10 @@ php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 
 <https://laravel.com/docs/9.x/dusk>
 
-## Outcludet
+## Outcludet / Not Integrated by default
 
-- Code generator (e. g. CrestApps)
+- Code generator (contained by CrestApps)
+- permissions (contained by voyager, spatie permissions, breeez, jetbstream)
 - <https://github.com/staudenmeir/eloquent-has-many-deep>
 - <https://laravelactions.com/>
 

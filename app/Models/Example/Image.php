@@ -27,6 +27,25 @@ class Image extends Model
     const UPDATED_AT = 'update_time';
     const DELETED_AT = 'remove_time';
 
+    /** Anwendung folgend!!:
+     * $completedProjects = Project::completed()->get(); */
+
+    /**
+     * Scope:  Select images that are not assigned to a person
+     * @return void
+     */
+    public function scopeUnassigned()
+    {
+        return Image::where('person_id', null);
+    }
+    /**
+     * Scope:  Select images that are assigned to a person
+     * @return void
+     */
+    public function scopeAssigned()
+    {
+        return Image::where('person_id' != null);
+    }
 
     /**
      * Relationship: get person that owns images
