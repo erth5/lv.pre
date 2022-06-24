@@ -14,7 +14,7 @@ https://www.tutsmake.com/laravel-9-upload-image-example-tutorial/
         $path = $request->file('image')->store('public');
         $dbItem->name = $name;
         $dbItem->path = $path;
-        $dbItem->save();
+        $dbItem->saveOrFail();
         $image = Image::all();
         dd($request, $validation, $dbItem, $name, $path);
 

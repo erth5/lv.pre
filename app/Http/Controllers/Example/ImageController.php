@@ -180,7 +180,7 @@ class ImageController extends Controller
         // $dbItem->name = $name;
         // // path descripes the name in Path "storage/app/images
         // $dbItem->path = $path;
-        // $dbItem->save();
+        // $dbItem->saveOrFail();
 
         // $images = Image::all();
         // // dd($request, $validation, $dbItem, $name, $path);
