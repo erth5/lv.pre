@@ -89,6 +89,7 @@ php artisan db:seed --class=PersonSeeder
 
 ```terminal
 php artisan migrate:status
+php artisan migrate:rollback --step=1
 php artisan db:wipe --force
 ```
 
