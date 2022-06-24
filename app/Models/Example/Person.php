@@ -29,6 +29,12 @@ class Person extends Model
         return Person::find($id);
     }
 
+    /** display the people - static view*/
+    public static function view(){
+        $people = Person::all();
+        return view('debug.person', compact('people'));
+    }
+
     /**
      * Relationship: get user that owns person
      */

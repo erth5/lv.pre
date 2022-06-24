@@ -12,7 +12,7 @@ use App\Http\Controllers\Modules\GlobalUtilsModule;
 class PersonController extends Controller
 {
     /**
-     * Display all users and his persons
+     * Display all users and his people
      *
      * @return \Illuminate\Http\Response
      */
@@ -28,7 +28,7 @@ class PersonController extends Controller
     }
 
     /**
-     * Display all persons and his relations to users
+     * Display all people and his relations to users
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,8 +38,8 @@ class PersonController extends Controller
         if (Person::count() == 0)
             return view('debug.user');
         else
-            $persons = Person::all();
-        return view('debug.user', compact('persons'));
+            $people = Person::all();
+        return view('debug.user', compact('people'));
     }
 
     /** 
@@ -66,13 +66,13 @@ class PersonController extends Controller
      */
     public function adjust()
     {
-        $persons = Person::all();
-        foreach ($persons as $person) {
+        $people = Person::all();
+        foreach ($people as $person) {
             if ($person->user_id != null)
                 $person->user_id->name = ($person->surname . $person->last_name);
         }
-        $persons = Person::all();
-        return redirect()->back(compact('persons'));;
+        $people = Person::all();
+        return redirect()->back(compact('people'));;
     }
 
     public function getValuesDirect()
@@ -91,7 +91,29 @@ class PersonController extends Controller
     public function destroy(Person $person)
     {
         $person->delete();
-        return view('debug.person');
+        $view = Person::view();
+        // dd($view);
+        return $view;
+    }
+
+    public function test($id)
+    {
+        $person = Person::findOrFail($id);
+        if ($person->user_id == null)
+            echo 'ist null';
+        else
+            echo 'ist nicht null';
+
+        if ($person->has('user_id'))
+            echo 'hat';
+        else
+            echo 'hat nicht';
+
+        if ($person->user_id->exists())
+            echo ('existiert');
+        else
+            echo 'existiert nicht';
+        dd('Erfassung vollständig');
     }
 }
 

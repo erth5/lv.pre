@@ -1,14 +1,14 @@
 @extends('debug.layout')
 @section('c')
 
-    @empty($users)
+    @empty($people)
         <!-- Fehler? -->
         No data
     @endempty
 
-    @isset($users)
+    @isset($people)
         <h3>
-            @forelse ($persons as $person)
+            @forelse ($people as $person)
                 {{-- {{ $person->surname }}
                 {{ $person->last_name }}
                 {{ $person->username }}
@@ -16,7 +16,7 @@
                 {{ $person->user()->get('name') }}
                 {{ $person->user()->get('email') }} --}}
 
-                @forelse ($persons->getAttributes() as $attribute)
+                @forelse ($people->getAttributes() as $attribute)
                     {{ $attribute }},
                 @empty
                     <p>No Columns</p>

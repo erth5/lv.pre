@@ -32,19 +32,20 @@ class Image extends Model
 
     /**
      * Scope:  Select images that are not assigned to a person
+     * using: ::unassigned()->
      * @return void
      */
-    public function scopeUnassigned()
+    public function scopeUnassigned($query)
     {
-        return Image::where('person_id', null);
+        return $query::where('person_id', null);
     }
     /**
      * Scope:  Select images that are assigned to a person
      * @return void
      */
-    public function scopeAssigned()
+    public function scopeAssigned($query)
     {
-        return Image::where('person_id' != null);
+        return $query::where('person_id' != null);
     }
 
     /**

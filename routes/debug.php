@@ -17,38 +17,40 @@ use App\Http\Controllers\Example\PersonController;
 |
 */
 
+Route::get('hello', function () {
+    echo 'hello World';
+});
+
 /** Debug
  * 1a: yield, public
  * 2b: components, storage
  */
-Route::controller(ImageController::class)->group(function () {
-    //proof: first route can block others
-    Route::resource('image', ImageController::class);
-    Route::post('image/debug', 'debug')->name('image.debug');
-    Route::get('image/{image}/restore', 'restore')->name('image.restore');
-    Route::match(array('GET', 'POST'), '/all', 'image')->name('all');
-});
 // unconventional, because no redirect
 $debugRoutes = array('example', 'test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route) {
     Route::redirect($route . '/debug', '/debug', 301);  //generates 'any'
-    // Route::controller(PersonController::class)->group(function ($route) {
-    //     Route::get($route . '/user', 'indexUser');
-    //     Route::get($route . '/person', 'indexPerson');
-    //     Route::get($route . '/person', 'indexPerson');
-    // });
-    Route::get($route . '/user', [PersonController::class, 'indexUser']);
-    Route::get($route . '/person', [PersonController::class, 'indexPerson']);
-    Route::get($route . '/name', [PersonController::class, 'getValuesDirect']);
     Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
-    // Route::get($route . '/index', [ExampleController::class, 'index'])->name('index');
 }
-Route::get('hello', function () {
-    echo 'hello World';
+
+Route::controller(PersonController::class)->group(function () {
+    Route::get('/person/user', 'indexUser');
+    Route::get('/person/person', 'indexPerson');
+    Route::get('/person/destroy', 'destroy');
+    Route::get('/person/name', 'getValuesDirect');
+    Route::get('/person/test', 'test');
 });
-Route::get('/lang/home', [LangController::class, 'index']);
-Route::get('/lang/lang_debug', [LangController::class, 'debug']);
-Route::get('/lang/change', [LangController::class, 'change'])->name('changeLang');
+Route::controller(ImageController::class)->group(function () {
+    //proof: first route can block others
+    Route::resource('image', ImageController::class);
+    Route::post('/image/debug', 'debug');
+    Route::get('/image/{image}/restore', 'restore')->name('image.restore');
+    Route::match(array('GET', 'POST'), '/all', 'image');
+});
+Route::controller(LangController::class)->group(function () {
+    Route::get('/lang/home', 'index');
+    Route::get('/lang/lang_debug', 'debug');
+    Route::get('/lang/change', 'change')->name('changeLang');
+});
     
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');
