@@ -54,6 +54,10 @@ NamenskoventionsTest?
 
 <https://laravel-news.com/config-validator>
 
+<https://github.com/spatie/laravel-permission>
+
+<https://laravelactions.com/>
+
 ```terminal
 php artisan session:table
 ```
