@@ -19,8 +19,11 @@ return new class extends Migration
             $table->id();
             $table->string('name')->default('Fehler: Name ist null');
             $table->string('path')->default('Fehler: Pfad ist null');
+            // TODO cascade on delete
             $table->integer('person_id')->unsigned()->nullable();
             $table->foreign('person_id')->references('id')->on('people');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamp('upload_time', 0)->nullable();
             $table->timestamp('update_time', 0)->nullable();
             $table->softDeletes('remove_time')->nullable();

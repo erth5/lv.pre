@@ -5673,16 +5673,16 @@
         },
         {
             "name": "brianium/paratest",
-            "version": "v6.5.0",
+            "version": "v6.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paratestphp/paratest.git",
-                "reference": "d22afc08dab73d1dff07c700ed6a78f138f5020e"
+                "reference": "41fc4cc01422dae2d6bf6a0ce39756f57ac7d8a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/d22afc08dab73d1dff07c700ed6a78f138f5020e",
-                "reference": "d22afc08dab73d1dff07c700ed6a78f138f5020e",
+                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/41fc4cc01422dae2d6bf6a0ce39756f57ac7d8a9",
+                "reference": "41fc4cc01422dae2d6bf6a0ce39756f57ac7d8a9",
                 "shasum": ""
             },
             "require": {
@@ -5711,7 +5711,9 @@
                 "vimeo/psalm": "^4.23.0"
             },
             "bin": [
-                "bin/paratest"
+                "bin/paratest",
+                "bin/paratest.bat",
+                "bin/paratest_for_phpstorm"
             ],
             "type": "library",
             "autoload": {
@@ -5747,7 +5749,7 @@
             ],
             "support": {
                 "issues": "https://github.com/paratestphp/paratest/issues",
-                "source": "https://github.com/paratestphp/paratest/tree/v6.5.0"
+                "source": "https://github.com/paratestphp/paratest/tree/v6.5.1"
             },
             "funding": [
                 {
@@ -5759,7 +5761,7 @@
                     "type": "paypal"
                 }
             ],
-            "time": "2022-06-23T13:00:19+00:00"
+            "time": "2022-06-24T16:02:27+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -5984,16 +5986,16 @@
         },
         {
             "name": "dragon-code/support",
-            "version": "v6.2.0",
+            "version": "v6.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheDragonCode/support.git",
-                "reference": "99087ac766de4fdad144eca23d835077b740e91d"
+                "reference": "90b486ce4c725c8f82eeeaeb2934cb79fe0c383f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheDragonCode/support/zipball/99087ac766de4fdad144eca23d835077b740e91d",
-                "reference": "99087ac766de4fdad144eca23d835077b740e91d",
+                "url": "https://api.github.com/repos/TheDragonCode/support/zipball/90b486ce4c725c8f82eeeaeb2934cb79fe0c383f",
+                "reference": "90b486ce4c725c8f82eeeaeb2934cb79fe0c383f",
                 "shasum": ""
             },
             "require": {
@@ -6086,7 +6088,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-06-16T10:58:36+00:00"
+            "time": "2022-06-24T12:05:36+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -9136,5 +9138,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

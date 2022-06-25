@@ -98,22 +98,26 @@ class PersonController extends Controller
 
     public function test($id)
     {
-        $person = Person::findOrFail($id);
-        if ($person->user_id == null)
-            echo 'ist null';
-        else
-            echo 'ist nicht null';
+        // works
+        // $person = Person::findOrFail($id);
+        // if ($person->user_id == null)
+        //     echo 'ist null';
+        // else
+        //     echo 'ist nicht null';
 
-        if ($person->has('user_id'))
-            echo 'hat';
-        else
-            echo 'hat nicht';
+        // if ($person->has('user_id'))
+        //     echo 'hat';
+        // else
+        //     echo 'hat nicht';
 
-        if ($person->user_id->exists())
-            echo ('existiert');
-        else
-            echo 'existiert nicht';
-        dd('Erfassung vollständig');
+        // if ($person->user_id->exists())
+        //     echo ('existiert');
+        // else
+        //     echo 'existiert nicht';
+        // dd('Erfassung vollständig');
+
+        $people = Person::has('images', '=', 1)->get();
+        dd($people);
     }
 }
 
