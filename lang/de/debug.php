@@ -16,6 +16,7 @@
     'lang_debug' => 'SpracheDebug',
     'telescope' => 'Telescope',
     'swagger' => 'Swagger',
+    'voyager' => 'Voyager',
     'rel_view_1' => 'Nutzer->Person',
     'rel_view_2' => 'Person->Nutzer',
     'session_data' => 'Aktuelle Session',
@@ -27,5 +28,6 @@
     'status' => 'Statusmeldung',
     'error' => 'Fehlermeldung',
     'name' => 'Name',
-    'test' => 'Test',
+    'debug_test' => 'Debug test Funktionen',
+    'person_test' => 'Person test Funktionen'
 ];

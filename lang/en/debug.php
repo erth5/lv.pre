@@ -17,6 +17,7 @@ return [
     'lang_debug' => 'langDebug',
     'telescope' => 'telescope',
     'swagger' => 'swagger',
+    'voyager' => 'voyager',
     'rel_view_1' => 'user->Person',
     'rel_view_2' => 'person->User',
     'session_data' => 'current session',
@@ -28,5 +29,5 @@ return [
     'status' => 'State Message',
     'error' => 'Error Message',
     'name' => 'name',
-    'test' => 'test',
+    'debug_test' => 'Debug test functions',
 ];

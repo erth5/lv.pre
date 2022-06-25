@@ -96,7 +96,7 @@ class PersonController extends Controller
         return $view;
     }
 
-    public function test($id)
+    public function test($id = 11)
     {
         // works
         // $person = Person::findOrFail($id);
@@ -116,8 +116,12 @@ class PersonController extends Controller
         //     echo 'existiert nicht';
         // dd('Erfassung vollständig');
 
-        $people = Person::has('images', '=', 1)->get();
-        dd($people);
+        // works
+        $person = Person::find($id);
+        $relatedImages = $person->countRelatedImages($id);
+        if ($relatedImages == 2)
+            $relatedImages = $person->getRelatedImages($id);
+        dd($relatedImages);
     }
 }
 

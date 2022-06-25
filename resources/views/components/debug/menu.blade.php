@@ -22,9 +22,15 @@
 
 <a href="/route:list">{{ __('debug.rl') }}</a>
 <a href="/telescope">{{ __('debug.telescope') }}</a>
-<a class="disabled" href="">{{ __('debug.swagger') }}</a>
+<a class="disabled" href="/">{{ __('debug.swagger') }}</a>
+<a class="disabled" href="/admin">{{ __('debug.voyager') }}</a>
 <blockquote></blockquote>
 <br>
+
+<a href="/debug/test"> {{ __('debug.debug_test') }} </a>
+<a href="/person/test"> {{ __('debug.person_test') }} </a>
+<blockquote></blockquote>
+
 <a href="/info/user">{{ __('debug.rel_view_1') }}</a>
 <a href="/info/person">{{ __('debug.rel_view_2') }}</a>
 <a href="/info/name">{{ __('debug.name') }}</a>
@@ -37,6 +43,5 @@
 
 <a href="/debug/status"> {{ __('debug.status') }} </a>
 <a href="/debug/error"> {{ __('debug.error') }} </a>
-<a href="/debug/current"> {{__('debug.test')}} </a>
 <blockquote></blockquote>
 <br>

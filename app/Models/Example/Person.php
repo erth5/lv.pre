@@ -30,7 +30,8 @@ class Person extends Model
     }
 
     /** display the people - static view*/
-    public static function view(){
+    public static function view()
+    {
         $people = Person::all();
         return view('debug.person', compact('people'));
     }
@@ -38,9 +39,28 @@ class Person extends Model
     // TODO use static??
     /** Scope: Select which has only one image TODO - wie macht man das?
      * using: ::hasOneImage
-    */
-    public function scopeHasOneImage($query){
-        return $query::where('')
+     */
+    // public function scopeHasOneImage($query)
+    // {
+    //     dd($query);
+    //     $number = Image::where('person_id', '=', $id)->count();
+    //     return $number;
+    // }
+
+    /** Count number of Images a person has
+     * @return number Amount Anzahl Bilder
+     */
+    public function countRelatedImages($id)
+    {
+        return Image::where('person_id', '=', $id)->count();
+    }
+    
+    /** Get all Images related to a person
+     * @return Image Images of a person
+     */
+    public function getRelatedImages($id)
+    {
+        return Image::where('person_id', '=', $id)->get();
     }
 
     /**
@@ -51,9 +71,9 @@ class Person extends Model
         return $this->belongsTo(User::class);
     }
 
-// public function test(){
-//     return $this->hasM
-// }
+    // public function test(){
+    //     return $this->hasM
+    // }
 
     /**
      * Relationship: get images associated with person

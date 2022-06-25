@@ -44,7 +44,7 @@ class DebugController extends Controller
     {
         $url = Config::set('constants.info.url', 'http://example.de');
         switch ($name) {
-            case 'current':
+            case 'test':
                 DebugController::test();
                 break;
             case 'db':
