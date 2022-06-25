@@ -1,5 +1,4 @@
-<?php
-return [
+<?php return [
     'overview' => 'overview',
     'redirect' => 'redirect',
     'conn' => 'databaseConnection',
@@ -30,4 +29,5 @@ return [
     'error' => 'Error Message',
     'name' => 'name',
     'debug_test' => 'Debug test functions',
+    'person_test' => 'Person test functions'
 ];
