@@ -52,8 +52,8 @@ class PersonController extends Controller
         $person = Person::findOrFail($person);
         // TODO kann ncht gehen
         $person = new GlobalUtilsModule;
-        $TableColumnNames = Config::get('identifier.database.people');
-        $checkboxTableColumnNames = Config::get('identifier.databasepeople.checkbox');
+        $TableColumnNames = Config::get('database.tables.people');
+        $checkboxTableColumnNames = [null];
         dd($TableColumnNames);
         $person->fillObjectFromRequest($person, $TableColumnNames, $checkboxTableColumnNames, $request);
         $person->saveOrFail();
