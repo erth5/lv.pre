@@ -8,12 +8,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Modules\ImageValidatorModule;
 
 /**
- * 1b: yield, storage, withName
- * 2b: components, storage
+ * variant1: ressource, yield, storage, withName
+ * variant2: components, storage
  */
 
 class ImageController extends Controller
 {
+    /* variant1 */
     /**
      * Display a listing of the resource.
      *
@@ -27,16 +28,6 @@ class ImageController extends Controller
             return view('image.index');
         else
             return view('image.index', compact('images'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('/image.upload');
     }
 
     /**
@@ -65,9 +56,7 @@ class ImageController extends Controller
             return back()->with('statusError', __('image.validateError'));
         }
 
-        /** Syntax 1b
-         * storeAs: $path, $name, $options = []
-         */
+        /** storeAs: $path, $name, $options = []     */
         $requestData = $request->all();
         $name = time() . $request->file('image')->getClientOriginalName();
         $path = $request->file('image')->storeAs('images', $name, 'public');
@@ -76,8 +65,20 @@ class ImageController extends Controller
         $metadata->name = $name;
         $metadata->path = $path;
         $metadata->saveOrFail();
-        return redirect('/image/create')->with('statusSuccess', __('image.uploadSuccess'))->with('imageName', $name);
+        $images = Image::all();
+        return redirect('/image/index', compact('images'))->with('statusSuccess', __('image.uploadSuccess'))->with('imageName', $name);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('/image.upload');
+    }
+
 
     /**
      * Display the specified resource.
@@ -89,18 +90,6 @@ class ImageController extends Controller
     {
         $image = Image::first();
         return view('image.single', compact('image'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Image  $image
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Image $image)
-    {
-        $image = Image::first();
-        return view('image.edit', compact('image'));
     }
 
     /**
@@ -158,7 +147,19 @@ class ImageController extends Controller
         return redirect()->back()->with('status', 'Image Has been restored');
     }
 
-    // /** 2b
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Image  $image
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Image $image)
+    {
+        $image = Image::first();
+        return view('image.edit', compact('image'));
+    }
+
+    // /** variant 2
     //  * store function
     //  * @param  \Illuminate\Http\Request  $request
     //  * @return \Illuminate\Http\Response

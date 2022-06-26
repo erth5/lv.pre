@@ -40,11 +40,18 @@ Route::controller(PersonController::class)->group(function () {
     Route::get('/person/test', 'test');
 });
 Route::controller(ImageController::class)->group(function () {
-    //proof: first route can block others
+    /* possible issues:
+    routes at top overrides Routes at buttom in this file
+    ressource has exact predefined routes
+    */
+
+    // variant1
     Route::resource('image', ImageController::class);
-    Route::post('/image/debug', 'debug');
-    Route::get('/image/{image}/restore', 'restore')->name('image.restore');
-    Route::match(array('GET', 'POST'), '/all', 'image');
+
+    // variant2
+    // Route::post('/img/debug', 'debug');
+    // Route::get('/img/{image}/restore', 'restore')->name('image.restore');
+    // Route::match(array('GET', 'POST'), '/img', 'img');
 });
 Route::controller(LangController::class)->group(function () {
     Route::get('/lang/home', 'index');
