@@ -58,6 +58,8 @@ NamenskoventionsTest?
 
 <https://laravelactions.com/>
 
+<https://github.com/laravel/pint>
+
 ```terminal
 php artisan session:table
 ```
