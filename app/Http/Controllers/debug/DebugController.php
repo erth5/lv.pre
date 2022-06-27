@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Database\Factories\Example\PersonFactory;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
 
 /** Freie Wahl (wenn benötigt)
  * use Illuminate\Routing\Route;
@@ -118,7 +119,7 @@ class DebugController extends Controller
 
     public function test()
     {
-        /** dons't works */
+        /** not works */
         // $test = Person::username();
         // dd($test);
 
@@ -136,15 +137,5 @@ class DebugController extends Controller
         // $columns = ['surname', 'last_name', 'username'];
         // $coloumschecker = $this->debugService->proofDatabaseFields(Person::class, $columns);
         // dd($coloumschecker);
-
-        $test = 'Erfolg';
-        $withData = 'zweiter Erfolg';
-        /** not works */
-        // return redirect('/test', compact('test'))->with('statusSuccess', 'Anzeige erfolgreich')->with('example', $withData);
-
-        /** works */
-        // return redirect('debug.test')->with('test', $test)->with('statusSuccess', 'Anzeige erfolgreich')->with('example', $withData);
-        // dd('ewvf');
-        return view('debug.test', $test);
     }
 }

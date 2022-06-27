@@ -2,10 +2,13 @@
 @section('c')
     <x-debug.test />
 
-    @isset($test)
-        {{ $test }}
-    @endisset
-    @isset($example)
-        {{ $example }}
-    @endisset
+    <p>
+        view text
+        @isset($test)
+            {{ $test }}
+        @endisset
+        @isset($example)
+            {{ $example }}
+        @endisset
+    </p>
 @endsection

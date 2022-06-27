@@ -8,6 +8,7 @@ use App\Models\Example\Person;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\Modules\GlobalUtilsModule;
+use Illuminate\Support\Facades\View;
 
 class PersonController extends Controller
 {
@@ -117,11 +118,22 @@ class PersonController extends Controller
         // dd('Erfassung vollständig');
 
         // works
-        $person = Person::find($id);
-        $relatedImages = $person->countRelatedImages($id);
-        if ($relatedImages == 2)
-            $relatedImages = $person->getRelatedImages($id);
-        dd($relatedImages);
+        // $person = Person::find($id);
+        // $relatedImages = $person->countRelatedImages($id);
+        // if ($relatedImages == 2)
+        //     $relatedImages = $person->getRelatedImages($id);
+        // dd($relatedImages);
+
+        /** Use */
+        $test = 'variablen text';
+        $withText = 'with text';
+        /** not works */
+        // return View::make('/debug.test', compact('test'))
+        // ->with('statusSuccess', 'Anzeige erfolgreich')
+        // ->with('example', $withData);
+        /** works */
+        // return view('/debug.test')->with(compact('test'))->with('example', $withText);
+        // return View::make('/debug.test')->with(compact('test'))->with('example', $withText);
     }
 }
 
