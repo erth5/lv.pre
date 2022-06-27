@@ -34,7 +34,7 @@
 
 <a href="/debug/session"> {{ __('debug.session_data') }} </a>
 <a href="/debug/sessions"> {{ __('debug.session_table') }} </a>
-<a href="/image"> {{ __('image.image') }} </a>
+<a href="/image"> {{ __('debug.image') }} </a>
 <blockquote></blockquote>
 <a href="/debug/status"> {{ __('debug.status') }} </a>
 <a href="/debug/error"> {{ __('debug.error') }} </a>

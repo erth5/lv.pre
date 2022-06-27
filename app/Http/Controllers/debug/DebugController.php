@@ -136,5 +136,15 @@ class DebugController extends Controller
         // $columns = ['surname', 'last_name', 'username'];
         // $coloumschecker = $this->debugService->proofDatabaseFields(Person::class, $columns);
         // dd($coloumschecker);
+
+        $test = 'Erfolg';
+        $withData = 'zweiter Erfolg';
+        /** not works */
+        // return redirect('/test', compact('test'))->with('statusSuccess', 'Anzeige erfolgreich')->with('example', $withData);
+
+        /** works */
+        // return redirect('debug.test')->with('test', $test)->with('statusSuccess', 'Anzeige erfolgreich')->with('example', $withData);
+        // dd('ewvf');
+        return view('debug.test', $test);
     }
 }

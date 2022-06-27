@@ -29,5 +29,6 @@
     'error' => 'Fehlermeldung',
     'name' => 'Name',
     'debug_test' => 'Debug test Funktionen',
-    'person_test' => 'Person test Funktionen'
+    'person_test' => 'Person test Funktionen',
+    'image' => 'Image Verwaltung',
 ];

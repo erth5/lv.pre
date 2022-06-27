@@ -67,6 +67,25 @@ composer require laravel-lang/publisher laravel-lang/lang --dev
 php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 ```
 
+### helper
+
+#### lang
+
+search:
+'item'
+replace in view
+{{ __('file.name') }}
+replace in logic
+__('file.name')
+
+#### forbidden
+
+placeholder='
+class='
+>>
+<<
+btn-yellow
+
 ### Testing
 
 <https://laravel.com/docs/9.x/dusk>
