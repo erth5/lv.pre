@@ -43,6 +43,10 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
+        /* Variante 1 - Automatisches Validieren durch spezifiziertenRequest ImageRequest TODO nicht implementiert */
+        /* Variante 2 - Aufruf der Rule TODO nicht getestet */
+        /* Varinate 2 - Aufruf des Modules TODO */
+        /* Variante 4 - Aufruf mit Service TODO */
         $validator = new ImageValidatorModule($request);
         $validator->proofImageExist();
         if ($validator != true) {
