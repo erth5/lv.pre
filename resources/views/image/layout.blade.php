@@ -12,8 +12,14 @@
 
     <x-debug.sessionStatus />
     <x-debug.style />
-    <x-image.menu />
-    @yield('image_views')
+    <div style="float: left">
+        <x-image.menu />
+    </div>
+    <div style="margin: auto">
+
+        @yield('image_views')
+    </div>
+
 
 </body>
 

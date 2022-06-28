@@ -10,23 +10,24 @@
     <p>{{ asset('storage/' . $image->path) }}</p>
 
     <img src="{{ asset('storage/' . $image->path) }}" width='250' />
-    <form action="{{ url('image/' . $image->id) }}">
+    <form action="{{ route('image.destroy', [$image]) }}"
+        enctype="multipart/form-data>
         @csrf
-        @method('DELETE')
         {{-- <a href="delete/{{ $image->id }}">remove</a> --}}
-        <button type="submit" value="submit">remove</button>
+        <button type="submit"
+        value="submit">remove</button>
+    </form>
 
-        @method('PUT')
-        <input type="text" name="edit">
+    <form action="{{ route('image.edit', [$image]) }}" enctype="multipart/form-data> <input type="text" name="edit">
         <button type="submit" value="submit">rename(edit)</button>
     </form>
 
-    {{-- https://laravel.com/docs/9.x/routing#form-method-spoofing
+    {{-- /image/2?_method=PATCH&_token=07X4FTo6tOjNwltynnx8e82FGA52fCYOoXwU79v1&image= 
+     https://laravel.com/docs/9.x/routing#form-method-spoofing
         Nutzte route anstatt url - besonders bei ressources ctr
         method="ist immer get oder post"
         PUT, PATCH, or DELETE gibt es in actions nicht --}}
-        {{$image='null'}}
-    <form action="{{ route('image.update'), [$image] }}" enctype="multipart/form-data">
+    <form action="{{ route('image.update', [$image]) }}" enctype="multipart/form-data">
         {{-- @csrf --}}
         <input type="hidden" name="_method" value="PATCH">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -159,7 +159,7 @@ class ImageController extends Controller
      */
     public function edit(Image $image)
     {
-        $image = Image::first();
+        $image = Image::find($image);
         return view('image.edit', compact('image'));
     }
 

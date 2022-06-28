@@ -8,14 +8,11 @@
 <blockquote></blockquote><a href="/image/1">{{ __('image.destroy') }}</a>
 <blockquote></blockquote><a href="/image/1">{{ __('image.edit') }}</a>
 <blockquote></blockquote>
-<br>
 
 <p>{{ __('image.var2') }}</p>
 <a href="/all">{{ __('image.img') }}</a>
 <blockquote></blockquote>
-<br>
 
 <p>Debug Menu</p>
 <a href="/debug">Debug</a>
 <blockquote></blockquote>
-<br>
