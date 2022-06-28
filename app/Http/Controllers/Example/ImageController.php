@@ -70,7 +70,7 @@ class ImageController extends Controller
         $metadata->path = $path;
         $metadata->saveOrFail();
         $images = Image::all();
-        return redirect('/image/index', compact('images'))->with('statusSuccess', __('image.uploadSuccess'))->with('imageName', $name);
+        return redirect('/image/index')->with('statusSuccess', __('image.uploadSuccess'))->with(compact('images'), 'imageName', $name);
     }
 
     /**
@@ -93,7 +93,7 @@ class ImageController extends Controller
     public function show()
     {
         $image = Image::first();
-        return view('image.single', compact('image'));
+        return view('image.show', compact('image'));
     }
 
     /**

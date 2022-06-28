@@ -49,7 +49,7 @@ Route::controller(ImageController::class)->group(function () {
     Route::resource('image', ImageController::class);
 
     // variant2
-    // Route::post('/img/debug', 'debug');
+    Route::post('/img/debug', 'debug')->name('img.debug');
     // Route::get('/img/{image}/restore', 'restore')->name('image.restore');
     // Route::match(array('GET', 'POST'), '/img', 'img');
 });

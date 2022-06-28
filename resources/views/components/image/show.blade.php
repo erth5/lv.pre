@@ -10,7 +10,7 @@
     <p>{{ asset('storage/' . $image->path) }}</p>
 
     <img src="{{ asset('storage/' . $image->path) }}" width='250' />
-    <form action="{{ url('image/' . $image->id) }}" >
+    <form action="{{ url('image/' . $image->id) }}">
         @csrf
         @method('DELETE')
         {{-- <a href="delete/{{ $image->id }}">remove</a> --}}
@@ -21,9 +21,15 @@
         <button type="submit" value="submit">rename(edit)</button>
     </form>
 
-    {{-- <form action="{{ route('image.update') }}" enctype="multipart/form-data"> --}}
-    <form method="PATCH" action="{{ url('image/' . $image->id) }}" enctype="multipart/form-data">
-        @csrf
+    {{-- https://laravel.com/docs/9.x/routing#form-method-spoofing
+        Nutzte route anstatt url - besonders bei ressources ctr
+        method="ist immer get oder post"
+        PUT, PATCH, or DELETE gibt es in actions nicht --}}
+        {{$image='null'}}
+    <form action="{{ route('image.update'), [$image] }}" enctype="multipart/form-data">
+        {{-- @csrf --}}
+        <input type="hidden" name="_method" value="PATCH">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="file" name="image" @error('image') is-invalid @enderror>
         @error('image')
             <span style="color:red;">{{ $message }}</span>

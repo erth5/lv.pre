@@ -5,7 +5,7 @@
 
     @if ($message = Session::get('success'))
         <div>
-            <button type="button">×</button>
+            <button type="button">×WOBINICH</button>
             <strong style="text-align: center">{{ $message }}</strong>
         </div>
         <img src="image/{{ Session::get('image') }}">
@@ -22,17 +22,16 @@
         <button type="submit">upload</button>
     </form>
 
-    <form action="{{ route('image.debug') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('img.debug') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="inputImage">Debug:</label>
         <input type="file" name="debug">
         <button type="submit">Debug</button>
     </form>
 
-    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> 
-    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
-    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br> 
-    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+    <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
 
     @php
     $image = session::get('image');

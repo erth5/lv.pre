@@ -15,6 +15,7 @@
 <blockquote></blockquote>
 <br>
 
+<p>Debug Menu</p>
 <a href="/debug">Debug</a>
 <blockquote></blockquote>
 <br>
