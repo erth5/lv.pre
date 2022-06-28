@@ -203,3 +203,8 @@ if ($model->relationLoaded('posts')) {
 ```
 
 #### 5 If model already have loaded relationship, you can determine the variable is null or call isEmpty() to check related items
+
+### more implemtiere noch
+
+ return $this->belongsTo(User::class, 'foreign_key', 'owner_key');
+return $this->hasOne(Phone::class, 'foreign_key', 'local_key');
