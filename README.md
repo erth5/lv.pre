@@ -6,7 +6,7 @@ MADE For Europe/German use
 
 ## TODO Tutorials(not implemented)
 
-Debug Eintrag bezieht sich auf ENV File -> Datanbankeintrag löschen?!
+Debug Datanbankeintrag löschen -> lang hinzu
 
 <https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
 many rel ships
@@ -30,17 +30,12 @@ info:(Beispiel wie code geschrieben werden kann)
 
 ANALYse mit PHP Storm
 
-test ist ausschließoich für Tests
-
-Einseiter für Debug auf dem alles zu sehen ist
-
-Route Subfolder Gruppieren
-
 Umstellen auf Hilfsklasse von Michael, wenn verwendbar
 
 Abschluss:
-Abhöngigkeiten durchgehen
+Abhängigkeiten durchgehen
 NamenskoventionsTest?
+README säubern
 
 ## Integrated
 
