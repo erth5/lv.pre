@@ -19,7 +19,7 @@
 <blockquote></blockquote>
 <a href="/route:list">{{ __('debug.rl') }}</a>
 <a href="/telescope">{{ __('debug.telescope') }}</a>
-<a class="disabled" href="/">{{ __('debug.swagger') }}</a>
+<a class="disabled" href="/api/documentation">{{ __('debug.swagger') }}</a>
 <a class="disabled" href="/admin">{{ __('debug.voyager') }}</a>
 <blockquote></blockquote>
 <br>

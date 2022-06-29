@@ -26,8 +26,4 @@ return [
         'update_time',
         'remove_time',
     ],
-
-    'personal_access_tokens',
-    'failed_jobs',
-    'password_resets',
 ];

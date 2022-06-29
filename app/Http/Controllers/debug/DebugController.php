@@ -137,5 +137,9 @@ class DebugController extends Controller
         // $columns = ['surname', 'last_name', 'username'];
         // $coloumschecker = $this->debugService->proofDatabaseFields(Person::class, $columns);
         // dd($coloumschecker);
+
+        /** works - alles beinhaltet "nix" */
+        // $irgendwas = $etwas = $sonstwas = "nix";
+        // dd($irgendwas, $etwas, $sonstwas);
     }
 }

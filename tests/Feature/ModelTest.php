@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Support\Facades\Config;
 
 use function PHPUnit\Framework\assertEquals;
 
@@ -87,7 +88,7 @@ class ModelTest extends TestCase
      *
      * @return void
      */
-    public function test_db_schema_all_exist_intern()
+    public function test_db_schema_debug_exist()
     {
         $allDbNames = array('users', 'debugs', 'people', 'images');
         // Mit foreach wird der Index des Array automatisch entfernt
@@ -104,31 +105,20 @@ class ModelTest extends TestCase
     /** possible Refactor? */
 
     /**
-     * Teste Vordergrund Datenbanken auf existenz, Abfrage durch eine Datei
+     * Teste Vordergrund Datenbanken auf existenz, Abfrage Config
      *
      * @return void
      */
-    public function test_db_schema_foreground_exist_batch()
+    public function test_db_schema_spatie_tables_exist()
     {
-        // https://code-boxx.com/php-read-file/
-        // $allDbNames =  file("database/migrations/migration_list.txt", FILE_SKIP_EMPTY_LINES);
-
-        $allDbNamesArray = array();
-        if (file_exists("database/migrations/foreground_tables.txt")) {
-
-            $allDbNames = fopen("database/migrations/foreground_tables.txt", 'r') or die('error reading file');
-            while (!feof($allDbNames)) {
-                $textperline = fgets($allDbNames);
-                // echo ($textperline);
-                array_push($allDbNamesArray, $textperline);
+        $allDbNamesArray = Config::get('database.spatie');
+        // dd($allDbNamesArray);
+        foreach ($allDbNamesArray as $dbName) {
+            if (Schema::hasTable($dbName)) {
+                $this->assertTrue(true);
+            } else {
+                $this->assertFalse(true);
             }
-            foreach ($allDbNamesArray as $dbScheme) {
-                if (Schema::hasTable($textperline)) {
-                    $this->assertTrue(true);
-                } else
-                    $this->assertFalse(true);
-            }
-            fclose($allDbNames);
         }
     }
 
@@ -153,8 +143,9 @@ class ModelTest extends TestCase
             foreach ($allDbNamesArray as $dbScheme) {
                 if (Schema::hasTable($textperline)) {
                     $this->assertTrue(true);
-                } else
+                } else {
                     $this->assertFalse(true);
+                }
             }
             fclose($allDbNames);
         }
@@ -174,12 +165,11 @@ class ModelTest extends TestCase
             $fileNameWithoutEnding = substr($fileName, 0, -4);
             $fileNameWithoutEnding = Str::lower($fileNameWithoutEnding);
             $pluralFileNameWithoutEnding = Str::plural($fileNameWithoutEnding);
-            // echo ($pluralFileNameWithoutEnding . " ");
 
-            // Name Konvention, Backup ohne Plural notwendig
+            // Name Konvention, Backup ohne Plural
             if (Schema::hasTable($pluralFileNameWithoutEnding) == false) {
                 if (Schema::hasTable($fileNameWithoutEnding) == false) {
-                    echo $fileName . " is the first found Model, which has no Name-Konvention Database Schema";
+                    echo $fileName . " is the first foundet Model, which has no Name-Konvention Database Schema";
                     $this->assertFalse(true);
                 }
             }

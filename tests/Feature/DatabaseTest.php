@@ -4,14 +4,15 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Models\User;
-use App\Models\Person;
+use App\Models\Example\Person;
 use Database\Seeders\PersonSeeder;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseTest extends TestCase
 {
@@ -33,9 +34,10 @@ class DatabaseTest extends TestCase
      *
      * @return void
      */
-    public function test_ONLYDEBUG_db_default_user_name()
+    public function test_db_default_user_name()
     {
-        $this->seed('PersonSeeder');
+        if (DB::table('people')->count() == 0)
+            $this->seed('PersonSeeder');
         // Funktionsfähig
         $defaultUser = User::where('name', "=", 'Max Mustermann')->first();
 
@@ -51,9 +53,10 @@ class DatabaseTest extends TestCase
      *
      * @return void
      */
-    public function test_ONLYDEBUG_db_default_person_username()
+    public function test_db_default_person_username()
     {
-        $this->seed(PersonSeeder::class);
+        if (DB::table('people')->count() == 0)
+            $this->seed(PersonSeeder::class);
         $defaultPerson = Person::where('username', "=", 'laraveller')->first();
         $this->assertEquals("laraveller", $defaultPerson->username);
     }
@@ -64,9 +67,10 @@ class DatabaseTest extends TestCase
      *
      * @return void
      */
-    public function test_ONLYDEBUG_db_default_person_last_name()
+    public function test_db_default_person_last_name()
     {
-        $this->seed(PersonSeeder::class);
+        if (DB::table('people')->count() == 0)
+            $this->seed(PersonSeeder::class);
         $this->assertDatabaseHas('people', [
             'last_name' => 'Mustermann',
         ]);
@@ -88,7 +92,4 @@ class DatabaseTest extends TestCase
         $user->forceDelete();
         $this->assertModelMissing($user);
     }
-
-
-
 }

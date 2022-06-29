@@ -23,19 +23,19 @@ class RouteViewTest extends TestCase
      *
      * @return void
      */
-    public function test_routing_debug()
+    public function test_ONLYDEBUG_routing_debug()
     {
         $pathResponse = $this->get('/debug');
         $pathResponse->assertStatus(200);
     }
 
-    public function test_db_connection_view()
+    public function test_ONLYDEBUG_db_connection_view()
     {
         $viewDb = $this->get('/test/db');
         $viewDb->assertStatus(200);
     }
 
-    public function test_users_and_peoples_table_view()
+    public function test_ONLYDEBUG_users_and_peoples_table_view()
     {
         $viewUser = $this->get('/debug/user');
         $viewUser->assertStatus(200);

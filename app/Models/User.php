@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Example\Person;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
