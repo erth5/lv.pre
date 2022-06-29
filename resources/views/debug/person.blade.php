@@ -9,19 +9,18 @@
     @isset($users)
         <h3>
             @forelse ($users as $user)
-            {{-- TODO User verändert sich nicht - statische Methode wählen --}}
-                {{-- {{ $user->name }}
+                {{ $user->name }}
                 {{ $user->email }}
-            
+
                 {{ $user->person()->get('surname') }}
                 {{ $user->person()->get('last_name') }}
-                {{ $user->person()->get('username') }} --}}
+                {{ $user->person()->get('username') }}
 
-                @forelse ($user->getAttributes() as $attribute)
+                {{-- @forelse ($user->getAttributes() as $attribute)
                     {{ $attribute }},
                 @empty
                     <p>No Columns</p>
-                @endforelse
+                @endforelse --}}
                 <blockquote></blockquote>
             @empty
                 <p>No Database Entrys</p>

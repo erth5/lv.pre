@@ -7,12 +7,7 @@ use Tests\TestCase;
 class DocumentationTest extends TestCase
 {
     /**
-     * A basic feature test example.
-     *
-     * TODO:
-     * Integrate Swagger
-     * Set correct URL
-     * activate test
+     * Verbindet sich zur Hauptseite der Swagger Instanz
      * 
      * @return void
      */
