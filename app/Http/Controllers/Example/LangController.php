@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Debug;
+namespace App\Http\Controllers\Example;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;

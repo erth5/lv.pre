@@ -17,6 +17,12 @@ refactor:
 
 add examplecontroller similar to personcontr?
 
+Entferne Debug und mache Funtionen wo sie nützlich sind hin
+LangTests:
+
+- installierte Sprachen entsprechen Database
+- Wenn user_id befüllt darf kein person_id befüllt sein..
+
 user, person to view: rel
 all without contr to view: menu
 last table: HTTP Session
@@ -43,17 +49,19 @@ README säubern
 
 <https://publisher.laravel-lang.com>
 
+<https://github.com/spatie/laravel-permission>
+
 <https://github.com/getsolaris/laravel-make-service-command>
 
 <https://www.tutsmake.com/laravel-9-create-multi-language-website-example-tutorial/>
 
 <https://laravel-news.com/config-validator>
 
-<https://github.com/spatie/laravel-permission>
-
 <https://laravelactions.com/>
 
 <https://github.com/laravel/pint>
+
+- <https://laravelactions.com/>
 
 ```terminal
 php artisan session:table
@@ -92,7 +100,7 @@ btn-yellow
 - Code generator (contained by CrestApps)
 - permissions (contained by voyager, spatie permissions, breeez, jetbstream)
 - <https://github.com/staudenmeir/eloquent-has-many-deep>
-- <https://laravelactions.com/>
+- <https://laraveli18n.kodilab.com/docs/model-translations/> (other integrated)
 
 ## Variants
 
