@@ -11,8 +11,6 @@ Debug Datanbankeintrag löschen -> lang hinzu
 <https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
 many rel ships
 
-<https://github.com/fruitcake/laravel-telescope-toolbar>
-
 refactor:
 
 add examplecontroller similar to personcontr?
@@ -45,6 +43,10 @@ README säubern
 
 ## Integrated
 
+<https://github.com/laravel/telescope>
+
+<https://github.com/fruitcake/laravel-telescope-toolbar>
+
 <https://github.com/apih/laravel-route-list-web>
 
 <https://publisher.laravel-lang.com>
@@ -61,7 +63,7 @@ README säubern
 
 <https://github.com/laravel/pint>
 
-- <https://laravelactions.com/>
+<https://laravelactions.com/>
 
 ```terminal
 php artisan session:table
