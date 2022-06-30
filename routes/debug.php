@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Debug\DebugController;
-use App\Http\Controllers\Debug\LangController;
+use App\Http\Controllers\Example\LangController;
 use App\Http\Controllers\Example\ImageController;
 use App\Http\Controllers\Example\PersonController;
 
