@@ -27,32 +27,61 @@ class Image extends Model
     const UPDATED_AT = 'update_time';
     const DELETED_AT = 'remove_time';
 
-    /** Anwendung folgend!!:
-     * $completedProjects = Project::completed()->get(); */
-
-    /**
-     * Scope:  Select images that are not assigned to a person
-     * using: ::unassigned()->
-     * @return void
-     */
-    public function scopeUnassigned($query)
-    {
-        return $query::where('person_id', null);
-    }
-    /**
-     * Scope:  Select images that are assigned to a person
-     * @return void
-     */
-    public function scopeAssigned($query)
-    {
-        return $query::where('person_id' != null);
-    }
-
     /**
      * Relationship: get person that owns images
      */
     public function person()
     {
         return $this->belongsTo(Person::class);
+    }
+
+    /** Anwendung folgend!!:
+     * $completedProjects = Project::completed()->get(); */
+
+    /**
+     * Scopes:  Select images that are have a specific relation to user and person
+     * @return query
+     */
+    public function scopeFullAssigned($query)
+    {
+        return $query::where('person_id' != null && 'user_id' != null);
+    }
+
+    public function scopeAssigned($query)
+    {
+        return $query::where('person_id' != null || 'user_id' != null);
+    }
+
+    public function scopeUnassigned($query)
+    {
+        return $query::where('person_id', null && 'user_id', null);
+    }
+
+    /**
+     * Scope:  Select images that have a specific relation to a user
+     * @return query
+     */
+    public function scopeUserUnassigned($query)
+    {
+        return $query::where('user_id', null);
+    }
+
+    public function scopeUserAssigned($query)
+    {
+        return $query::where('user_id' != null);
+    }
+
+    /**
+     * Scope:  Select images that have a specific relation to a person
+     * @return query
+     */
+    public function scopePersonUnassigned($query)
+    {
+        return $query::where('person_id', null);
+    }
+
+    public function scopePersonAssigned($query)
+    {
+        return $query::where('person_id' != null);
     }
 }
