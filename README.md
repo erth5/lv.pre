@@ -6,9 +6,14 @@ MADE For Europe/German use
 
 ## TODO Tutorials(not implemented)
 
+Image:
+
+- Zeugs in var 1 irgenwie Funtionsfähig archiovieren
+- alles mit normalen Methoden ausgebaut nach Image
+
 <https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers>
 
-https://github.com/phpstan/phpstan
+<https://github.com/phpstan/phpstan>
 
 Debug Datanbankeintrag löschen
 

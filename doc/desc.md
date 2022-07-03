@@ -1,5 +1,13 @@
 # Description
 
+## what does enctype?
+
+use multipart/form-data when your form includes any <input type="file"> elements
+
+otherwise you can use multipart/form-data or application/x-www-form-urlencoded but application/x-www-form-urlencoded will be more efficient
+
+When you are writing server-side code, use a prewritten form handling library
+
 ## How composer works?
 
 laravel/excel requires the gd extension, since you didn't have it, composer is smart enough to "go backwards" and find suitable versions, but once it found that, other things were conflicting, and it does this endlessly until it can't resolve the issue.

@@ -47,6 +47,19 @@ class ImageController extends Controller
         /* Variante 2 - Aufruf der Rule TODO nicht getestet */
         /* Varinate 2 - Aufruf des Modules TODO */
         /* Variante 4 - Aufruf mit Service TODO */
+
+        // /** Syntax 2b */
+        // $image = Image::find($image);
+        // $requestData = $request->all();
+        // $name = time() . $request->file('image')->getClientOriginalName();
+        // dd($request);
+        // $request->file('image')->move('images', $name, 'public');
+        // $image->name = $name;
+        // $image->path = ('images' . $name);
+        // $image->saveOrFail();
+        // return view('image', compact($request, $image));
+
+
         $validator = new ImageValidatorModule($request);
         $validator->proofImageExist();
         if ($validator != true) {
@@ -105,16 +118,6 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
-        /** Syntax 2b */
-        $image = Image::find($image);
-        $requestData = $request->all();
-        $name = time() . $request->file('image')->getClientOriginalName();
-        dd($request);
-        $request->file('image')->move('images', $name, 'public');
-        $image->name = $name;
-        $image->path = ('images' . $name);
-        $image->saveOrFail();
-        return view('image', compact($request, $image));
     }
 
     /**
@@ -163,6 +166,15 @@ class ImageController extends Controller
         return view('image.edit', compact('image'));
     }
 
+    /** MISSING */
+    public function rename (Request $request, Image $image){
+        $image = Image::find($image);
+        // dd($request);
+        $image->name = $request->name;
+        return view('image.show');
+        // return redirect()->back()->with('status', 'Image Has been renamed');
+    }
+
     // /** variant 2
     //  * store function
     //  * @param  \Illuminate\Http\Request  $request
@@ -191,6 +203,7 @@ class ImageController extends Controller
         // // dd($request, $validation, $dbItem, $name, $path);
         // return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
     }
+
 
 
 

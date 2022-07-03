@@ -11,14 +11,12 @@
 
     <img src="{{ asset('storage/' . $image->path) }}" width='250' />
     <form action="{{ route('image.destroy', [$image]) }}"
-        enctype="multipart/form-data>
-        @csrf
-        {{-- <a href="delete/{{ $image->id }}">remove</a> --}}
-        <button type="submit"
-        value="submit">remove</button>
+     enctype='multipart/form-data' @csrf {{-- <a href="delete/{{ $image->id }}">remove</a> --}}
+        <button type="submit" value="submit">remove</button>
     </form>
 
-    <form action="{{ route('image.edit', [$image]) }}" enctype="multipart/form-data> <input type="text" name="edit">
+    <form action="{{ route('image.edit', [$image]) }}">
+        <input type="text" name="edit">
         <button type="submit" value="submit">rename(edit)</button>
     </form>
 
@@ -27,7 +25,8 @@
         Nutzte route anstatt url - besonders bei ressources ctr
         method="ist immer get oder post"
         PUT, PATCH, or DELETE gibt es in actions nicht --}}
-    <form action="{{ route('image.update', [$image]) }}" enctype="multipart/form-data">
+    <form action="{{ route('image.update', [$image]) }}" 
+    enctype="multipart/form-data">
         {{-- @csrf --}}
         <input type="hidden" name="_method" value="PATCH">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">

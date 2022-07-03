@@ -45,11 +45,12 @@ Route::controller(ImageController::class)->group(function () {
     ressource has exact predefined routes
     */
 
-    // variant1
+    // variant1 +
     Route::resource('image', ImageController::class);
+    Route::get('/image', 'rename')->name('image.rename');
 
-    // variant2
-    Route::post('/img/debug', 'debug')->name('img.debug');
+    // variant2 (nur mit get und post)
+    Route::post('/img/debug', 'debug')->name('img.debug'); // zu var 2
     // Route::get('/img/{image}/restore', 'restore')->name('image.restore');
     // Route::match(array('GET', 'POST'), '/img', 'img');
 });
