@@ -6,7 +6,10 @@ MADE For Europe/German use
 
 ## TODO Tutorials(not implemented)
 
+select beispiele
 Image:
+
+<https://github.com/spatie/laravel-searchable>
 
 - Zeugs in var 1 irgenwie Funtionsfähig archiovieren
 - alles mit normalen Methoden ausgebaut nach Image

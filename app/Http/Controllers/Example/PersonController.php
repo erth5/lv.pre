@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Example;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Example\Person;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\Modules\GlobalUtilsModule;
-use Illuminate\Support\Facades\View;
 
 class PersonController extends Controller
 {
@@ -70,7 +71,9 @@ class PersonController extends Controller
         $people = Person::all();
         foreach ($people as $person) {
             if ($person->user_id != null)
-                $person->user_id->name = ($person->surname . $person->last_name);
+                if ($person->user_id->name != ($person->surname . $person->last_name))
+                    Log::warning('name of user was adjusted to person, old data: ', [$person->user_id->name]);
+            $person->user_id->name = ($person->surname . $person->last_name);
         }
         $people = Person::all();
         return redirect()->back(compact('people'));;

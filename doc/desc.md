@@ -1,5 +1,22 @@
 # Description
 
+## how to logging?
+
+```php
+
+use IlluminateSupportFacadesLog;
+
+//.. and then somewhere in your php file
+Log::emergency($message);
+Log::alert($message);
+Log::critical($message);
+Log::error($message);
+Log::warning($message);
+Log::notice($message);
+Log::info($message);
+Log::debug($message);
+```
+
 ## what does enctype?
 
 use multipart/form-data when your form includes any <input type="file"> elements
@@ -41,7 +58,7 @@ $model->posts()->exists()
 
 #### 4 If you want to check if the collection was eager loaded or not
 
-```code
+```php
 if ($model->relationLoaded('posts')) {
     // Use the collection, like #2 does...
 }
@@ -51,5 +68,7 @@ if ($model->relationLoaded('posts')) {
 
 ### more implemtiere noch
 
+```php
  return $this->belongsTo(User::class, 'foreign_key', 'owner_key');
 return $this->hasOne(Phone::class, 'foreign_key', 'local_key');
+```
