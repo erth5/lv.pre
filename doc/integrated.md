@@ -22,3 +22,4 @@
 
 <https://laravelactions.com/>
 
+<https://github.com/milon/barcode>
