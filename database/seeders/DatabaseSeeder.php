@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Debug\Debug;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,18 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        /**
-         * Debug für Entwicklung
-         * TODO: aus, wenn in Produktivbetrieb
-         */
-        if (env('APP_DEBUG') == true) {
-            Debug::factory(1)->create([
-                'debug' => true,
-            ]);
-        } else {
-            Debug::factory(1)->create([
-                'debug' => false,
-            ]);
-        }
+        // $this->call(UserSeeder::class);
+        $this->call(PersonSeeder::class);
+        // $this->call(ImageSeeder::class);
+        // $this->call(LangSeeder::class);
     }
 }

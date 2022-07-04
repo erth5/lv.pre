@@ -13,3 +13,5 @@
 
 - <https://editor.swagger.io>#
 - <https://support.smartbear.com/swaggerhub/docs/tutorials/openapi-3-tutorial.html>
+
+<https://laravel-news.com/bash-aliases>

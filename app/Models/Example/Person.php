@@ -23,11 +23,23 @@ class Person extends Model
     ];
 
     /** 
-     * get person by id without pagination, without sort
+     * get some people by id Range
      */
-    public function person($id)
+    public static function peopleRange($firstId, $lastId)
     {
-        return Person::find($id);
+        $people = [];
+        for ($firstId; $firstId < $lastId; $firstId++) {
+            $people[] = Person::find($firstId);
+        }
+        return $people;
+    }
+
+    /** 
+     * get all people by id with pagination, with sort
+     */
+    public static function peopleOrganized()
+    {
+        return Person::orderBy('id')->paginate(8);
     }
 
     /** display the people - static view*/
@@ -55,7 +67,7 @@ class Person extends Model
     {
         return Image::where('person_id', '=', $id)->count();
     }
-    
+
     /** Get all Images related to a person
      * @return Image Images of a person
      */

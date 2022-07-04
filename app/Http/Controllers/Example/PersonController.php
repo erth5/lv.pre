@@ -134,6 +134,10 @@ class PersonController extends Controller
         /** works */
         // return view('/debug.test')->with(compact('test'))->with('example', $withText);
         // return View::make('/debug.test')->with(compact('test'))->with('example', $withText);
+
+        /** works */
+        $test = Person::peopleOrganized();
+        dd($test);
     }
 }
 
