@@ -42,6 +42,13 @@ class Person extends Model
         return Person::orderBy('id')->paginate(8);
     }
 
+    public static function peopleAdded()
+    {
+        return Person::orderBy('created_at', "desc")->paginate(24);
+    }
+
+
+
     /** display the people - static view*/
     public static function view()
     {
