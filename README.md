@@ -16,8 +16,6 @@ Image:
 
 <https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers>
 
-<https://github.com/phpstan/phpstan>
-
 Debug Datanbankeintrag löschen
 
 <https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>

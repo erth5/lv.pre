@@ -23,3 +23,7 @@
 <https://laravelactions.com/>
 
 <https://github.com/milon/barcode>
+
+<https://github.com/phpstan/phpstan>
+
+<https://vitejs.dev/>
