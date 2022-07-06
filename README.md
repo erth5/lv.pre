@@ -11,7 +11,7 @@ Image:
 
 <https://github.com/spatie/laravel-searchable>
 
-- Zeugs in var 1 irgenwie Funtionsfähig archiovieren
+- Zeugs in var 1 irgenwie Funtionsfähig archivieren
 - alles mit normalen Methoden ausgebaut nach Image
 
 <https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers>
