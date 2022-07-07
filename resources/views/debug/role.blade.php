@@ -18,8 +18,8 @@
                     <tr>
                         <td> {{ $user->name }}</td>
                         <td>{{ $user->prename }}</td>
-                        <td>{{ $user->getRoleNames() }}</td>
-                        <td>{{ $user->getPermissionNames() }}</td>
+                        <td style="word-break:break-all;word-wrap:break-word">{{ $user->getRoleNames() }}</td>
+                        <td style="word-break:break-all;word-wrap:break-word">{{ $user->getPermissionNames() }}</td>
                     </tr>
                 @empty
                     <p>No Database Entrys</p>

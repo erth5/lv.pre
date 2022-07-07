@@ -2,16 +2,20 @@
 @section('c')
     <select id="lang">
         {{-- current activated will be the selected --}}
-        <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
-        <option value="de" {{ session()->get('locale') == 'de' ? 'selected' : '' }}>Deutsch</option>
-        <option value="fr" {{ session()->get('locale') == 'fr' ? 'selected' : '' }}>France</option>
+        <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
+        <option value="de" {{ app()->getLocale() == 'de' ? 'selected' : '' }}>Deutsch</option>
+        <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>France</option>
         {{-- <option value="sp" {{ session()->get('locale') == 'sp' ? 'selected' : '' }}>Spanish</option> --}}
     </select>
-    
-    <h3>{{__('debug.lang_browser')}}
-        {{session()->get('locale')}}
+
+    <h3>{{ __('debug.sessionLocale') }}
+        {{ session()->get('session.locale') }}
     </h3>
-    <h3>{{ __('messages.lang-message') }}
+    <h3>
+        {{ __('debug.appLocale') }}
+        {{ app()->getLocale() }}
+    </h3>
+    <h3>{{ __('debug.configLocale') }}
         {{ Config::get('app.locale') }}
     </h3>
 

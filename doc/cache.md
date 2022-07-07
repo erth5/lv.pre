@@ -1,9 +1,14 @@
 # Cache clear
 
-```php
+```shell
 php artisan cache:clear
 php artisan config:clear
 php artisan view:clear
 php artisan route:clear
 php artisan event:clear
+```
+
+```shell
+php artisan cache:forget spatie.permission.cache 
+php artisan cache:clear
 ```

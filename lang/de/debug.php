@@ -11,9 +11,14 @@
     'contr' => 'Controller-Dateien',
     'model' => 'Modell-Dateien',
     'rl' => 'routeList(aphi)',
+
     'lang' => 'Sprache',
     'lang_browser' => 'Browsersprache',
     'lang_debug' => 'SpracheDebug',
+    'sessionLocale' => 'Sprache der aktuellen Session:',
+    'appLocale' => 'aktuelle Browsersprache:',
+    'configLocale' => 'Spracheinstellung in der Konfig:',
+
     'telescope' => 'Telescope',
     'swagger' => 'Swagger',
     'voyager' => 'Voyager',

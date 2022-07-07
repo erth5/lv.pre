@@ -11,9 +11,14 @@
     'contr' => 'controller',
     'model' => 'model',
     'rl' => 'routeList(aphi)',
+
     'lang' => 'lang',
     'lang_browser' => 'browser language',
     'lang_debug' => 'langDebug',
+    'sessionLocale' => 'session language:',
+    'appLocale' => 'browser language:',
+    'configLocale' => 'config language:',
+
     'telescope' => 'telescope',
     'swagger' => 'swagger',
     'voyager' => 'voyager',
