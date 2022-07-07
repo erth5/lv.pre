@@ -31,4 +31,5 @@
     'debug_test' => 'Debug test Funktionen',
     'person_test' => 'Person test Funktionen',
     'image' => 'Image Verwaltung',
+    'role' => 'Rollen und Berechtigungen',
 ];

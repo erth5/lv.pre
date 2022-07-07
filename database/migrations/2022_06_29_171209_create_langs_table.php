@@ -17,18 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('language')->nullable();
             $table->string('abbreviation')->nullable();
-
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->integer('person_id')->unsigned()->nullable();
-            $table->foreign('person_id')
-                ->references('id')
-                ->on('people')
-                ->onDelete('cascade');
-
+            $table->string('country_code')->nullable();
+            $table->string('flag')->nullable();
             $table->timestamps();
         });
     }

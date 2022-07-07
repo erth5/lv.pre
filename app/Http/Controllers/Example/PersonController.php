@@ -100,6 +100,11 @@ class PersonController extends Controller
         return $view;
     }
 
+    public function role(){
+        $users = User::orderBy('name')->with('roles')->get();
+        return view('debug.role', compact('users'));
+    }
+
     public function test($id = 11)
     {
         // works

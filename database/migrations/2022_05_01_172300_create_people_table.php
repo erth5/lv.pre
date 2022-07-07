@@ -18,10 +18,23 @@ return new class extends Migration
              * Never touch the "ID" like
              * $table->foreignId('id')->constrained('users');
              * 
-            **/
+             **/
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->unsignedInteger('user_id')
+                ->unsigned()
+                ->nullable();
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
+            $table->unsignedInteger('lang_id')->nullable();
+            $table->foreign('lang_id')
+                ->references('id')
+                ->on('people')
+                ->onDelete('cascade');
+
             $table->string('surname')->nullable();
             $table->string('last_name')->nullable();
             $table->string('username')->nullable();

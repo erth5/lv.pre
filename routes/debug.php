@@ -38,6 +38,7 @@ Route::controller(PersonController::class)->group(function () {
     Route::get('/person/destroy', 'destroy');
     Route::get('/person/name', 'getValuesDirect');
     Route::get('/person/test', 'test');
+    Route::get('/person/role', 'role');
 });
 Route::controller(ImageController::class)->group(function () {
     /* possible issues:

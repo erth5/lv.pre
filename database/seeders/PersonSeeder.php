@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Example\Person;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Example\Person;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class PersonSeeder extends Seeder
 {
@@ -37,7 +37,7 @@ class PersonSeeder extends Seeder
         // Beispiel Einträge ohne Person
         User::factory(3)->create();
         // Beispieleinträge
-        Person::factory(10)->create();
+        Person::factory(5)->create();
 
         /**
          * Variante: Seeder

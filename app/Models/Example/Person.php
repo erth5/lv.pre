@@ -91,6 +91,14 @@ class Person extends Model
         return $this->belongsTo(User::class);
     }
 
+    /** Relationship: get language(s) spoken by user 
+     *Must be axtra table
+     */
+    public function lang()
+    {
+        return $this->belongsTo(Lang::class, 'lang_id', 'id');
+    }
+
     // public function test(){
     //     return $this->hasM
     // }

@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -24,5 +26,16 @@ class UserSeeder extends Seeder
             'remember_token' => token_name(10),
             'deleted_at' => now()
         ]);
+
+        $user = User::create([
+            'name' => 'Admin', 
+            'email' => 'admin@gmail.com',
+            'name' => 'admin',
+            'password' => 'admin123'
+        ]);
+        $role = Role::create(['name' => 'admin']);
+        $permissions = Permission::pluck('id', 'id')->all();
+        $role->syncPermissions($permissions);
+        $user->assignRole([$role->id]);
     }
 }
