@@ -10,7 +10,13 @@ class Lang extends Model
 {
     use HasTranslations;
 
-    public $translatable = ['language', 'abbreviation'];
+    protected $fillable = [
+        'country_code',
+        'flag',
+        'abbreviation'
+    ];
+
+    public $translatable = ['language'];
 
     public function scopeFullAssigned($query)
     {

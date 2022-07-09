@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('langs', function (Blueprint $table) {
             $table->id();
-            $table->string('language')->nullable();
+            $table->json('language')->nullable();
             $table->string('abbreviation')->nullable();
             $table->string('country_code')->nullable();
             $table->string('flag')->nullable();
