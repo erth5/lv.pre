@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Example\Image;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Example\Person;
@@ -12,6 +13,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
+use function PHPUnit\Framework\assertEquals;
+use function PHPUnit\Framework\assertIsObject;
 use function PHPUnit\Framework\assertIsString;
 use function PHPUnit\Framework\assertTrue;
 
@@ -39,7 +42,7 @@ class RelationshipTest extends TestCase
      * Prüfung mit Variante Factory (Beispiel)
      * @return void
      */
-    public function test_person_belongs_to_user()
+    public function test_default_person_belongs_to_user()
     {
         if (DB::table('people')->count() == 0 && DB::table('users')->count() == 0)
             $this->seed(PersonSeeder::class);
@@ -48,15 +51,34 @@ class RelationshipTest extends TestCase
         $this->assertEquals("Max Mustermann", Person::where('username', 'laraveller')->firstOrFail()->user->name);
     }
 
-    /** Test Relationship image to lang */
-
-    /** Test Relationship user over person to lang */
-
-    /** Test Relationship lang to persond */
-    public function test_person_can_have_language()
+    /** Test Relationship image to person */
+    public function test_default_image_belong_to_person()
     {
-        if (DB::table('langs')->count() == 0)
+        if (DB::table('people')->count() == 0)
             assertTrue(true);
-        assertIsString(Person::where('username', 'laraveller')->firstOrFail()->lang);
+        $image = Image::where('name', 'Ressource_Image_Routes.png')->first();
+        assertIsObject($image->person);
     }
+
+    /** Test Relationship from user are compatible with person */
+    public function test_images_have_correct_relations_to_user_and_person()
+    {
+        if (DB::table('people')->count() == 0)
+            assertTrue(true);
+        $images = Image::all();
+        foreach ($images as $image) {
+            // dd($image->user);
+            if ($image->user != null && $image->person != null)
+                assertEquals($image->person->user, $image->user);
+        }
+        assertTrue(true);
+    }
+
+    // /** Test Relationship lang to persond */
+    // public function test_person_can_have_language()
+    // {
+    //     if (DB::table('langs')->count() == 0)
+    //         assertTrue(true);
+    //     assertIsString(Person::where('username', 'laraveller')->firstOrFail()->lang);
+    // }
 }

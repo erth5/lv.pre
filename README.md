@@ -20,16 +20,8 @@ Image:
 <https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
 many rel ships
 
-refactor:
-
-add examplecontroller similar to personcontr?
-
-LangTests:
-
 - Wenn user_id befüllt darf kein person_id befüllt sein..
 
-user, person to view: rel
-all without contr to view: menu
 last table: HTTP Session
 
 info:(Beispiel wie code geschrieben werden kann)

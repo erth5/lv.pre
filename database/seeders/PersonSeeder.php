@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Example\Person;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -20,7 +21,7 @@ class PersonSeeder extends Seeder
     public function run()
     {
         // Default Demo User
-        Person::factory()->create([
+        $defautPerson = Person::factory()->create([
             'user_id' => $user = User::factory()->create([
                 'name' => 'Max Mustermann',
                 'email' => 'fdsdwp@protonmail.com',
@@ -28,15 +29,18 @@ class PersonSeeder extends Seeder
                 'email_verified_at' => now(),
                 'remember_token' => token_name(10)
             ])->first(),
-            'lang_id' => Lang::where('abbreviation', 'en')->first(),
             'surname' => 'Max',
             'last_name' => 'Mustermann',
-            'username' => 'laraveller'
+            'username' => 'laraveller',
         ]);
         $role = Role::create(['name' => 'admin']);
         $permissions = Permission::pluck('id', 'id')->all();
         $role->syncPermissions($permissions);
         $user->assignRole([$role->id]);
+
+        // $lang = Lang::where('abbreviation', 'de')->first();
+        // $defautPerson->lang()->attach($lang);
+        // $defautPerson->lang()->save($lang);
 
         /**
          * Variante: Factory

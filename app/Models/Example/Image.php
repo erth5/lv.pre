@@ -90,7 +90,7 @@ class Image extends Model
     /** Relationship: has user through person
      * no documented for belongs
      */
-    // public function user(){
-    //     return $this->hasOneThrough(User::class, Person::class);
-    // }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
