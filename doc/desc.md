@@ -1,4 +1,8 @@
-# Description
+# description
+
+## relationship key-name
+
+Denken Sie daran, dass Eloquent automatisch die richtige Fremdschlüsselspalte für das Modell Comment bestimmt. Konventionell nimmt Eloquent den "snake case"-Namen des übergeordneten Modells und hängt ihn an _id an. In diesem Beispiel nimmt Eloquent also an, dass die Fremdschlüsselspalte des Comment-Modells post_id ist.
 
 ## how to logging?
 

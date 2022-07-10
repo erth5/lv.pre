@@ -88,6 +88,7 @@ class Person extends Model
      */
     public function user()
     {
+        // Korrekt->person belongsTo user Test
         return $this->belongsTo(User::class);
     }
 
@@ -96,7 +97,7 @@ class Person extends Model
      */
     public function lang()
     {
-        return $this->belongsTo(Lang::class, 'lang_id', 'id');
+        return $this->hasMany(Lang::class);
     }
 
     // public function test(){

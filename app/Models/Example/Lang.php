@@ -2,13 +2,14 @@
 
 namespace App\Models\Example;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 
 class Lang extends Model
 {
-    use HasTranslations;
+    use HasTranslations, HasFactory;
 
     protected $fillable = [
         'country_code',
@@ -31,5 +32,10 @@ class Lang extends Model
     public function scopeUnassigned($query)
     {
         return $query->where('user_id', null && 'person_id', null);
+    }
+
+    public function person()
+    {
+        $this->belongsToMany(Person::class);
     }
 }

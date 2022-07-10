@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Example\Image;
 use App\Models\Example\Person;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -58,5 +59,11 @@ class User extends Authenticatable
     public function person()
     {
         return $this->hasOne(Person::class);
+    }
+
+    /** Relationship: get Images through person */
+    public function image()
+    {
+        return $this->hasManyThrough(Image::class, Person::class);
     }
 }

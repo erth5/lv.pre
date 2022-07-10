@@ -2,6 +2,7 @@
 
 namespace App\Models\Example;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -26,14 +27,6 @@ class Image extends Model
     const CREATED_AT = 'upload_time';
     const UPDATED_AT = 'update_time';
     const DELETED_AT = 'remove_time';
-
-    /**
-     * Relationship: get person that owns images
-     */
-    public function person()
-    {
-        return $this->belongsTo(Person::class);
-    }
 
     /** Anwendung folgend!!:
      * $completedProjects = Project::completed()->get(); */
@@ -84,4 +77,20 @@ class Image extends Model
     {
         return $query::where('person_id' != null);
     }
+
+
+    /**
+     * Relationship: get person that owns images
+     */
+    public function person()
+    {
+        return $this->belongsTo(Person::class); //foreign:id, own:person_id
+    }
+
+    /** Relationship: has user through person
+     * no documented for belongs
+     */
+    // public function user(){
+    //     return $this->hasOneThrough(User::class, Person::class);
+    // }
 }

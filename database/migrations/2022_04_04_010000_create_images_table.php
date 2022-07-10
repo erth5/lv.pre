@@ -20,16 +20,18 @@ return new class extends Migration
             $table->string('name')->default('Fehler: Name ist null');
             $table->string('path')->default('Fehler: Pfad ist null');
 
-            $table->integer('person_id')->unsigned()->nullable();
-            $table->foreign('person_id')
-                ->references('id')
-                ->on('people')
-                ->onDelete('cascade');
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->onDelete('cascade');
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            // $table->integer('person_id')->unsigned()->nullable();
+            // $table->foreign('person_id')
+            //     ->references('id')
+            //     ->on('people')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
 
             $table->timestamp('upload_time', 0)->nullable();
             $table->timestamp('update_time', 0)->nullable();

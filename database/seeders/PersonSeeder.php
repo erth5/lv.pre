@@ -2,10 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Example\Lang;
 use App\Models\User;
 use App\Models\Example\Person;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PersonSeeder extends Seeder
 {
@@ -18,26 +21,31 @@ class PersonSeeder extends Seeder
     {
         // Default Demo User
         Person::factory()->create([
-            'user_id' => User::factory()->create([
+            'user_id' => $user = User::factory()->create([
                 'name' => 'Max Mustermann',
                 'email' => 'fdsdwp@protonmail.com',
                 'password' => bcrypt('password'),
                 'email_verified_at' => now(),
                 'remember_token' => token_name(10)
             ])->first(),
+            'lang_id' => Lang::where('abbreviation', 'en')->first(),
             'surname' => 'Max',
             'last_name' => 'Mustermann',
             'username' => 'laraveller'
         ]);
+        $role = Role::create(['name' => 'admin']);
+        $permissions = Permission::pluck('id', 'id')->all();
+        $role->syncPermissions($permissions);
+        $user->assignRole([$role->id]);
 
         /**
          * Variante: Factory
          * Generierung von Person zugehöriger User in der Factory
          */
         // Beispiel Einträge ohne Person
-        User::factory(3)->create();
+        User::factory(1)->create();
         // Beispieleinträge
-        Person::factory(5)->create();
+        Person::factory(1)->create();
 
         /**
          * Variante: Seeder
@@ -48,7 +56,7 @@ class PersonSeeder extends Seeder
         // // Beispiel Einträge ohne Person
         // User::factory(3)->create();
         // // Beispieleinträge
-        // User::factory(10)->create()->each(function ($user) {
+        // User::factory(2)->create()->each(function ($user) {
         //     // je ein Person referenz
         //     $person = Person::factory()->make();
         //     $user->person()->save($person);
