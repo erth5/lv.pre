@@ -2,10 +2,14 @@
 
 namespace Database\Seeders;
 
+use App\Models\Example\Lang;
 use App\Models\User;
 use App\Models\Example\Person;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Relations\Pivot;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PersonSeeder extends Seeder
 {
@@ -17,8 +21,8 @@ class PersonSeeder extends Seeder
     public function run()
     {
         // Default Demo User
-        Person::factory()->create([
-            'user_id' => User::factory()->create([
+        $defautPerson = Person::factory()->create([
+            'user_id' => $user = User::factory()->create([
                 'name' => 'Max Mustermann',
                 'email' => 'fdsdwp@protonmail.com',
                 'password' => bcrypt('password'),
@@ -27,17 +31,22 @@ class PersonSeeder extends Seeder
             ])->first(),
             'surname' => 'Max',
             'last_name' => 'Mustermann',
-            'username' => 'laraveller'
+            'username' => 'laraveller',
         ]);
+
+
+        // $lang = Lang::where('abbreviation', 'de')->first();
+        // $defautPerson->lang()->attach($lang);
+        // $defautPerson->lang()->save($lang);
 
         /**
          * Variante: Factory
          * Generierung von Person zugehöriger User in der Factory
          */
         // Beispiel Einträge ohne Person
-        User::factory(3)->create();
+        User::factory(1)->create();
         // Beispieleinträge
-        Person::factory(5)->create();
+        Person::factory(1)->create();
 
         /**
          * Variante: Seeder
@@ -48,7 +57,7 @@ class PersonSeeder extends Seeder
         // // Beispiel Einträge ohne Person
         // User::factory(3)->create();
         // // Beispieleinträge
-        // User::factory(10)->create()->each(function ($user) {
+        // User::factory(2)->create()->each(function ($user) {
         //     // je ein Person referenz
         //     $person = Person::factory()->make();
         //     $user->person()->save($person);

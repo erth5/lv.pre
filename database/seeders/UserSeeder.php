@@ -20,22 +20,11 @@ class UserSeeder extends Seeder
         // Deleted User
         User::factory()->create([
             'name' => 'Leila Hold',
-            'email' => 'hrm44745@jeoce.com',
-            'password' => bcrypt('password'),
-            'email_verified_at' => now(),
+            'email' => 'leilasTrash@trashmail.de',
+            'email_verified_at' => null,
             'remember_token' => token_name(10),
-            'deleted_at' => now()
+            'password' => bcrypt('leilas_password'),
+            'deleted_at' => now(),
         ]);
-
-        $user = User::create([
-            'name' => 'Admin', 
-            'email' => 'admin@gmail.com',
-            'name' => 'admin',
-            'password' => 'admin123'
-        ]);
-        $role = Role::create(['name' => 'admin']);
-        $permissions = Permission::pluck('id', 'id')->all();
-        $role->syncPermissions($permissions);
-        $user->assignRole([$role->id]);
     }
 }

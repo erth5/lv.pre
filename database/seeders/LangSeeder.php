@@ -9,24 +9,35 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 class LangSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed languages for users on the basis of standard langs
      *
      * @return void
      */
     public function run()
     {
+        $german = new Lang;
+        $german->setTranslations('language', ['de' => 'deutsch', 'en' => 'german', 'fr' => 'allemand']);
+        $german->abbreviation = 'de';
+        $german->save();
+
+        $english = new Lang;
+        $english->setTranslations('language', ['de' => 'englisch', 'en' => 'english', 'fr' => 'anglais']);
+        $english->abbreviation = 'en';
+        $english->save();
+
+        $english = new Lang;
+        $english->setTranslations('language', ['de' => 'französisch', 'en' => 'french', 'fr' => 'français']);
+        $english->abbreviation = 'fr';
+        $english->save();
+
+        /** country based data:
         Lang::factory()->create([
-            'language' => 'english',
+            'language' => 'english (UK)',
             'abbreviation' => 'en',
             'country_code' => 'US, USA (ISO 3166-1)',
             'flag' => 'https://flagpedia.net/data/flags/w1160/us.webp'
+            'country_code' => 'en-GB
         ]);
-        Lang::factory()->create([
-            'language' => 'german',
-            'abbreviation' => 'de',
-            'country_code' => 'DE, DEU (ISO 3166-1)',
-            'flag' => 'https://flagpedia.net/data/flags/w1160/de.png'
-        ]);
-        // Lang::factory(1)->create();
+         */
     }
 }

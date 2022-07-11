@@ -16,6 +16,8 @@ class ModelTest extends TestCase
     //Access to debug true needed
     use DatabaseTransactions;
 
+    //Schreibweiße von "factory" in Laravel 9
+    //$mresp = Model::factory(Test::class)->create();
     /**
      * Teste Standard Datenbank Schema
      *
@@ -27,23 +29,6 @@ class ModelTest extends TestCase
         $this->assertTrue(
             Schema::hasColumns('users', [
                 'id', 'name', 'email', 'email_verified_at', 'password'
-            ]),
-            1
-        );
-    }
-
-    /**
-     * Teste, das Datenbank Schema von Debug
-     *
-     * @return void
-     */
-    //Schreibweiße von "factory" in Laravel 9
-    //$mresp = Model::factory(Test::class)->create();
-    public function test_db_schema_debug()
-    {
-        $this->assertTrue(
-            Schema::hasColumns('debugs', [
-                'id', 'debug'
             ]),
             1
         );
@@ -88,15 +73,15 @@ class ModelTest extends TestCase
      *
      * @return void
      */
-    public function test_db_schema_debug_exist()
+    public function test_db_schema_standard_tables_exist()
     {
-        $allDbNames = array('users', 'debugs', 'people', 'images');
+        $allDbNames = array('users',  'people', 'langs', 'images');
         // Mit foreach wird der Index des Array automatisch entfernt
         foreach ($allDbNames as $dbScheme) {
             if (Schema::hasTable($dbScheme)) {
                 $this->assertTrue(true);
             } else {
-                dd("The Table Name: " . $dbScheme . " is not in the database");
+                echo ("The Table Name: " . $dbScheme . " is not in the database");
                 $this->assertFalse(true);
             }
         }

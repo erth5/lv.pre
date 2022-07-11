@@ -17,9 +17,9 @@ class LangFactory extends Factory
     public function definition()
     {
         return [
-            'language' => $this->faker->country(),
-            'abbreviation' => $this->faker->countryISOAlpha3(),
+            'language' => $this->faker->languageCode(),
             'country_code' => $this->faker->countryCode(),
+            // 'abbreviation' => $this->faker->countryISOAlpha3(),
         ];
     }
 }

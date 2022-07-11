@@ -16,23 +16,12 @@ Image:
 
 <https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers>
 
-Debug Datanbankeintrag löschen
 
 <https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
 many rel ships
 
-refactor:
-
-add examplecontroller similar to personcontr?
-
-Entferne Debug und mache Funtionen wo sie nützlich sind hin
-LangTests:
-
-- installierte Sprachen entsprechen Database
 - Wenn user_id befüllt darf kein person_id befüllt sein..
 
-user, person to view: rel
-all without contr to view: menu
 last table: HTTP Session
 
 info:(Beispiel wie code geschrieben werden kann)

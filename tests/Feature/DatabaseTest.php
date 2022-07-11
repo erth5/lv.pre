@@ -92,4 +92,12 @@ class DatabaseTest extends TestCase
         $user->forceDelete();
         $this->assertModelMissing($user);
     }
+
+    /** Teste das ín lang die person_id nicht der user_id iwiderspricht
+     * Doppelte Zuordnung ist möglich
+     * Herausgenommen->Zuordnung geschieht über people
+     */
+
+
+     /**  */
 }

@@ -4,11 +4,13 @@ namespace Tests\Feature;
 
 use App\Models\Example\Image;
 use DirectoryIterator;
+use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 use function PHPUnit\Framework\assertEquals;
+use function PHPUnit\Framework\assertFalse;
 use function PHPUnit\Framework\assertFileExists;
 use function PHPUnit\Framework\assertTrue;
 
@@ -33,9 +35,13 @@ class ImageTest extends TestCase
     {
         $path = storage_path('app\public\images/');
         foreach (new DirectoryIterator($path) as $file) {
-            if ($file->isDot()) continue;
-            $fileName = $file->getFilename();
-            assertEquals($fileName, Image::where('name', $fileName)->get()->first()->name);
+            try {
+                if ($file->isDot()) continue;
+                $fileName = $file->getFilename();
+                assertEquals($fileName, Image::where('name', $fileName)->get()->first()->name);
+            } catch (Exception $e) {
+                assertTrue($fileName);
+            }
         }
         assertTrue(true);
     }
@@ -52,8 +58,9 @@ class ImageTest extends TestCase
             assertTrue(true);
         else {
             foreach ($images as $image) {
-                $DbImageName = ($image->getAttribute('name'));
-                assertFileExists(storage_path('app\public\images/' . $DbImageName));
+                $DbImageName = $image->getAttribute('name');
+                $DbImagePath = $image->getAttribute('path');
+                assertFileExists(storage_path('app\public/' . $DbImagePath . $DbImageName));
             }
         }
     }
