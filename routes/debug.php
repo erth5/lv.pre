@@ -5,6 +5,7 @@ use App\Http\Controllers\Debug\DebugController;
 use App\Http\Controllers\Example\LangController;
 use App\Http\Controllers\Example\ImageController;
 use App\Http\Controllers\Example\PersonController;
+use App\Http\Controllers\Example\PermissionAndRoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,14 @@ foreach ($debugRoutes as $route) {
     Route::redirect($route . '/debug', '/debug', 301);  //generates 'any'
     Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
 }
+
+Route::controller(PermissionAndRoleController::class)->group(function () {
+    Route::get('/permission/role', 'role')->name('editRolePermissions');
+    Route::get('/permission/user', 'user')->name('editUserPermissions');
+
+    Route::post('/permission/role', 'role')->name('editRolePermissions');
+    Route::post('/permission/user', 'user')->name('editUserPermissions');
+});
 
 Route::controller(PersonController::class)->group(function () {
     Route::get('/person/user', 'indexUser');

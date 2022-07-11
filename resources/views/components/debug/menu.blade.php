@@ -38,6 +38,8 @@
 <blockquote></blockquote>
 <a href="/debug/status"> {{ __('debug.status') }} </a>
 <a href="/debug/error"> {{ __('debug.error') }} </a>
-<a href="/person/role"> {{ __('debug.role') }} </a>
+<blockquote></blockquote>
+<a href="/permission/role"> {{ __('debug.role') }} </a>
+<a href="/permission/user"> {{ __('debug.user') }} </a>
 <blockquote></blockquote>
 <br>

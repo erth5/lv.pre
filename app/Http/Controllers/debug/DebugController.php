@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Debug;
 
 use App\Services\DebugService;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Config;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
@@ -95,8 +96,6 @@ class DebugController extends Controller
                 return redirect()->route('debug')->with('status', "state message");
             case 'error':
                 return redirect()->route('debug')->withErrors(['msg' => 'message for errors']);
-            case 'role':
-                return view('debug.role');
             default:
                 return view('debug.layout');
         }
