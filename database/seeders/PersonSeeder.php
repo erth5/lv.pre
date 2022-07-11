@@ -33,10 +33,7 @@ class PersonSeeder extends Seeder
             'last_name' => 'Mustermann',
             'username' => 'laraveller',
         ]);
-        $role = Role::create(['name' => 'admin']);
-        $permissions = Permission::pluck('id', 'id')->all();
-        $role->syncPermissions($permissions);
-        $user->assignRole([$role->id]);
+
 
         // $lang = Lang::where('abbreviation', 'de')->first();
         // $defautPerson->lang()->attach($lang);
