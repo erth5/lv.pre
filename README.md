@@ -6,6 +6,16 @@ MADE For Europe/German use
 
 ## TODO Tutorials(not implemented)
 
+### AUTO-LOGIN-LOGOUT
+
+Logged automatisch ein und aus -> überprüft status und lädt aktuelle Seite neu
+
+### LITE SQL
+
+Zweite DB um Dateibasiert zu speichern speziell benötigt
+
+
+
 LANG doc:
 installierte Sprachen -> Einstellbare INAPP | Sprachen in DB->zur Auto Selektion
 
