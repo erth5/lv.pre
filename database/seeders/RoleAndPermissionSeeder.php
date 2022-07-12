@@ -19,20 +19,20 @@ class RoleAndPermissionSeeder extends Seeder
     public function run()
     {
         Permission::create([
-            'name' => 'show permissions',
+            'name' => 'show_permissions',
         ]);
         Permission::create([
-            'name' => 'edit permissions',
+            'name' => 'edit_permissions',
         ]);
         Permission::create([
-            'name' => 'show own permissions',
+            'name' => 'show_own_permissions',
         ]);
         Permission::create([
-            'name' => 'edit own permissions',
+            'name' => 'edit_own_permissions',
         ]);
 
         $role = Role::create(['name' => 'user'])
-            ->givePermissionTo('show own permissions');
+            ->givePermissionTo('show_own_permissions');
 
         $role = Role::create(['name' => 'admin']);
         $permissions = Permission::pluck('id', 'id')->all();

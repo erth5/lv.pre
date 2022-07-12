@@ -12,7 +12,7 @@ class PermissionAndRoleController extends Controller
 {
     public function role(Request $request, Role $role)
     {
-        // dd($request->roles);
+        dd($request);
         if ($request->roles != null)
             $role = $request->roles;
         $users = User::with('roles.permissions')->get();
@@ -30,24 +30,41 @@ class PermissionAndRoleController extends Controller
             ->with(compact('permissions'));
     }
 
-    public function user(Request $request, User $user)
+    /** Verarbeiten von Berechtigungen
+     * @param userID $request->id NutzerID des gewählten Nutzers
+     * @param newPerm $request->add Berechtigung zum hinzufügen
+     * @param oldPerm $request->del Berechtigung zum entfernen
+     * 
+     * @internal user gewählter Nutzer
+     * @internal permissions alle Berechtigungen
+     * @internal perm Zwischenvariable zu veröndernde Berechtigung
+     */
+    public function user(Request $request)
     {
         // dd($request);
-        if ($request->email != null) {
-            $user = $request->email;
+        if ($request->id != null) {
+            $userID = $request->id;
+            $user = User::where('id', $userID)->with('permissions')->first();
         }
 
-        $users = User::with('permissions')->get();
-        $permissions = Permission::all();
-        // Doppelte Zuweisung
-        $user = User::where('email', $user)->with('permissions')->first();
+        // Vergeben und entfernen von Berechtigungen
+        if ($request->del != "null") {
+            $user->removePermission($request->del);
+        }
 
-        // dd($user);
-        // Schreibweise muss so sein
+        if ($request->add != "null") {
+            $perm = $request->add;
+            $user->addPermission($perm);
+        }
+
+        $permissions = Permission::all();
+        $users = User::with('permissions')->get();
+
         return view('permission.index')->with([
             'user' => $user ?? null
         ])
             ->with(compact('users'))
-            ->with(compact('permissions'));
+            ->with(compact('permissions'))
+            ->with('status', 'erfoldgreich geladen');
     }
 }

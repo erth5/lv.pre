@@ -67,7 +67,7 @@ class Person extends Model
     //     return $number;
     // }
 
-    /** Count number of Images a person has
+    /** Count number of Images a person has TODO scope
      * @return number Amount Anzahl Bilder
      */
     public function countRelatedImages($id)

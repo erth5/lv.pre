@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Models\Permission;
 
 class User extends Authenticatable
 {
@@ -52,6 +53,34 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function addPermission($permissionName)
+    {
+        return $this->givePermissionTo($permissionName);
+    }
+
+    public function addAllPermission()
+    {
+        return $this->givePermissionTo(Permission::all());
+    }
+
+    public function hasPermission($permissionName)
+    {
+        return $this->hasPermissionTo($permissionName);
+    }
+
+    public function removePermission($permissionName)
+    {
+        return $this->revokePermissionTo($permissionName);
+    }
+
+    // Bereits integriert
+    // public function permissions(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(Permission::class);
+    // }
+
 
     /**
      * Relationship: get person associated with user

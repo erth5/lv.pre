@@ -6,8 +6,12 @@ MADE For Europe/German use
 
 ## TODO Tutorials(not implemented)
 
-select beispiele
+LANG doc:
+installierte Sprachen -> Einstellbare INAPP | Sprachen in DB->zur Auto Selektion
+
 Image:
+
+überall <fieldset> verwernden
 
 <https://github.com/spatie/laravel-searchable>
 
@@ -15,7 +19,6 @@ Image:
 - alles mit normalen Methoden ausgebaut nach Image
 
 <https://www.digitalocean.com/community/tutorials/simple-laravel-crud-with-resource-controllers>
-
 
 <https://medium.com/risan/seeding-table-with-relationships-in-laravel-c1e18355013f>
 many rel ships
@@ -52,6 +55,38 @@ php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
 - <https://laraveli18n.kodilab.com/docs/model-translations/> (other integrated)
 
 - <https://github.com/staudenmeir/eloquent-has-many-deep>
+
+```php
+        /* Current Login User Details */
+
+        $user = auth()->user();
+
+        var_dump($user);
+
+      
+
+        /* Current Login User ID */
+
+        $userID = auth()->user()->id; 
+
+        var_dump($userID);
+
+          
+
+        /* Current Login User Name */
+
+        $userName = auth()->user()->name; 
+
+        var_dump($userName);
+
+          
+
+        /* Current Login User Email */
+
+        $userEmail = auth()->user()->email; 
+
+        var_dump($userEmail);
+```
 
 ## integrated
 

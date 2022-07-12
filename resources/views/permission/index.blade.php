@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <x-debug.sessionStatus />
     <x-debug.style />
     <div style="float: left">
         <x-debug.menu />

@@ -1,11 +1,14 @@
 @extends('debug.layout')
 @section('c')
     <select id="lang">
+        {{-- @foreach (Locales::installed() as $locale) --}}
+        {{-- <option value="$locale" {{ app()->getLocale() == '$locale' ? 'selected' : '' }}>$locale</option> --}}
+        {{-- @endforeach --}}
+
         {{-- current activated will be the selected --}}
         <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
         <option value="de" {{ app()->getLocale() == 'de' ? 'selected' : '' }}>Deutsch</option>
         <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>France</option>
-        {{-- <option value="sp" {{ session()->get('locale') == 'sp' ? 'selected' : '' }}>Spanish</option> --}}
     </select>
 
     <h3>{{ __('debug.sessionLocale') }}
