@@ -80,7 +80,9 @@ class DebugController extends Controller
                 // Path to the 'storage' folder
                 echo storage_path() . "<br>";
                 // Path to the 'storage/app' folder
-                echo storage_path('app') . "<br>";;
+                echo storage_path('app') . "<br>";
+                // Path to database folder and sqlite file
+                echo database_path('database.sqlite');
                 break;
             case 'config':
                 $configValidation = (new ConfigValidator())->run();
