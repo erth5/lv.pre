@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.0.2",
         "ashallendesign/laravel-config-validator": "^2.2",
+        "consoletvs/charts": "^7.3",
         "getsolaris/laravel-make-service": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",

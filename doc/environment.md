@@ -1,19 +1,31 @@
 # Environment
 
-## Installation
+```terminal
+php artisan vendor:publish
+```
+
+## GraphQL
+
+<https://github.com/nuwave/lighthouse>
+
+### Nicht unterstützt
+
+Nohac/laravel-graphiql
+
+## Voyager (7.2022 - ausgerichtet auf Laravel Version 8)
+
+- Installation ohne Dummy Data schlägt fehl
+- Erstellt storage-public LINK
+- Manuelle Route
+- Abhängigkeiten werden nicht automatisch hinzugefügt
+
+### Installation
 
 ``` terminal
 composer require tcg/voyager
 php artisan voyager:install
 php artisan voyager:install --with-dummy
 ```
-
-## Voyager
-
-- Installation ohne Dummy Data schlägt fehl
-- Erstellt storage-public LINK
-- Manuelle Route
-- Abhängigkeiten werden nicht automatisch hinzugefügt
 
 ``` php
 Route::group(['prefix' => 'admin'], function () {
