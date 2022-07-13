@@ -14,8 +14,6 @@ Logged automatisch ein und aus -> überprüft status und lädt aktuelle Seite ne
 
 Zweite DB um Dateibasiert zu speichern speziell benötigt
 
-
-
 LANG doc:
 installierte Sprachen -> Einstellbare INAPP | Sprachen in DB->zur Auto Selektion
 
@@ -125,24 +123,6 @@ btn-yellow
 
 - image v1: has-pics, seperated-yield, ressource
 - image v2: named-pics, merged-component, any?
-
-## artisans
-
-```terminal
-php artisan migrate:fresh --seed
-php artisan db:seed --class=UserSeeder
-php artisan db:seed --class=PersonSeeder
-```
-
-```terminal
-php artisan migrate:status
-php artisan migrate:rollback --step=1
-php artisan db:wipe --force
-```
-
-```terminal
-php artisan vendor:publish
-```
 
 ## distriction
 
