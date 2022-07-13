@@ -3,7 +3,7 @@
     @isset($users)
         <fieldset>
             <label for="users">Nutzer auswählen</label>
-            <select name="id" id="users">
+            <select name="id">
                 <option value=null>select one</option>
                 @forelse ($users as $usr)
                     <option @isset($user) {{ $user->id == $usr->id ? 'selected' : '' }} @endisset
@@ -12,8 +12,8 @@
                 @empty
                 @endforelse
             </select>
-            <label for="submit_user">Bestätigen</label>
-            <button type="submit" name="submit" value="submit">Wählen</button>
+            <label>Bestätigen</label>
+            <button type="submit" name="" value="">Wählen</button>
         </fieldset>
     @endisset
 
@@ -27,10 +27,8 @@
                 @empty
                 @endforelse
             </select>
-            <label for="submit_del"></label>
             <button type="submit" value="submit">Berechtigung entfernen</button>
         </fieldset>
-
         @isset($permissions)
             <fieldset>
                 <label for="add">Berechtigung auswählen:</label>
@@ -44,7 +42,6 @@
                     @empty
                     @endforelse
                 </select>
-                <label for="submit_add"></label>
                 <button type="submit" value="submit">Berechtigung hinzufügen</button>
             </fieldset>
         @endisset

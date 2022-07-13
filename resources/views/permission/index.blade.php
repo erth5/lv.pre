@@ -17,7 +17,7 @@
     </div>
 
     {{-- all --}}
-    <x-permission.show :users=$users :permissions=$permissions />
+    <x-permission.show :users=$users :roles=$roles :permissions=$permissions />
 
     @if (str_ends_with(url()->current(), 'role'))
         <x-permission.role.edit :roles=$roles :permissions=$permissions :role=$role />
@@ -31,6 +31,15 @@
     <x-permission.local.show :users=$users />
     <x-permission.local.edit :users=$users />
 
+    {{-- Debug --}}
+    @if (isset($request))
+        <h2>Request {{ $request['id'] }}</h2>
+        {{-- <ul>
+            @foreach ($request as $field => $value)
+                <li>{{ SimpleXMLElement::__toString($field) }}: {{ SimpleXMLElement::__toString($value) }}</li>
+            @endforeach
+        </ul> --}}
+    @endif
 </body>
 
 </html>

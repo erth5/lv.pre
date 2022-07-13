@@ -19,32 +19,33 @@
         </table>
     @endisset
     <blockquote></blockquote>
-    @isset($roles)
-        <table>
-            <tr>
-                <th>role</th>
-                <th>permission</th>
-            </tr>
-            @forelse ($roles as $role)
+    <div style="float:left">
+        @isset($roles)
+            <table>
                 <tr>
-                    <td> {{ $role->name }} </td>
-                    {{-- <td>{{ $role->permissions }}</td> --}}
-                    <td>
-                        <ul>
-                            @forelse ($role->permissions as $permission)
-                                <li>{{ $permission->name }}</li>
-                            @empty
-                                <li>-</li>
-                            @endforelse
-                        </ul>
-                    </td>
+                    <th>role</th>
+                    <th>permission</th>
                 </tr>
-            @empty
-                -
-            @endforelse
-        </table>
-    @endisset
-    <blockquote></blockquote>
+                @forelse ($roles as $role)
+                    <tr>
+                        <td> {{ $role->name }} </td>
+                        {{-- <td>{{ $role->permissions }}</td> --}}
+                        <td>
+                            <ul>
+                                @forelse ($role->permissions as $permission)
+                                    <li>{{ $permission->name }}</li>
+                                @empty
+                                    <li>-</li>
+                                @endforelse
+                            </ul>
+                        </td>
+                    </tr>
+                @empty
+                    -
+                @endforelse
+            </table>
+        @endisset
+    </div>
     @isset($permissions)
         <table>
             <tr>
@@ -57,7 +58,21 @@
             @empty
                 -
             @endforelse
+        </table>
+    @endisset
 
+    @isset($roles)
+        <table>
+            <tr>
+                <th>all roles</th>
+            </tr>
+            @forelse ($roles as $rol)
+                <tr>
+                    <td>{{ $rol->name }}</td>
+                </tr>
+            @empty
+                -
+            @endforelse
         </table>
     @endisset
 </h3>
