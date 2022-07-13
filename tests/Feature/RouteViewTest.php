@@ -9,7 +9,7 @@ class RouteViewTest extends TestCase
 
     /**
      * A basic unit test that proof if the domain root is visible.
-     *
+     * @group routing
      * @return void
      */
     public function test_routing_main()
@@ -20,7 +20,7 @@ class RouteViewTest extends TestCase
 
     /**
      * A basic unit test for debug.
-     *
+     * @group routing
      * @return void
      */
     public function test_ONLYDEBUG_routing_debug()

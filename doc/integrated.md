@@ -56,6 +56,3 @@ permissions contained by voyager, spatie permissions, breeez, jetbstream
 
 <https://github.com/barryvdh/laravel-dompdf>
 
-## testing
-
-<https://laravel.com/docs/9.x/dusk>

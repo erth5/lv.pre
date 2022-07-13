@@ -18,7 +18,7 @@ class ImageTest extends TestCase
 {
     /**
      * proof existence of image folder
-     *
+     * @group data
      * @return void
      */
     public function test_gives_it_a_image_folder()
@@ -28,7 +28,7 @@ class ImageTest extends TestCase
 
     /**
      * Proof saved Images has Database-Entrys
-     *
+     * @group data
      * @return void
      */
     public function test_saved_files_has_database_entrys()
@@ -48,7 +48,7 @@ class ImageTest extends TestCase
 
     /**
      * Proof Database-Entrys linked to saved Images
-     *
+     * @group data
      * @return void
      */
     public function test_database_entrys_has_saved_files()

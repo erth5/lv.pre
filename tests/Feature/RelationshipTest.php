@@ -25,6 +25,7 @@ class RelationshipTest extends TestCase
     /**
      * Test One to One Relationship User to Person
      * Prüfung mit Variante Factory (Beispiel)
+     *  @group data
      * @return void
      */
     public function test_user_has_a_person()
@@ -40,6 +41,7 @@ class RelationshipTest extends TestCase
     /**
      * Test One to One Relationship User to Person
      * Prüfung mit Variante Factory (Beispiel)
+     *  @group data
      * @return void
      */
     public function test_default_person_belongs_to_user()
@@ -51,7 +53,10 @@ class RelationshipTest extends TestCase
         $this->assertEquals("Max Mustermann", Person::where('username', 'laraveller')->firstOrFail()->user->name);
     }
 
-    /** Test Relationship image to person */
+    /** Test Relationship image to person
+     *  @group data
+     * @return void
+    */
     public function test_default_image_belong_to_person()
     {
         if (DB::table('people')->count() == 0)
@@ -60,7 +65,10 @@ class RelationshipTest extends TestCase
         assertIsObject($image->person);
     }
 
-    /** Test Relationship from user are compatible with person */
+    /** Test Relationship from user are compatible with person
+     *  @group data
+     *@return void
+    */
     public function test_images_have_correct_relations_to_user_and_person()
     {
         if (DB::table('people')->count() == 0)

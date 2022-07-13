@@ -9,7 +9,7 @@ class ServiceTest extends TestCase
 {
     /**
      * A basic unit test for controller.
-     *
+     * @group specification
      * @return void
      */
 

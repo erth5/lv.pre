@@ -31,7 +31,7 @@ class DatabaseTest extends TestCase
 
     /**
      * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
-     *
+     * @group data
      * @return void
      */
     public function test_db_default_user_name()
@@ -50,7 +50,7 @@ class DatabaseTest extends TestCase
 
     /**
      * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
-     *
+     * @group data
      * @return void
      */
     public function test_db_default_person_username()
@@ -64,7 +64,7 @@ class DatabaseTest extends TestCase
 
     /**
      * Teste, dass der Entwicklungs-Standard Eintrag vorhanden ist.
-     *
+     * @group data
      * @return void
      */
     public function test_db_default_person_last_name()
@@ -80,11 +80,9 @@ class DatabaseTest extends TestCase
     /**
      * Teste ob ein Nutzer angelegt werden kann
      * Testet nicht auf Basis von softDeletes
-     *
+     * @group data
      * @return void
      */
-
-
     public function test_db_can_create_and_delete_user()
     {
         $user = User::factory()->create();

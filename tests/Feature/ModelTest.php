@@ -20,7 +20,7 @@ class ModelTest extends TestCase
     //$mresp = Model::factory(Test::class)->create();
     /**
      * Teste Standard Datenbank Schema
-     *
+     * @group schema
      * @return void
      */
 
@@ -36,7 +36,7 @@ class ModelTest extends TestCase
 
     /**
      * Teste, das Datenbank Schema von Person
-     *
+     * @group schema
      * @return void
      */
     public function test_db_schema_people()
@@ -55,7 +55,7 @@ class ModelTest extends TestCase
 
     /**
      * Teste, das Datenbank Schema von Image
-     *
+     * @group schema
      * @return void
      */
     public function test_db_schema_image()
@@ -70,7 +70,7 @@ class ModelTest extends TestCase
 
     /**
      * Teste alle Datenbanken auf existenz - Abfrage intern
-     *
+     * @group schema
      * @return void
      */
     public function test_db_schema_standard_tables_exist()
@@ -91,7 +91,7 @@ class ModelTest extends TestCase
 
     /**
      * Teste Vordergrund Datenbanken auf existenz, Abfrage Config
-     *
+     * @group schema
      * @return void
      */
     public function test_db_schema_spatie_tables_exist()
@@ -109,7 +109,7 @@ class ModelTest extends TestCase
 
     /**
      * Teste Hintergrund Datenbanken auf existenz, Abfrage durch eine Datei
-     *
+     * @group schema
      * @return void
      */
     public function test_db_schema_background_exist_batch()
@@ -138,7 +138,7 @@ class ModelTest extends TestCase
 
     /**
      * Teste alle Models darauf, ob ein DatenbankSchema existiert
-     *
+     * @group schema
      * @return void
      */
     public function test_db_schema_all_exist_by_model()

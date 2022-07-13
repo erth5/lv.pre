@@ -9,7 +9,7 @@ class RuleTest extends TestCase
 {
     /**
      * A basic unit test example.
-     *
+     * @group specification
      * @return void
      */
     public function test_example()
