@@ -69,7 +69,7 @@ Route::controller(LangController::class)->group(function () {
     Route::get('/lang/lang_debug', 'debug');
     Route::get('/lang/change', 'change')->name('changeLang');
 });
-    
+
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');
 // public function someAction($alias)
@@ -92,3 +92,8 @@ Route::controller(LangController::class)->group(function () {
 //     Route::get('items/{item}/edit', 'edit')->name('items.edit');
 // });
 // Route::resource('items', ItemController::class);
+
+/* OnePager */
+// Route::get('/', function () {
+//     return redirect('/loginHscerp');
+// });

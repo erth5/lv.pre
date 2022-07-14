@@ -56,3 +56,6 @@ permissions contained by voyager, spatie permissions, breeez, jetbstream
 
 <https://github.com/barryvdh/laravel-dompdf>
 
+## search
+
+<https://spatie.be/docs/laravel-site-search/v1/introduction>
