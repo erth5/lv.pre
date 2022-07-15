@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Controller;
 use LaravelLang\Publisher\Facades\Helpers\Locales;
+use LaravelLang\Publisher\Constants\Locales as LocaleCode;
 
 class LangController extends Controller
 {
@@ -41,19 +42,19 @@ class LangController extends Controller
         $availaibleLocales[] = (Locales::available());
 
         // // List of installed locations.
-        $installedLocales[] =  Locales::installed();
+        $installedLocalesArray[] =  Locales::installed();
 
         // // Retrieving a list of protected locales.
         $protectedLocales = Locales::protects();
 
-        // // Checks if a language pack is installed.
-        // Locales::isAvailable(string $locale): bool
+        $testLocale = 'ru';
+        $testLocaleavailible = Locales::isAvailable($testLocale);
 
         // // The checked locale protecting.
-        // Locales::isProtected(string $locale): bool
+        $testLocaleProtected = Locales::isProtected($testLocale);
 
         // // Checks whether it is possible to install the language pack.
-        // Locales::isInstalled(string $locale): bool
+        $testLocaleInstalled = Locales::isInstalled($testLocale);
 
         // // Getting the default localization name.: string
         $default = Locales::getDefault();
@@ -63,12 +64,16 @@ class LangController extends Controller
 
         // dd($protectedLocales);
         $data = [
-            'availaibleLocales' => $availaibleLocales,
-            'installedLocales' => $installedLocales,
-            'protectedLocales' => $protectedLocales,
-            'default' => $default,
-            'fallback' => $fallback,
+            'availaibleLocales' => ($availaibleLocales),
+            'protectedLocales' => ($protectedLocales),
+            'default' => "default locale: "  . $default,
+            'fallback' => "fallback locale: "  . $fallback,
+            'testLocale' => "test locale: "  . $testLocale,
+            'testLocaleavailible' => "test Locale availible: "  . $testLocaleavailible,
+            'testLocaleProtected' => "test Locale Protected: "  . $testLocaleProtected,
+            'testLocaleInstalled' => "test Locale Installed: "  . $testLocaleInstalled,
+
         ];
-        return view('debug.lang', compact('data'));
+        return view('debug.lang', compact('data', 'installedLocalesArray'));
     }
 }

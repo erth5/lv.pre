@@ -1,15 +1,35 @@
 @extends('debug.layout')
 @section('c')
-    <select id="lang">
-        {{-- @foreach (Locales::installed() as $locale) --}}
-        {{-- <option value="$locale" {{ app()->getLocale() == '$locale' ? 'selected' : '' }}>$locale</option> --}}
-        {{-- @endforeach --}}
 
-        {{-- current activated will be the selected --}}
+    {{-- Automatic Languages --}}
+    {{-- @foreach ($installedLocalesArray as $key => $installedLocales)
+        <select id="lang">
+            @foreach ($installedLocales as $key => $locale)
+                <option value={{ $locale }} {{ app()->getLocale() == $locale ? 'selected' : '' }}>
+                    {{ $locale }}
+                </option>
+            @endforeach
+        </select>
+    @endforeach --}}
+
+    {{-- Manual Languages --}}
+    <select id="lang">
         <option value="en" {{ app()->getLocale() == 'en' ? 'selected' : '' }}>English</option>
         <option value="de" {{ app()->getLocale() == 'de' ? 'selected' : '' }}>Deutsch</option>
         <option value="fr" {{ app()->getLocale() == 'fr' ? 'selected' : '' }}>France</option>
     </select>
+
+    {{-- mcamera package --}}
+    {{-- @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+    <li>
+        @if (LaravelLocalization::getCurrentLocale() != $localeCode)
+        <a rel="alternate" hreflang="{{ $localeCode }}"
+        href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+        {{ $localeCode }}
+    </a>
+    @endif
+</li>
+@endforeach --}}
 
     <h3>{{ __('debug.sessionLocale') }}
         {{ session()->get('session.locale') }}
