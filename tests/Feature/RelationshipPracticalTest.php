@@ -8,17 +8,13 @@ use App\Models\User;
 use App\Models\Example\Person;
 use Database\Seeders\PersonSeeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 use function PHPUnit\Framework\assertEquals;
 use function PHPUnit\Framework\assertIsObject;
-use function PHPUnit\Framework\assertIsString;
 use function PHPUnit\Framework\assertTrue;
 
-class RelationshipTest extends TestCase
+class RelationshipPracticalTest extends TestCase
 {
     use DatabaseTransactions;
 
@@ -56,19 +52,21 @@ class RelationshipTest extends TestCase
     /** Test Relationship image to person
      *  @group data
      * @return void
-    */
+     */
     public function test_default_image_belong_to_person()
     {
         if (DB::table('people')->count() == 0)
             assertTrue(true);
-        $image = Image::where('name', 'Ressource_Image_Routes.png')->first();
-        assertIsObject($image->person);
+        else {
+            $image = Image::where('name', 'Ressource_Image_Routes.png')->first();
+            assertIsObject($image->person);
+        }
     }
 
     /** Test Relationship from user are compatible with person
      *  @group data
      *@return void
-    */
+     */
     public function test_images_have_correct_relations_to_user_and_person()
     {
         if (DB::table('people')->count() == 0)

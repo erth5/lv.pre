@@ -8615,12 +8615,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/Reflection.git",
-                "reference": "eb1abaa87486fad4130942684e82b87d437adbf5"
+                "reference": "0debbd049a0288838d3b4f7de902d9cb1648dea1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/Reflection/zipball/eb1abaa87486fad4130942684e82b87d437adbf5",
-                "reference": "eb1abaa87486fad4130942684e82b87d437adbf5",
+                "url": "https://api.github.com/repos/phpDocumentor/Reflection/zipball/0debbd049a0288838d3b4f7de902d9cb1648dea1",
+                "reference": "0debbd049a0288838d3b4f7de902d9cb1648dea1",
                 "shasum": ""
             },
             "require": {
@@ -8663,7 +8663,7 @@
                 "issues": "https://github.com/phpDocumentor/Reflection/issues",
                 "source": "https://github.com/phpDocumentor/Reflection/tree/5.x"
             },
-            "time": "2022-06-03T14:17:35+00:00"
+            "time": "2022-07-15T12:19:35+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -10940,5 +10940,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

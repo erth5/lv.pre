@@ -18,8 +18,8 @@ class LangFactory extends Factory
     {
         return [
             'language' => $this->faker->languageCode(),
-            'country_code' => $this->faker->countryCode(),
-            // 'abbreviation' => $this->faker->countryISOAlpha3(),
+            'abbreviation' => $this->faker->countryCode(),
+            // 'country_code' => $this->faker->countryISOAlpha3(),
         ];
     }
 }

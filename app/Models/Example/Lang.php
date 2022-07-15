@@ -36,6 +36,6 @@ class Lang extends Model
 
     public function person()
     {
-        $this->belongsToMany(Person::class);
+        return $this->belongsToMany(Person::class);
     }
 }
