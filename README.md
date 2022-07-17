@@ -4,6 +4,26 @@ Template for Laravel Projects
 
 MADE For Europe/German use
 
+<div id="header" align="center">
+  <!-- <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="100"/> -->
+</div>
+
+<img src="https://komarev.com/ghpvc/?username=erth5&style=flat-square&color=blue" alt=""/>
+
+<div id="badges">
+  <a href="your-linkedin-URL">
+    <img src="https://img.shields.io/badge/Mail-blue?style=for-the-badge&logo=mail&logoColor=white" alt="Mail Badge"/>
+  </a>
+
+  <!-- <a href="your-youtube-URL">
+    <img src="https://img.shields.io/badge/YouTube-red?style=for-the-badge&logo=youtube&logoColor=white" alt="Youtube Badge"/>
+  </a> -->
+
+  <!-- <a href="your-twitter-URL">
+    <img src="https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter Badge"/>
+  </a> -->
+</div>
+
 ## TODO Tutorials(not implemented)
 
 ### AUTO-LOGIN-LOGOUT
@@ -19,7 +39,7 @@ installierte Sprachen -> Einstellbare INAPP | Sprachen in DB->zur Auto Selektion
 
 Image:
 
-überall <fieldset> verwernden
+überall <fieldset> </fieldset>verwernden
 
 <https://github.com/spatie/laravel-searchable>
 
@@ -157,3 +177,11 @@ DE
 
 - Localisation
 - Faker
+
+---
+
+## About
+
+<img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original-wordmark.svg" title="Java" alt="Java" width="40" height="40"/>&
+
+[![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=erth5&theme=dark&background=000000)](https://git.io/streak-stats)

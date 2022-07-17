@@ -59,7 +59,6 @@ class ImageController extends Controller
         // $image->saveOrFail();
         // return view('image', compact($request, $image));
 
-
         $validator = new ImageValidatorModule($request);
         $validator->proofImageExist();
         if ($validator != true) {

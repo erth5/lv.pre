@@ -28,18 +28,18 @@
     @endif
 
     {{-- own --}}
-    <x-permission.local.show :users=$users />
-    <x-permission.local.edit :users=$users />
+    {{-- <x-permission.local.show :users=$users /> --}}
+    {{-- <x-permission.local.edit :users=$users /> --}}
 
     {{-- Debug --}}
-    @if (isset($request))
-        <h2>Request {{ $request['id'] }}</h2>
+    {{-- @if (isset($request)) --}}
+        {{-- <h2>Request {{ $request['id'] }}</h2> --}}
         {{-- <ul>
             @foreach ($request as $field => $value)
                 <li>{{ SimpleXMLElement::__toString($field) }}: {{ SimpleXMLElement::__toString($value) }}</li>
             @endforeach
         </ul> --}}
-    @endif
+    {{-- @endif --}}
 </body>
 
 </html>
