@@ -47,7 +47,7 @@
         @endisset
     @endisset
 
-    <fieldset>
-        <button type="repair" value="repair">Standart Berechtigungen für Nutzer zurücksetzen</button>
-    </fieldset>
+    {{-- <fieldset>
+        <button type="repair" value="repair">Vollzugriff Admin</button>
+    </fieldset> --}}
 </form>

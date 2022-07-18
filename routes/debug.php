@@ -39,6 +39,8 @@ Route::controller(PermissionAndRoleController::class)->group(function () {
 
     Route::post('/permission/role', 'role')->name('editRolePermissions');
     Route::post('/permission/user', 'user')->name('editUserPermissions');
+
+    Route::get('/permssion/admin', 'authorizeAdmin')->name('authorizeAdmin');
 });
 
 Route::controller(PersonController::class)->group(function () {

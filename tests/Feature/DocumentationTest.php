@@ -4,6 +4,9 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 
+use function PHPUnit\Framework\assertFalse;
+use function PHPUnit\Framework\assertTrue;
+
 class DocumentationTest extends TestCase
 {
     /**
@@ -13,9 +16,12 @@ class DocumentationTest extends TestCase
      */
     public function test_swagger_integration_response()
     {
-        echo env('APP_URL') . "/api/documentation";
-        $swagger = $this->get('/api/documentation');
-        $swagger->assertStatus(200);
+        if (env('Swagger') == true) {
+            echo env('APP_URL') . "/api/documentation";
+            $swagger = $this->get('/api/documentation');
+            $swagger->assertStatus(200);
+        } else
+            assertTrue(true);
     }
 
     /**
@@ -25,7 +31,10 @@ class DocumentationTest extends TestCase
      */
     public function test_swagger_integration_works()
     {
-        $swagger = $this->get('/docs/api-docs.json');
-        $swagger->assertStatus(200);
+        if (env('Swagger') == true) {
+            $swagger = $this->get('/docs/api-docs.json');
+            $swagger->assertStatus(200);
+        } else
+            assertTrue(true);
     }
 }

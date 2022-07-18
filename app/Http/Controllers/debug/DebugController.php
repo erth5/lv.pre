@@ -36,7 +36,7 @@ class DebugController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($name = 'main')
+    public function index($name = 'main',)
     {
         $url = Config::set('constants.info.url', 'http://example.de');
         switch ($name) {
@@ -97,6 +97,8 @@ class DebugController extends Controller
             case 'status':
                 return redirect()->route('debug')->with('status', "state message");
             case 'error':
+                // case 'request':
+                // echo $request;
                 return redirect()->route('debug')->withErrors(['msg' => 'message for errors']);
             default:
                 return view('debug.layout');

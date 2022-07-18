@@ -46,7 +46,10 @@
             </fieldset>
         @endisset
     @endisset
+</form>
+<form action="{{ route('authorizeAdmin') }}">
+    @csrf
     <fieldset>
-        <button type="repair" value="repair">Standart Berechtigungen für Nutzer zurücksetzen</button>
+        <button type="repair" value="repair">Vollzugriff Admin</button>
     </fieldset>
 </form>

@@ -81,7 +81,6 @@ class User extends Authenticatable
     //     return $this->belongsToMany(Permission::class);
     // }
 
-
     /**
      * Relationship: get person associated with user
      */

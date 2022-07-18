@@ -27,7 +27,7 @@ class PermissionAndRoleController extends Controller
     public $user;
     public $role;
 
-    public function role(Request $request, Role $role)
+    public function role(Request $request)
     {
         // dd($request);
         if ($request->id != null) {
@@ -73,7 +73,6 @@ class PermissionAndRoleController extends Controller
         if ($request->del != null && $request->del != "null")
             $user->removePermission($request->del);
 
-        echo $request;
         $permissions = Permission::all();
         $users = User::with('permissions')->get();
         return view('permission.index')->with([
@@ -84,5 +83,11 @@ class PermissionAndRoleController extends Controller
             ->with(compact('permissions'))
             ->with(compact('request'))
             ->with('status', 'user permission edit successful loaded');
+    }
+    public function authorizeAdmin()
+    {
+        $admin = Role::where('name', 'admin');
+        /** not works */
+        // $admin->givePermissionTo(Permission::where('guard_name', 'web')->get());
     }
 }
