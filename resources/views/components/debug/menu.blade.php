@@ -25,6 +25,7 @@
 <br>
 
 <a href="/debug/test"> {{ __('debug.debug_test') }} </a>
+<a href="/user/test"> Nutzer test </a>
 <a href="/person/test"> {{ __('debug.person_test') }} </a>
 <blockquote></blockquote>
 <a href="/info/user">{{ __('debug.rel_view_1') }}</a>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Example\LangController;
 use App\Http\Controllers\Example\ImageController;
 use App\Http\Controllers\Example\PersonController;
 use App\Http\Controllers\Example\PermissionAndRoleController;
+use App\Http\Controllers\Example\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,10 @@ Route::controller(LangController::class)->group(function () {
     Route::get('/lang/lang_debug', 'debug');
     Route::get('/lang/change', 'change')->name('changeLang');
 });
+// Route::get('users/{id}', function ($id) {
+
+// });
+Route::get('user/test', [UserController::class, 'test']);
 
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');
