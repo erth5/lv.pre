@@ -16,3 +16,12 @@ php artisan db:wipe --force
 ```terminal
 php artisan vendor:publish
 ```
+
+```terminal
+php artisan session:table
+```
+
+```terminal
+composer require laravel-lang/publisher laravel-lang/lang --dev
+php artisan vendor:publish --provider="LaravelLang\Publisher\ServiceProvider"
+```

@@ -50,6 +50,10 @@
 
 permissions contained by voyager, spatie permissions, breeez, jetbstream
 
+<https://laraveli18n.kodilab.com/docs/model-translations/> (other integrated)
+
+<https://github.com/staudenmeir/eloquent-has-many-deep>
+
 ## filetyp
 
 <https://github.com/milon/barcode>

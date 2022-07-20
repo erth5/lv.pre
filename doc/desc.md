@@ -1,5 +1,25 @@
 # description
 
+## auth
+
+```php
+        /* Current Login User Details */
+        $user = auth()->user();
+        var_dump($user);
+     
+        /* Current Login User ID */
+        $userID = auth()->user()->id; 
+        var_dump($userID);
+      
+        /* Current Login User Name */
+        $userName = auth()->user()->name; 
+        var_dump($userName);
+         
+        /* Current Login User Email */
+        $userEmail = auth()->user()->email; 
+        var_dump($userEmail);
+```
+
 ## relationship key-name
 
 Denken Sie daran, dass Eloquent automatisch die richtige Fremdschlüsselspalte für das Modell Comment bestimmt. Konventionell nimmt Eloquent den "snake case"-Namen des übergeordneten Modells und hängt ihn an _id an. In diesem Beispiel nimmt Eloquent also an, dass die Fremdschlüsselspalte des Comment-Modells post_id ist.
