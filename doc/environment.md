@@ -4,6 +4,10 @@
 php artisan vendor:publish
 ```
 
+## table: session
+
+used by jetstream
+
 ## LDAP
 
 <https://ldaprecord.com>
