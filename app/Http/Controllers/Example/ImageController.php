@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Example\Image;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Modules\ImageValidatorModule;
+use App\Services\Global\UtilsService;
 
 /**
  * variant1: ressource, yield, storage, withName
@@ -14,6 +15,14 @@ use App\Http\Controllers\Modules\ImageValidatorModule;
 
 class ImageController extends Controller
 {
+
+    protected $utilsService;
+    public function __construct(
+        UtilsService $utilsService
+    ) {
+        $this->utilsService = $utilsService;
+    }
+
     /* variant1 */
     /**
      * Display a listing of the resource.
@@ -166,7 +175,8 @@ class ImageController extends Controller
     }
 
     /** MISSING */
-    public function rename (Request $request, Image $image){
+    public function rename(Request $request, Image $image)
+    {
         $image = Image::find($image);
         // dd($request);
         $image->name = $request->name;
