@@ -1,10 +1,5 @@
 <?php
 return [
-    // TODO
-    // add something with checkbox and write
-    'table_boolean' => [],
-
-    'debugs',
     'users' => [
         'name',
         'email',
@@ -26,4 +21,8 @@ return [
         'update_time',
         'remove_time',
     ],
+    'langs' => [
+        'language',
+        'abbreviation',
+    ]
 ];

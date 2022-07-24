@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Example\Person;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Config;
-use App\Http\Controllers\Modules\GlobalUtilsModule;
+use App\Http\Controllers\Modules\UtilsModul;
 
 class PersonController extends Controller
 {
@@ -53,7 +52,7 @@ class PersonController extends Controller
     {
         $person = Person::findOrFail($person);
         // TODO kann ncht gehen
-        $person = new GlobalUtilsModule;
+        $person = new UtilsModul;
         $TableColumnNames = Config::get('database.tables.people');
         $checkboxTableColumnNames = [null];
         dd($TableColumnNames);
