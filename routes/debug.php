@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Debug\DebugController;
 use App\Http\Controllers\Example\LangController;
 use App\Http\Controllers\Example\ImageController;
+use App\Http\Controllers\Example\IndexationController;
 use App\Http\Controllers\Example\PersonController;
 use App\Http\Controllers\Example\PermissionAndRoleController;
 use App\Http\Controllers\Example\UserController;
@@ -33,6 +34,10 @@ foreach ($debugRoutes as $route) {
     Route::redirect($route . '/debug', '/debug', 301);  //generates 'any'
     Route::get($route . '/{name?}', [DebugController::class, 'index'])->name('debug');
 }
+
+Route::controller(IndexationController::class)->group(function () {
+    Route::get('/index/test', 'index');
+});
 
 Route::controller(PermissionAndRoleController::class)->group(function () {
     Route::get('/permission/role', 'role')->name('editRolePermissions');

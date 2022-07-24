@@ -1,5 +1,8 @@
 # dependencie vaults
 
-Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
-Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
+kind of problem | details |possible solution | deps: | #1 | #2 | #3
+--- | --- | --- | --- | --- | --- | ---
+dusk scrennshot display wrong configuration | dusk run with own env. configuration |-| | config validator | laravel dusk |
+several role and permission systems | voyager use own perm. system | abstain one | | Vojager | spatie_permissions | libs, there use perm.
+|deps only for development| contributer specifie using only local or debug |-||sail => docker Instance|vite_dev command => headless changes|-|
+|-|-|-||-|-|-|

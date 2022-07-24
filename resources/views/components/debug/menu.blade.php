@@ -24,6 +24,7 @@
 <blockquote></blockquote>
 <br>
 
+<a href="/index/test"> {{ __('debug.index_test') }} </a>
 <a href="/debug/test"> {{ __('debug.debug_test') }} </a>
 <a href="/user/test"> Nutzer test </a>
 <a href="/person/test"> {{ __('debug.person_test') }} </a>

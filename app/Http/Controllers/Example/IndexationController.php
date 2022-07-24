@@ -4,24 +4,28 @@ namespace App\Http\Controllers\Example;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Config;
 
 class IndexationController extends Controller
 {
-    // 64Bit required
-    public function index($stage=9223372036854775807){
-        
+
+    public function index()
+    {
+        foreach (Config('database.telescope') as $db) {
+            dd($db);
+        }
     }
 
 
-        /** 1 stages */
-        // ohne Get
-        // $user = User::find($id);
+    /** 1 stages */
+    // $user = User::find($id);
+    /** 2 stages */
+    // $person = person::with('partner.image!!!')->firstOrFail();
+    /** 3 stages */
+    // user->person->image->paths
 
-        /** 2 stages */
-        // mit get
-        // $person = person::with('partner.image!!!')->get();
-
-        /** 3 stages */
-        // user->person->image->show
-        // image->person->user->name
+    // 64Bit required
+    public function indexiation($stage = 9223372036854775807)
+    {
+    }
 }

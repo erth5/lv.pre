@@ -7,9 +7,13 @@
         Local Enviroment:
     @endif
 
-    <p>{{ env('DB_CONNECTION', 'default') }}</p>
-    <p>{{ env('DB_HOST', 'default') }}</p>
-    <p>{{ env('DB_PORT', 'default') }}</p>
+    {{-- <p>{{ config('database.connections') }}</p> --}}
+    <blockquote></blockquote>
+    <p>default DB: {{DB::getDatabaseName()}}</p>
+
+    <p>typ: {{ env('DB_CONNECTION', 'default') }}</p>
+    <p>DB IP: {{ env('DB_HOST', 'default') }}</p>
+    <p>DB Port: {{ env('DB_PORT', 'default') }}</p>
     <blockquote></blockquote>
     <br>
 
@@ -19,5 +23,5 @@
     <p>date: {{ date(now()) }}</p>
     <br>
     <p> locale: {{ Lang::locale() }} </p>
-    <p> appConfig_locale: {{ Config::get('app.locale')}}, {{ app()->getLocale() }}</p>
+    <p> appConfig_locale: {{ Config::get('app.locale') }}, {{ app()->getLocale() }}</p>
 @endsection

@@ -1,4 +1,8 @@
 <style>
+    a {
+        text-decoration: none;
+    }
+
     /* unvisited link */
     a:link {
         color: black;
@@ -23,7 +27,8 @@
     .disabled {
         pointer-events: none
     }
-    p{
+
+    p {
         font-size: 25
     }
 </style>
