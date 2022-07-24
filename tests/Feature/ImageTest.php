@@ -2,16 +2,16 @@
 
 namespace Tests\Feature;
 
-use App\Models\Example\Image;
-use DirectoryIterator;
 use Exception;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-
-use function PHPUnit\Framework\assertEquals;
-use function PHPUnit\Framework\assertFileExists;
+use DirectoryIterator;
+use App\Models\Example\Image;
 use function PHPUnit\Framework\assertTrue;
+use function PHPUnit\Framework\assertEquals;
+
+use Illuminate\Foundation\Testing\WithFaker;
+use function PHPUnit\Framework\assertFileExists;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ImageTest extends TestCase
 {

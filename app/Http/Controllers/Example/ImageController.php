@@ -58,17 +58,6 @@ class ImageController extends Controller
         /* Varinate 2 - Aufruf des Modules TODO */
         /* Variante 4 - Aufruf mit Service TODO */
 
-        // /** Syntax 2b */
-        // $image = Image::find($image);
-        // $requestData = $request->all();
-        // $name = time() . $request->file('image')->getClientOriginalName();
-        // dd($request);
-        // $request->file('image')->move('images', $name, 'public');
-        // $image->name = $name;
-        // $image->path = ('images' . $name);
-        // $image->saveOrFail();
-        // return view('image', compact($request, $image));
-
         $validator = new ImageValidatorModule($request);
         $validator->proofImageExist();
         if ($validator != true) {
@@ -83,10 +72,13 @@ class ImageController extends Controller
         }
 
         /** storeAs: $path, $name, $options = []     */
-        $requestData = $request->all();
         $name = time() . $request->file('image')->getClientOriginalName();
-        $path = $request->file('image')->storeAs('images', $name, 'public');
-        $requestData["image"] = '/storage/' . $path;
+        /* Pfad mit Namen und speichern*/
+        // $path = $request->file('image')->storeAs('images', $name, 'public');
+        /* Pfad ohne Namen */
+        $path = 'images/';
+        $request->file('image')->storeAs('images', $name, 'public');
+
         $metadata = Image::create();
         $metadata->name = $name;
         $metadata->path = $path;
@@ -120,6 +112,7 @@ class ImageController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * set only new name to image
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Image  $image
@@ -127,6 +120,10 @@ class ImageController extends Controller
      */
     public function update(Request $request, Image $image)
     {
+        $image = Image::find($request)->get();
+        $image->name = time() . $request->file('image')->getClientOriginalName();
+        $request->file('image')->move('images', $image->name, 'public');
+        return view('image', compact($request, $image));
     }
 
     /**
@@ -139,9 +136,6 @@ class ImageController extends Controller
     {
         /** Soft-delete */
         $image->delete();
-
-
-
         return redirect()->back()->with('status', 'Image Has been removed');
     }
     public function clear()
@@ -228,7 +222,6 @@ class ImageController extends Controller
     /** Debug Image Data*/
     public function debug(Request $req)
     {
-        return $req;
         //Display File Name
         echo 'File Name: ' . $req->getClientOriginalName();
         echo '<br>';
@@ -251,6 +244,12 @@ class ImageController extends Controller
         //copy Uploaded File
         $destinationPath = 'debugPath';
         $req->copy($destinationPath, $req->getClientOriginalName());
+
+        /* display self metadata */
+        $path = 'debug';
+        $requestData["image"] = '/storage/' . $path;
+        echo $requestData;
+        return $req;
     }
     /** Debug */
 }

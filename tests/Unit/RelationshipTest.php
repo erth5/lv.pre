@@ -2,16 +2,16 @@
 
 namespace Tests\Unit;
 
-use App\Models\Example\Image;
-use App\Models\Example\Lang;
 use Tests\TestCase;
-// use PHPUnit\Framework\TestCase;
-use App\Models\Example\Person;
 use App\Models\User;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\Models\Example\Lang;
+// use PHPUnit\Framework\TestCase;
+use App\Models\Example\Image;
+use App\Models\Example\Person;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class RelationshipTest extends TestCase
 {

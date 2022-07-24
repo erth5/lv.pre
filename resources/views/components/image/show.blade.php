@@ -15,13 +15,13 @@
     <p>online</p>
     <p>{{ asset('storage/' . $image->path) }}</p>
 
-    <img src="{{ asset('storage/' . $image->path) }}" width='250' />
+    <img src="{{ asset('storage/' . $image->path . $image->name) }}" width='250' />
 
     <form action="/image/{{ $image->id }}/destroy">
         @csrf
         <button type="submit" value="submit">remove</button>
     </form>
-    <form action="/image/{{ $image->id }}/update">
+    <form action="/image/{{ $image->id }}/update" enctype="multipart/form-data">
         @csrf
         <input type="file" name="image" @error('image') is-invalid @enderror>
         @error('image')

@@ -4,12 +4,9 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\Config;
-
-use function PHPUnit\Framework\assertEquals;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ModelTest extends TestCase
 {
