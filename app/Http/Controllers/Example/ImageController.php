@@ -7,6 +7,7 @@ use App\Models\Example\Image;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Modules\ImageValidatorModule;
 use App\Services\Global\UtilsService;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * variant1: ressource, yield, storage, withName
@@ -91,7 +92,7 @@ class ImageController extends Controller
         $metadata->path = $path;
         $metadata->saveOrFail();
         $images = Image::all();
-        return redirect('/image/index')->with('statusSuccess', __('image.uploadSuccess'))->with(compact('images'), 'imageName', $name);
+        return redirect('/image')->with('statusSuccess', __('image.uploadSuccess'))->with(compact('images'), 'imageName', $name);
     }
 
     /**
@@ -139,13 +140,22 @@ class ImageController extends Controller
         /** Soft-delete */
         $image->delete();
 
-        /** Hard-delete */
-        // $image->forceDelete();
-        // if (Storage::exists('public/' . $image->path)) {
-        //     Storage::delete('public/' . $image->path);
-        // }
+
 
         return redirect()->back()->with('status', 'Image Has been removed');
+    }
+    public function clear()
+    {
+        $images = Image::onlyTrashed()->get();
+        /** Hard-delete */
+        foreach ($images as $image) {
+            if (Storage::exists('public/' . $image->path)) {
+                Storage::delete('public/' . $image->path);
+            }
+            $image->forceDelete();
+        }
+        $images = Image::all();
+        return view('image.index', compact('images'));
     }
 
     /** 
@@ -174,14 +184,16 @@ class ImageController extends Controller
         return view('image.edit', compact('image'));
     }
 
-    /** MISSING */
+    /** 
+     * rename a image to new name and path
+     */
     public function rename(Request $request, Image $image)
     {
         $image = Image::find($image);
-        // dd($request);
+        dd($request);
+        // TODO rename path
         $image->name = $request->name;
-        return view('image.show');
-        // return redirect()->back()->with('status', 'Image Has been renamed');
+        return view('image.show')->with('status', 'Image Has been renamed');
     }
 
     // /** variant 2
@@ -193,7 +205,6 @@ class ImageController extends Controller
     {
         // TODO Erkenne post oder get: Wenn get:
         return view('image.all');
-
 
         // Wenn post:
 
@@ -212,8 +223,6 @@ class ImageController extends Controller
         // // dd($request, $validation, $dbItem, $name, $path);
         // return redirect('image')->with('status', 'Image Has been uploaded:')->with('imageName', $name)->with('images', $images);
     }
-
-
 
 
     /** Debug Image Data*/

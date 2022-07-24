@@ -3,11 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Debug\DebugController;
 use App\Http\Controllers\Example\LangController;
-use App\Http\Controllers\Example\ImageController;
-use App\Http\Controllers\Example\IndexationController;
-use App\Http\Controllers\Example\PersonController;
-use App\Http\Controllers\Example\PermissionAndRoleController;
 use App\Http\Controllers\Example\UserController;
+use App\Http\Controllers\Example\ImageController;
+use App\Http\Controllers\Example\PersonController;
+use App\Http\Controllers\Example\IndexationController;
+use App\Http\Controllers\Example\PermissionAndRoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +20,16 @@ use App\Http\Controllers\Example\UserController;
 |
 */
 
-Route::get('hello', function () {
+/**
+ * possible issues:
+ * routes at top overrides Routes at buttom in this file
+ * ressource has exact predefined and indirect routes
+ */
+
+Route::get('hello world', function () {
     echo 'hello World';
 });
 
-/** Debug
- * 1a: yield, public
- * 2b: components, storage
- */
 // unconventional, because no redirect
 $debugRoutes = array('example', 'test', 'debug', 'info', 'help', 'www');
 foreach ($debugRoutes as $route) {
@@ -40,47 +42,40 @@ Route::controller(IndexationController::class)->group(function () {
 });
 
 Route::controller(PermissionAndRoleController::class)->group(function () {
-    Route::get('/permission/role', 'role')->name('editRolePermissions');
-    Route::get('/permission/user', 'user')->name('editUserPermissions');
-
-    Route::post('/permission/role', 'role')->name('editRolePermissions');
-    Route::post('/permission/user', 'user')->name('editUserPermissions');
-
     Route::get('/permssion/admin', 'authorizeAdmin')->name('authorizeAdmin');
+    Route::match(array('GET', 'POST'), '/permission/role', 'role')->name('editRolePermissions');
+    Route::match(array('GET', 'POST'), '/permission/user', 'user')->name('editUserPermissions');
 });
 
+Route::get('user/test', [UserController::class, 'test']);
 Route::controller(PersonController::class)->group(function () {
-    Route::get('/person/user', 'indexUser');
-    Route::get('/person/person', 'indexPerson');
-    Route::get('/person/destroy', 'destroy');
+    Route::get('/person/user', 'users');
+    Route::get('/person/person', 'people');
+    Route::get('/person/destroy', 'destroy person');
     Route::get('/person/name', 'getValuesDirect');
     Route::get('/person/test', 'test');
     Route::get('/person/role', 'role');
 });
+
 Route::controller(ImageController::class)->group(function () {
-    /* possible issues:
-    routes at top overrides Routes at buttom in this file
-    ressource has exact predefined routes
-    */
+    Route::get('/image', 'index')->name('images');
+    Route::post('image/store', 'store')->name('store image');
+    Route::get('/image/create', 'create')->name('create image');
+    Route::get('/image/{image}/show')->name('show image');
+    Route::get('/image/{image}/update', 'update')->name('update image');
+    Route::get('/image/{image}/destroy', 'destroy')->name('destroy image');
+    Route::get('/rename', 'rename')->name('edit image');
 
-    // variant1 +
-    Route::resource('image', ImageController::class);
-    Route::get('/image', 'rename')->name('image.rename');
-
-    // variant2 (nur mit get und post)
-    Route::post('/img/debug', 'debug')->name('img.debug'); // zu var 2
-    // Route::get('/img/{image}/restore', 'restore')->name('image.restore');
-    // Route::match(array('GET', 'POST'), '/img', 'img');
+    Route::post('/image/debug', 'debug')->name('debug image');
+    Route::get('/image/{image}/restore', 'restore')->name('restore image');
+    Route::get('/images/clear', 'clear')->name('clear images');
 });
+
 Route::controller(LangController::class)->group(function () {
     Route::get('/lang/home', 'index');
     Route::get('/lang/lang_debug', 'debug');
     Route::get('/lang/change', 'change')->name('changeLang');
 });
-// Route::get('users/{id}', function ($id) {
-
-// });
-Route::get('user/test', [UserController::class, 'test']);
 
 // Route::get('{alias}', 'HomeController@someAction')
 //     ->where('alias', 'alias1|alias1.html|alias1.php|alias4');
@@ -107,5 +102,5 @@ Route::get('user/test', [UserController::class, 'test']);
 
 /* OnePager */
 // Route::get('/', function () {
-//     return redirect('/loginHscerp');
+//     return redirect('/');
 // });

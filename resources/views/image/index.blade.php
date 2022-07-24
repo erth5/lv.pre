@@ -1,6 +1,9 @@
 @extends('image.layout')
 @section('image_views')
     @isset($images)
+        <form action="/images/clear">
+            <button>clear</button>
+        </form>
         @forelse ($images as $image)
             <div style="display: inline-block">
                 <x-image.show :image=$image />
