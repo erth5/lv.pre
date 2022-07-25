@@ -31,13 +31,16 @@ class RoleAndPermissionSeeder extends Seeder
             'name' => 'edit_own_permissions',
         ]);
 
-        $role = Role::create(['name' => 'user'])
+        $userRole = Role::create(['name' => 'user'])
             ->givePermissionTo('show_own_permissions');
 
-        $role = Role::create(['name' => 'admin']);
+        $adminRole = Role::create(['name' => 'admin']);
         $permissions = Permission::pluck('id', 'id')->all();
-        $role->syncPermissions($permissions);
+        $adminRole->syncPermissions($permissions);
         $user = User::where('email', 'fdsdwp@protonmail.com')->first();
-        $user->assignRole([$role->id]);
+        $user->assignRole([$adminRole->id]);
+
+        $superAdmin = Role::create(['name' => 'Super Admin']);
+        $user->assignRole([$superAdmin->id]);
     }
 }
