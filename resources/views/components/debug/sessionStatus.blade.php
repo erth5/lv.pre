@@ -21,6 +21,7 @@
     @endif
 </div>
 
+{{-- use with "withErrors" --}}
 @if ($errors->any())
     {{ $errors->first() }}
 @endif
