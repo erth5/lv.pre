@@ -21,7 +21,7 @@
         <fieldset>
             <label for="del">Berechtigung auswählen:</label>
             <select name="del" id="del">
-                <option value=null>Berechtigung auswählen:</option>
+                <option value=null>select role:</option>
                 @forelse ($role->permissions as $permission)
                     <option value={{ $permission->name }}>{{ $permission->name }}</option>
                 @empty

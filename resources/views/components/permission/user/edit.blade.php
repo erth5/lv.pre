@@ -4,7 +4,11 @@
         <fieldset>
             <label for="users">Nutzer auswählen</label>
             <select name="id">
-                <option value=null>select one</option>
+                @if (auth()->user() != null)
+                    <option value="{{ auth()->user()->id }}">{{ auth()->user()->name }}</option>
+                @else
+                    <option value=null>select user</option>
+                @endif
                 @forelse ($users as $usr)
                     <option @isset($user) {{ $user->id == $usr->id ? 'selected' : '' }} @endisset
                         value={{ $usr->id }}>{{ $usr->name }}
