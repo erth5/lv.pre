@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Config;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
+use Illuminate\Support\Facades\DB;
 
 /** Freie Wahl (wenn benötigt)
  * use Illuminate\Routing\Route;
@@ -44,7 +45,13 @@ class DebugController extends Controller
                 DebugController::test();
                 break;
             case 'db':
-                return view('debug.db');
+                try {
+                    \DB::connection()->getPDO();
+                    echo \DB::connection()->getDatabaseName();
+                    return view('debug.db');
+                } catch (\Exception $e) {
+                    dd('$e');
+                }
             case 'debug':
                 return view('debug.debug');
             case 'php':
