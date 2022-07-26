@@ -16,6 +16,7 @@ class DocumentationTest extends TestCase
      */
     public function test_swagger_integration_response()
     {
+        /* Alternativ hätte man auch mit ignore arbeiten können */
         if (env('Swagger') == true) {
             echo env('APP_URL') . "/api/documentation";
             $swagger = $this->get('/api/documentation');
