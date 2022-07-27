@@ -7,3 +7,7 @@
 ## documantation
 
 [Debug Template.md](doc/debug/Readme.md)
+
+## TODO
+
+LANG nicht verwenden
