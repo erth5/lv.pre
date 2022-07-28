@@ -11,3 +11,6 @@
 ## TODO
 
 LANG nicht verwenden
+
+
+https://stackoverflow.com/questions/33512184/get-laravel-models-with-all-attributes

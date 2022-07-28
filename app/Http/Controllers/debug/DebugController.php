@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Debug;
 
-use App\Services\DebugService;
-use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\DebugService;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Config;
 use AshAllenDesign\ConfigValidator\Services\ConfigValidator;
-use Illuminate\Support\Facades\DB;
 
 /** Freie Wahl (wenn benötigt)
  * use Illuminate\Routing\Route;
@@ -78,6 +78,8 @@ class DebugController extends Controller
             case 'lang':
                 return view('debug.lang');
             case 'path':
+                // current directory
+                echo (__DIR__);
                 // Path to the project's root folder
                 echo base_path() . "<br>";
                 // Path to the 'app' folder
